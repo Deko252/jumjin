@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+	
+	<select id="logList" resultType="HashMap">
+		SELECT * FROM loginfo ORDER BY log_no DESC LIMIT 0, 10 
+	</select>
+	
+	<select id="boardList" resultType="HashMap">
+		select b.board_no, b.board_title, b.board_content, b.b_no, u.b_id, u.b_name, 
+		if(date_format(current_timestamp(),'%Y-%m-%d') = date_format(b.board_date,'%Y-%m-%d'),
+		date_format(b.board_date, '%H:%i:%s'), 
+		date_format(b.board_date,'%Y-%m-%d')) AS board_date, b.board_del,
+		(select count(0) from comment where comment.board_no = b.board_no) AS commentCount,
+		b.board_cate AS board_cate from (big_board b join big_user u on(b.b_no = u.b_no)) 
+		order by b.board_no DESC
+		LIMIT 0, 10
+	</select>
+	
+	<update id="postChange" parameterType="HashMap">
+		UPDATE big_board SET board_del=<choose><when test="del == 1">1</when><otherwise>0</otherwise></choose> 
+		WHERE board_no=#{bno }
+	</update>
+	
+	<select id="detail" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM big_board WHERE board_no=#{bno }
+	</select>
+	
+	<update id="postReAJAX" parameterType="HashMap">
+		UPDATE big_board SET board_del=<choose><when test="command eq 'del'">1</when><otherwise>0</otherwise></choose> 
+		WHERE board_no=#{bno }
+	</update>
+	
+	<select id="userList" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM big_user
+	</select>
+	
+	<update id="userGradeAJAX" parameterType="HashMap">
+		UPDATE big_user SET b_grade=#{grade } WHERE b_no=#{bno }
+	</update>
+	
+</mapper>

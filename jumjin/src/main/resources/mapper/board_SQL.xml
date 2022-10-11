@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+
+	<select id="boardList" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM boardview 
+		WHERE board_cate=#{cate }  
+		LIMIT #{startPage }, #{lastPage }
+	</select>
+	
+	<!-- 동적쿼리 : 상황에 맞게, 오는 데이터에 맞게 if -->
+	
+	<select id="detail" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM boardview 
+		WHERE board_no=#{bno } 
+		<if test="id != null">	
+			AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+		</if>
+		
+	</select>
+	
+	<update id="postDel" parameterType="HashMap">
+		UPDATE big_board SET board_del=1 
+		WHERE board_no=#{bno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+	</update>
+	
+	<insert id="write" parameterType="HashMap">
+		INSERT INTO big_board (board_title, board_content, b_no, board_cate
+		<if test="file != null">, board_file</if>)
+		VALUES(#{title }, #{content }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{cate }
+		<if test="file != null">, #{file }</if>)
+	</insert>
+	
+	<select id="totalCount" parameterType="HashMap" resultType="integer">
+		SELECT COUNT(*) FROM boardview WHERE board_cate=#{cate }
+	</select>
+	
+	<update id="update" parameterType="HashMap">
+		UPDATE big_board SET board_title=#{title }, board_content=#{content } 
+		WHERE board_no=#{board_no } AND b_no= (SELECT b_no FROM big_user WHERE b_id=#{id })
+	</update>
+	
+	<insert id="commentWrite" parameterType="HashMap">
+		INSERT INTO comment (c_comment, board_no, b_no)
+		VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }))
+	</insert>
+	
+	<select id="commentsList" parameterType="HashMap" resultType="HashMap">
+		SELECT c.*, u.b_id, u.b_name
+		FROM comment c JOIN big_user u ON c.b_no=u.b_no
+		WHERE c.board_no=#{bno }
+	</select>
+	
+	<delete id="commentDel" parameterType="HashMap">
+		DELETE FROM comment 
+		WHERE c_no=#{cno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+	</delete>
+	
+	<update id="commentUpdate" parameterType="HashMap">
+		UPDATE comment SET c_comment=#{comment } 
+		WHERE c_no=#{cno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+	</update>
+	
+</mapper>
