@@ -11,9 +11,9 @@ import com.jumjin.common.CommandMap;
 public class IndexController {
 	Logger log = Logger.getLogger(this.getClass());
 
-	@GetMapping(value = "/main.do")
+	@GetMapping(value = "/index.do")
 	public ModelAndView main(CommandMap map) throws Exception {
-		ModelAndView mv = new ModelAndView("main");
+		ModelAndView mv = new ModelAndView("index");
 		return mv;
 	}
 }
