@@ -24,7 +24,6 @@
 
 <script type="text/javascript">
 $(function(){
-	var name="";
 	var count = prompt("인원을 입력하세요.");
 	var arr = [];
 
@@ -34,11 +33,16 @@ $(function(){
 	//alert(arr[0]);
 	
 	var random1 = parseInt(Math.random()*count+1);
-	alert(arr[random1]);
+	//alert(random1);
+	//alert(arr[random1]);
+	$("#resultMsg").text("오늘의 희생양은 " + arr[random1]);
+	//$(arr[random1]);
 });
 </script>
 
-
+<div id="resultMsg">
+	ㅔㅔㅔㅔㅔ
+</div>
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
 		<div class="container px-4 px-lg-5">
@@ -62,10 +66,6 @@ $(function(){
 			</div>
 		</div>
 	</nav>
-	<!-- Bootstrap core JS-->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="../resources/js/admin_scripts.js"></script>
+	
 </body>
 </html>
