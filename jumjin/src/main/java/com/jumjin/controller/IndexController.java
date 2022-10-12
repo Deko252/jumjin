@@ -12,8 +12,14 @@ public class IndexController {
 	Logger log = Logger.getLogger(this.getClass());
 
 	@GetMapping(value = "/index.do")
-	public ModelAndView main(CommandMap map) throws Exception {
+	public ModelAndView index(CommandMap map) throws Exception {
 		ModelAndView mv = new ModelAndView("index");
+		return mv;
+	}
+	
+	@GetMapping(value = "/main.do")
+	public ModelAndView main(CommandMap map) throws Exception {
+		ModelAndView mv = new ModelAndView("main");
 		return mv;
 	}
 }
