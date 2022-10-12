@@ -11,7 +11,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../resources/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../resources/css/admin_styles.css" rel="stylesheet" />
+        <link href="./resources/css/admin_styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->

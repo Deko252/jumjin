@@ -17,9 +17,22 @@ public class IndexController {
 		return mv;
 	}
 	
-	@GetMapping(value = "/main.do")
-	public ModelAndView main(CommandMap map) throws Exception {
-		ModelAndView mv = new ModelAndView("main");
+	@GetMapping(value = "/roulette.do")
+	public ModelAndView roulette(CommandMap map) throws Exception {
+		ModelAndView mv = new ModelAndView("roulette");
 		return mv;
 	}
+	
+	@GetMapping(value = "/ghostLeg.do")
+	public ModelAndView ghostLeg(CommandMap map) throws Exception {
+		ModelAndView mv = new ModelAndView("ghostLeg");
+		return mv;
+	}
+	@GetMapping(value = "/map.do")
+	public ModelAndView map(CommandMap map) throws Exception {
+		ModelAndView mv = new ModelAndView("map");
+		return mv;
+	}
+	
+	
 }
