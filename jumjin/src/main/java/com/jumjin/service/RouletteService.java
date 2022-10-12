@@ -6,4 +6,5 @@ public interface RouletteService {
 	
 	Map<String, Object> roulette(Map<String, Object> map);
 	
+	
 }

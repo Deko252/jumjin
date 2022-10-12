@@ -29,7 +29,6 @@ public class RouletteController {
 			f_ran.add( (int) (Math.random() * 45 + 1));
 		}
 		return null;
-	
 	}
 }
 

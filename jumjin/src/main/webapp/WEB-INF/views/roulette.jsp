@@ -13,6 +13,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="./resources/css/admin_styles.css" rel="stylesheet" />
     </head>
+    
       <style>
 		body {          
 			width: 100%; 
@@ -151,6 +152,7 @@
 		    background: #eee;
 		}
     </style>
+    
     <script type="text/javascript">
 
 		window.onload = function(){

@@ -14,4 +14,5 @@ public class RouletteServicImpl implements RouletteService {
 		return RouletteDAO.roulette(map);
 	}
 
+	
 }
