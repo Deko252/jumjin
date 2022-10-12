@@ -309,14 +309,14 @@
     		</header>
     		<div class="arrow"></div>
     		<div class="eq8" id="roullete">
-				<div class="panel panel_1" style="background: #00D8FF;"><strong class="txt">1</strong></div>
-				<div class="panel panel_2" style="background: #F2CB61;"><strong class="txt">2</strong></div>
-				<div class="panel panel_3" style="background: #FAECC5;"><strong class="txt">3</strong></div>
-				<div class="panel panel_4" style="background: #665C00;"><strong class="txt">4</strong></div>
-				<div class="panel panel_5" style="background: #476600;"><strong class="txt">5</strong></div>
-				<div class="panel panel_6" style="background: #2F9D27;"><strong class="txt">6</strong></div>
-				<div class="panel panel_7" style="background: #003399;"><strong class="txt">7</strong></div>
-				<div class="panel panel_8" style="background: #6B66FF;"><strong class="txt">8</strong></div>
+				<div class="panel panel_1" style="background: #00D8FF;"><strong class="txt">${r[0] }</strong></div>
+				<div class="panel panel_2" style="background: #F2CB61;"><strong class="txt">${r[1] }</strong></div>
+				<div class="panel panel_3" style="background: #FAECC5;"><strong class="txt">${r[2] }</strong></div>
+				<div class="panel panel_4" style="background: #665C00;"><strong class="txt">${r[3] }</strong></div>
+				<div class="panel panel_5" style="background: #476600;"><strong class="txt">${r[4] }</strong></div>
+				<div class="panel panel_6" style="background: #2F9D27;"><strong class="txt">${r[5] }</strong></div>
+				<div class="panel panel_7" style="background: #003399;"><strong class="txt">${r[6] }</strong></div>
+				<div class="panel panel_8" style="background: #6B66FF;"><strong class="txt">${r[7] }</strong></div>
 			</div>
 			<button class="startBtn" onclick="clickStartBtn();">돌리기</button>
 
