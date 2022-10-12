@@ -4,12 +4,14 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository("rouletteDAO")
 public class RouletteDAO extends AbstractDAO{
 
-	@SuppressWarnings("unchecked")
-	public Map<String, Object> login(Map<String, Object> map) {
-		return (Map<String, Object>) selectOne("login.login", map);
+
+	public static Map<String, Object> roulette(Map<String, Object> map) {
+		return null;
+		
 	}
+
 
 }

@@ -13,7 +13,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="./resources/css/admin_styles.css" rel="stylesheet" />
     </head>
-     <style>
+      <style>
 		body {          
 			width: 100%; 
 	        height: 100vh; 
