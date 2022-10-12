@@ -10,26 +10,42 @@
 <meta name="author" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="import"
+	href="http://www.polymer-project.org/components/paper-ripple/paper-ripple.html">
+<link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/meterial.css">
 <title>ladder</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/css/admin_styles.css" rel="stylesheet" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-
-   <div style="display: inline-block;width: 602px;height: 402px;position: absolute;left: 30%;top:3%;">
-        <canvas id='canvas' width="600" height="400" style="border: 1px solid gray;"> </canvas>
-        <div>
-            <br>
-            <button type="button" id="btn1">1번</button>
-            <button type="button" id="btn2">2번</button>
-            <button type="button" id="btn3">3번</button>
-            <button type="button" id="btn4">4번</button>
-            <button type="button" id="btn5">5번</button>
-        </div>
+ <div class="landing" id="landing">
+       <div class="start-form">
+            <div class="landing-form">
+                <div class="group">      
+                  <input type="text" name="member" required>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>참여자 수</label>
+                    <div  id="button" class="button raised green">
+                      <div  class="center" fit>START</div>
+                      <paper-ripple fit></paper-ripple>
+                    </div>
+                </div>
+            </div>
+       </div>
     </div>
+    <div id="ladder" class="ladder">
+        <div class="dim"></div>
+         <canvas class="ladder_canvas" id="ladder_canvas"></canvas>
+    </div>
+
+
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
 		<div class="container px-4 px-lg-5">
@@ -58,7 +74,7 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="../resources/js/admin_scripts.js"></script>
-	<script src='./resources/js/index.js'>
-</script>
+	<script src="./resources/js/ladder.js"></script>
+	<script src="./resources/js/temp.js"></script>
 </body>
 </html>
