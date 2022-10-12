@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gugi&family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="./resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -103,8 +104,7 @@
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><img alt="" src="./resources/assets/img/location.png"></div>
-              
+              <div class="icon"><img alt="" src="./resources/assets/img/roulette.png"></div>
               <h4 class="title"><a href="" class="stretched-link">룰렛돌리기</a></h4>
             </div>
           </div>
@@ -112,7 +112,7 @@
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-gem"></i></div>
+              <div class="icon"><img alt="" src="./resources/assets/img/ladder.png"></div>
               <h4 class="title"><a href="" class="stretched-link">사다리타기</a></h4>
             </div>
           </div>
@@ -120,7 +120,7 @@
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-geo-alt"></i></div>
+              <div class="icon"><img alt="" src="./resources/assets/img/spot.png"></div>
               <h4 class="title"><a href="" class="stretched-link">지도검색</a></h4>
             </div>
           </div>
@@ -128,7 +128,7 @@
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-command"></i></div>
+              <div class="icon"><img alt="" src="./resources/assets/img/clipboard.png"></div>
               <h4 class="title"><a href="" class="stretched-link">게시판</a></h4>
             </div>
           </div>
