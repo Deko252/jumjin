@@ -17,25 +17,6 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-        
-        <!-- Favicons -->
-  <link href="./resources/assets/img/favicon.png" rel="icon">
-  <link href="./resources/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gugi&family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="./resources/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./resources/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="./resources/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="./resources/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="./resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-        
-        
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="./resources/assets/css/board.css" rel="stylesheet" />
     </head>
@@ -60,18 +41,23 @@
             </div>
         </header>
         
-        <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-	
-	<div class="social-links d-flex mt-4">
-            <a href="https://twitter.com/?lang=ko" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="https://ko-kr.facebook.com" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://kr.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
-
-  </footer><!-- End Footer -->
-  <!-- End Footer -->
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container px-4 px-lg-5">
+                <ul class="list-inline mb-5">
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>
+            </div>
+        </footer>
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
         <!-- Bootstrap core JS-->
