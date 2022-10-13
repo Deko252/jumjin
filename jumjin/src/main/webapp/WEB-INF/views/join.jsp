@@ -68,15 +68,15 @@ body {
         <form class="validation-form" novalidate>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="name">아이디</label>
-              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <label for="id">아이디</label>
+              <input type="text" class="form-control" id="id" placeholder="" value="" required>
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="nickname">이름</label>
-              <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
+              <label for="name">이름</label>
+              <input type="text" class="form-control" id="name" placeholder="" value="" required>
               <div class="invalid-feedback">
                 이름을 입력해주세요.
               </div>
@@ -84,15 +84,15 @@ body {
           </div>
 
           <div class="mb-3">
-            <label for="email">비밀번호</label>
-            <input type="email" class="form-control" id="password" placeholder="6자리 이상 입력해주세요." required>
+            <label for="password">비밀번호</label>
+            <input type="password" class="form-control" id="password" placeholder="6자리 이상 입력해주세요." required>
             <div class="invalid-feedback">
               비밀번호를 입력해주세요.
             </div>
           </div>
 
           <div class="mb-3">
-            <label for="address">비밀번호 확인</label>
+            <label for="password">비밀번호 확인</label>
             <input type="text" class="form-control" id="password" placeholder="한번 더 입력해주세요." required>
             <div class="invalid-feedback">
               한번 더 입력해 주세요.
@@ -100,13 +100,13 @@ body {
           </div>
 
           <div class="mb-3">
-            <label for="address2">휴대폰<span class="text-muted">&nbsp;</span></label>
-            <input type="text" class="form-control" id="address2" placeholder="010-1234-5678 ">
+            <label for="phoneNumber">휴대폰<span class="text-muted">&nbsp;</span></label>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="010-1234-5678 ">
           </div>
           
           <div class="mb-3">
-            <label for="address2">이메일<span class="text-muted">&nbsp;</span></label>
-            <input type="text" class="form-control" id="address2" placeholder="you@example.com">
+            <label for="email">이메일<span class="text-muted">&nbsp;</span></label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
           </div>
 
           
@@ -117,7 +117,7 @@ body {
           </div>
           <div class="mb-4"></div>
           <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">취소</button>
+          <button class="btn btn-primary btn-lg btn-block" type="reset">취소</button>
         </form>
       </div>
     </div>
