@@ -40,7 +40,7 @@ $(function(){
 	});
 });
 </script>
-<div id="resultMsg">돈내기</div>
+<div id="resultMsg">누가 밥을 살건가</div>
 
 <button  id="legBtn">입력하기</button>
 
