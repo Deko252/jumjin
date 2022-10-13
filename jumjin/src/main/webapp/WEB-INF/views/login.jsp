@@ -51,12 +51,14 @@ body {
 	margin-bottom: -1px;
 	border-bottom-right-radius: 0;
 	border-bottom-left-radius: 0;
+	border: 1px solid #1F1D1E;
 }
 
 .form-signin input[type="password"] {
 	margin-bottom: 10px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
+	border: 1px solid #1F1D1E;
 }
 
 .bd-placeholder-img {
@@ -65,6 +67,19 @@ body {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
+}
+.btn-primary{
+	background-color: #EB2524;
+	border:red;	
+	
+}
+.btn-primary:hover{
+	background-color: #EB2524;
+	
+}
+.btn-primary:hover:active{
+	background-color: #1F1D1E;
+	
 }
 
 @media ( min-width : 768px) {
@@ -109,6 +124,7 @@ body {
 			<button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
 			<button class="w-100 btn btn-lg btn-primary" type="submit">회원가입</button>
 			<p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+			
 		</form>
 	</main>
 
