@@ -1,5 +1,6 @@
 package com.jumjin.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
@@ -8,9 +9,9 @@ import org.springframework.stereotype.Repository;
 public class RouletteDAO extends AbstractDAO{
 
 
-	public static Map<String, Object> roulette(Map<String, Object> map) {
-		return null;
-		
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> f_name(Map<String, Object> map) {
+		return selectList("roulette.f_name", map);
 	}
 
 	
