@@ -16,33 +16,34 @@
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="./resources/css/admin_styles.css" rel="stylesheet" />
+<link href="./resources/css/ghostLeg_styles.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
 
-
 <script type="text/javascript">
 $(function(){
-	var count = prompt("인원을 입력하세요.");
-	var arr = [];
+	$("#legBtn").click(function(){
+		var count = prompt("인원을 입력하세요.");
+		var arr = [];
 
-	for(var num = 1; num <= count; num++){
-		arr.push(prompt(num + "번째 이름을 입력하세요"));
-	}
-	//alert(arr[0]);
+		for(var num = 1; num <= count; num++){
+			arr.push(prompt(num + "번째 이름을 입력하세요"));
+		}
+		//alert(arr[0]);
 	
-	var random1 = parseInt(Math.random()*count+1);
-	//alert(random1);
-	//alert(arr[random1]);
-	$("#resultMsg").text("오늘의 희생양은 " + arr[random1]);
-	//$(arr[random1]);
+		var random1 = parseInt(Math.random()*count+1);
+		//alert(random1);
+		//alert(arr[random1]);
+		$("#resultMsg").text("오늘의 희생양은 " + arr[random1]);
+		//$(arr[random1]);
+	});
 });
 </script>
+<div id="resultMsg">돈내기</div>
 
-<div id="resultMsg">
-	ㅔㅔㅔㅔㅔ
-</div>
+<button  id="legBtn">입력하기</button>
+
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
 		<div class="container px-4 px-lg-5">
