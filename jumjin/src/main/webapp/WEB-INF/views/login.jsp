@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+	
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,122 +11,104 @@
 
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
-<!-- CSS only -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-	crossorigin="anonymous">
-</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <style>
+h2{
+	text-align: center;
+}
 body {
-	height: 100%;
+  min-height: 100vh;
+  background-color: #F4AE34;
 }
 
-body {
-	display: flex;
-	align-items: center;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	background-color: #F4AE34;
-}
+.input-form {
+  max-width: 680px;
 
-.form-signin {
-	width: 100%;
-	max-width: 330px;
-	padding: 15px;
-	margin: auto;
-}
+  margin-top: 20%;
+  padding: 32px;
 
-.form-signin .checkbox {
-	font-weight: 400;
+  background: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
 }
-
-.form-signin .form-floating:focus-within {
-	z-index: 2;
-}
-
-.form-signin input[type="email"] {
-	margin-bottom: -1px;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
-	border: 1px solid #1F1D1E;
-}
-
-.form-signin input[type="password"] {
-	margin-bottom: 10px;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-	border: 1px solid #1F1D1E;
-}
-
-.bd-placeholder-img {
-	font-size: 1.125rem;
-	text-anchor: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
+.custom-control{
+	text-align: center;
 }
 .btn-primary{
-	background-color: #EB2524;
-	border:red;	
-	
+	background-color: #EB2524; 
+	border-color: #EB2524;
 }
 .btn-primary:hover{
-	background-color: #EB2524;
-	
-}
-.btn-primary:hover:active{
 	background-color: #1F1D1E;
-	
-}
-
-@media ( min-width : 768px) {
-	.bd-placeholder-img-lg {
-		font-size: 3.5rem;
-	}
+	border-color: #1F1D1E;
 }
 </style>
 
 </head>
-
 <body id="page-top">
 	<!-- SideBar -->
 	<%@ include file="sideBar.jsp"%>
-
+	
 	<!-- Header-->
 	<!-- <header class="masthead d-flex align-items-center">
 		<div class="container px-4 px-lg-5 text-center"></div>
 	</header> -->
 
 	<!-- content -->
-	<main class="form-signin">
-		<form>
-			<h1 class="h3 mb-3 fw-normal">점.진.사</h1>
+	<div class="container">
+    <div class="input-form-backgroud row">
+      <div class="input-form col-md-12 mx-auto">
+        <h2 class="mb-3">로그인</h2>
+        <form class="validation-form" novalidate>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name">아이디</label>
+              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                아이디를 입력해주세요.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="nickname">비밀번호</label>
+              <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                비밀번호를 입력해주세요.
+              </div>
+            </div>
+          </div>
 
-			<div class="form-floating">
-				<input type="email" class="form-control" id="floatingInput"
-					placeholder="name@example.com"> <label for="floatingInput">아이디를
-					입력하세요</label>
-			</div>
-			<div class="form-floating">
-				<input type="password" class="form-control" id="floatingPassword"
-					placeholder="Password"> <label for="floatingPassword">비밀번호를
-					입력하세요</label>
-			</div>
+          <div class="mb-4"></div>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">취소</button>
+        </form>
+      </div>
+    </div>
+    <footer class="my-3 text-center text-small">
+      <p class="mb-1">&copy; JUMJIN 2017-2022</p>
+    </footer>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      const forms = document.getElementsByClassName('validation-form');
 
-			<div class="checkbox mb-3">
-				<label> <input type="checkbox" value="remember-me">
-					아이디 기억하기
-				</label>
-			</div>
-			<button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
-			<button class="w-100 btn btn-lg btn-primary" type="submit">회원가입</button>
-			<p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-			
-		</form>
-	</main>
+      Array.prototype.filter.call(forms, (form) => {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  </script>
 
 	<!-- Footer -->
 	<%@ include file="footer.jsp"%>
@@ -134,10 +116,10 @@ body {
 	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded" href="#page-top"><i
 		class="fas fa-angle-up"></i></a>
-
+		
 	<!-- Bootstrap core JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
+	
 	<!-- Core theme JS-->
 	<script src="./resources/assets/js/scripts.js"></script>
 </body>
