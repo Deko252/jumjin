@@ -319,6 +319,7 @@
 				<div class="panel panel_8" style="background: #6B66FF;"><strong class="txt">${result[7] }</strong></div>
 			</div>
 			<button class="startBtn" onclick="clickStartBtn();">돌리기</button>
+			<button onClick="window.location.reload()">메뉴 새로고침</button>
 
 			<div id="addDiv">
  				<table id="panelInfo">
@@ -391,20 +392,6 @@
                 </div>
             </div>
         </nav>
-        <!-- Page Content-->
-       <section>
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-6">
-                        <h1 class="mt-5">The Big Picture</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt voluptates rerum eveniet sapiente repellat esse, doloremque quod recusandae deleniti nostrum assumenda vel beatae sed aut modi nesciunt porro quisquam voluptatem.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Bootstrap core JS-->
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        Core theme JS
-        <script src="../resources/js/admin_scripts.js"></script>
     </body>
 </html>
