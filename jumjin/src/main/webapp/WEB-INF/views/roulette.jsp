@@ -47,7 +47,7 @@
 		}
 		
 		.txt {
-			font-size: 24px;
+			font-size: 17px;
 			width: 260px;
 			height: 260px;
 			position: absolute;
@@ -238,7 +238,7 @@
     			panelInfoTbody.push("<td><button onclick=\"openUpdatePop('"+i+"');\">수정</button></td></tr>");
     			
     		}
-    		panelInfoTbody.push("<tr><td colspan=\"2\"><button class=\"addBtn\" onclick=\"openAddPop('add');\">ADD</button></td></tr>");
+
     		document.getElementById("panelInfoTbody").innerHTML = panelInfoTbody.join('');
     	}
     	
