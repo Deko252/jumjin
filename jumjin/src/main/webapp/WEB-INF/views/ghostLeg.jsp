@@ -32,7 +32,7 @@ $(function(){
 		}
 		//alert(arr[0]);
 	
-		var random1 = parseInt(Math.random()*count+1);
+		var random1 = parseInt(Math.random()*count);
 		//alert(random1);
 		//alert(arr[random1]);
 		$("#resultMsg").text("오늘의 희생양은 " + arr[random1]);

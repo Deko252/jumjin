@@ -93,7 +93,7 @@ body {
 
           <div class="mb-3">
             <label for="password">비밀번호 확인</label>
-            <input type="text" class="form-control" id="password" placeholder="한번 더 입력해주세요." required>
+            <input type="password" class="form-control" id="password" placeholder="한번 더 입력해주세요." required>
             <div class="invalid-feedback">
               한번 더 입력해 주세요.
             </div>
