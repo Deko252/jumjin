@@ -42,7 +42,7 @@ $(function(){
 </script>
 <div id="resultMsg">누가 밥을 살건가</div>
 
-<button  id="legBtn">입력하기</button>
+<button id="legBtn">입력하기</button>
 
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
