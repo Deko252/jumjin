@@ -80,7 +80,7 @@ body {
               <div class="invalid-feedback">
                 이름을 입력해주세요.
               </div>
-            </div>
+            </div> 
           </div>
 
           <div class="mb-3">
