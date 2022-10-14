@@ -120,7 +120,12 @@
 				class="blind">별 5.5개</span></span>
 		</label>
 	</div>
-
+	
+	
+	
+	
+	
+	
 
 	<c:choose>
 		<c:when test="${fn:length(list) > 0 }">
@@ -153,7 +158,7 @@
 			<h2>데이터가 없습니다.</h2>
 		</c:otherwise>
 	</c:choose>
-
+	
 	<!-- Footer -->
 	<%@ include file="footer.jsp"%>
 

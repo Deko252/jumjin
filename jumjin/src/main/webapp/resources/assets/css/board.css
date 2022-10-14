@@ -11447,12 +11447,12 @@ html {
 .footer {
   font-size: 14px;
   background-color: #1F1D1E;
-  padding-bottom: 10px;
   width:100%;
   color: white;
   position: fixed;
   bottom: 0px;
   text-align: center;
+  height: 70px;
 }
 
 .footer .footer-info .logo {
@@ -11465,6 +11465,9 @@ html {
   margin-right: 6px;
 }
 
+.mt-4{
+	margin-top: 15px !important;
+}
 .footer .footer-info .logo span {
   font-size: 30px;
   font-weight: 700;

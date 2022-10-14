@@ -120,7 +120,7 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><img alt="지도" src="./resources/assets/img/spot.png"></div>
-              <h4 class="title"><a href="./map.do" class="stretched-link">지도검색</a></h4>
+              <h4 class="title"><a href="./map.do" class="stretched-link">음식점검색</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
