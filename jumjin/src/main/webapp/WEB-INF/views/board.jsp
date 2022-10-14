@@ -119,7 +119,7 @@
 			name="star" id=""> <span class="startRadio__img"><span
 				class="blind">별 5.5개</span></span>
 		</label>
-	</div>
+	</div> 
 	
 	
 	
