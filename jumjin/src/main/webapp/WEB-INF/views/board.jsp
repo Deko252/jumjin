@@ -6,13 +6,20 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <%@ include file="head.jsp"%>
+	
 
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
 
 <style type="text/css">
+body {
+  min-height: 100vh;
+  background-color: #F4AE34;
+}
+
 .blind {
 	position: absolute;
 	overflow: hidden;
@@ -71,63 +78,77 @@
 	height: 40px;
 	pointer-events: none;
 }
+
+.input-form {
+  max-width: 1200px;
+  padding: 32px;
+  padding-top: 15px;
+  background: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+h2{
+	text-align: center;
+	margin-top: 50px;
+}
 </style>
 
 
 </head>
+
+
 <body id="page-top">
+	<div class="container">
 	<!-- SideBar -->
 	<%@ include file="sideBar.jsp"%>
-
 	<!-- Header-->
 	<!-- <header class="masthead d-flex align-items-center">
 		<div class="container px-4 px-lg-5 text-center"></div>
 	</header> -->
 
 	<!-- content -->
-	<h1>게시판</h1>
+	<br>
+	<div class="input-form col-md-12 mx-auto">
+	
+	<h2>별점 게시판</h2>
+		<div class="table-responsive">
+        	<table class="table table-striped table-sm">
+          		<thead>
+	            	<tr>
+	              		<th scope="col">번호</th>
+	              		<th scope="col">제목</th>
+	              		<th scope="col">별점</th>
+	              		<th scope="col">글쓴이</th>
+	              		<th scope="col">날짜</th>
+	            	</tr>
+          		</thead>
+          		<tbody>
+            		<tr>
+              			<td>1</td>
+              			<td><a href="detail.do?bno=120">클릭하면 이동해요</a></td>
+              			<td>fej</td>
+              			<td>12</td>
+              			<td>5</td>
+            		</tr>
+            		<tr>
+              			<td>2</td>
+              			<td>tfewasfitle</td>
+              			<td>fej</td>
+              			<td>12e</td>
+              			<td>5</td>
+            		</tr>
+          		</tbody>
+        	</table>
+		    </div>
+	</div>
+	</div>
 
-	<div class="startRadio">
-		<label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 1개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 1.5개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 2개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 2.5개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 3개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 3.5개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 4개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 4.5개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 5개</span></span>
-		</label> <label class="startRadio__box"> <input type="radio"
-			name="star" id=""> <span class="startRadio__img"><span
-				class="blind">별 5.5개</span></span>
-		</label>
-	</div> 
-	
-	
-	
-	
-	
-	
-
-	<c:choose>
+	<%-- <c:choose>
 		<c:when test="${fn:length(list) > 0 }">
 			<table class="table table-striped table-hover">
 				<tr>
@@ -157,7 +178,7 @@
 		<c:otherwise>
 			<h2>데이터가 없습니다.</h2>
 		</c:otherwise>
-	</c:choose>
+	</c:choose> --%>
 	
 	<!-- Footer -->
 	<%@ include file="footer.jsp"%>

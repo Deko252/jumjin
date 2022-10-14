@@ -28,7 +28,7 @@
   <link href="./resources/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="./resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <!-- Template Main CSS File --> 
   <link href="./resources/assets/css/main.css" rel="stylesheet">
 
   <!-- =======================================================

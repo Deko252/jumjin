@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="head.jsp"%>
 <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>kakao map</title>
 <link href="./resources/css/map_styles.css" rel="stylesheet" />
+<link href="./resources/assets/css/board.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
-    <style>
+<style>
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap { width:100%;height:500px;}
@@ -47,25 +52,27 @@
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 .radius_border{border:1px solid #919191;border-radius:5px;}     
-.custom_typecontrol {position:absolute;top:10px;right:10px;overflow:hidden;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
+.custom_typecontrol {position:absolute;top:10px;right:100px;overflow:hidden;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
 .custom_typecontrol span {display:block;width:65px;height:30px;float:left;text-align:center;line-height:30px;cursor:pointer;}
 .custom_typecontrol .btn {background:#fff;background:linear-gradient(#fff,  #e6e6e6);}       
 .custom_typecontrol .btn:hover {background:#f5f5f5;background:linear-gradient(#f5f5f5,#e3e3e3);}
 .custom_typecontrol .btn:active {background:#e6e6e6;background:linear-gradient(#e6e6e6, #fff);}    
 .custom_typecontrol .selected_btn {color:#fff;background:#425470;background:linear-gradient(#425470, #5b6d8a);}
 .custom_typecontrol .selected_btn:hover {color:#fff;}   
-.custom_zoomcontrol {position:absolute;top:50px;right:10px;width:36px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;} 
+.custom_zoomcontrol {position:absolute;top:50px;right:100px;width:36px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;} 
 .custom_zoomcontrol span {display:block;width:35px;height:40px;text-align:center;cursor:pointer;}     
 .custom_zoomcontrol span img {width:15px;height:15px;padding:0px; margin-top: 12px; border:none;}             
 .custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}
 </style>
-<body>
-	<!-- 지도를 표시할 div 입니다 -->
-	
-		
-		<div class="map_wrap">
-    <div id="map" style="width:100%; height:100vh;"></div>
 
+<body>
+   <div class="map_wrap">
+   <%@ include file="sideBar.jsp" %>
+   
+   <!-- 지도를 표시할 div 입니다 -->
+      
+    
+    <div id="map" style="width:100%; height:100vh;"></div>
     <div id="menu_wrap" class="bg_white">
         <div class="option">
             <div>
@@ -79,6 +86,7 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
+
     
     <div class="custom_typecontrol radius_border">
         <span id="btnRoadmap" class="selected_btn"  onclick="setMapType('roadmap')" style="font-size: 5pt";>지도</span>
@@ -91,9 +99,9 @@
     </div>
     
 </div>
-
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afab85b277584170c156a224f1486e30&libraries=services"></script>
 <script>
+
 // 마커를 담을 배열입니다
 var markers = [];
 
@@ -256,7 +264,7 @@ function zoomIn() {
 function zoomOut() {
     map.setLevel(map.getLevel() + 1);
 }
-	
+   
 
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
@@ -335,6 +343,10 @@ function removeAllChildNods(el) {
     }
 }
 </script>
-	
+      <!-- Bootstrap core JS-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Core theme JS-->
+   <script src="./resources/assets/js/scripts.js"></script>
 </body>
 </html>
