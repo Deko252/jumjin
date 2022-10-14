@@ -23,7 +23,7 @@
 		body {          
 			width: 100%; 
 	        height: 100vh; 
-			background:#F5B649 ; 
+			background:#F4AE34 ; 
 			overflow : hidden;
 		}	
 		.container {

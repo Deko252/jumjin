@@ -55,7 +55,7 @@
         <ul>
           <li><a href="./index.do">홈으로</a></li>
           <li><a href="./roulette.do">룰렛</a></li>
-          <li><a href="./ghostLeg">사다리타기</a></li>
+          <li><a href="./ghostLeg.do">사다리타기</a></li>
           <li><a href="./board.do">게시판</a></li>
           <li><a href="./login.do">로그인</a></li>
           <li><a href="./join.do">회원가입</a></li>
