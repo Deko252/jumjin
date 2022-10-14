@@ -8,13 +8,16 @@
     <%@ include file="sideBar.jsp" %>
 
 
+
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
 <title>사다리 게임</title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <script language="javascript" type="text/javascript">
-
 var Yl = {
  getEl : function(strId){
   if (document.getElementById) return document.getElementById(strId);
@@ -315,27 +318,54 @@ document.onkeydown = function(e){
   }
  }
 }
+
+
+$(function(){
+	$(".restart").hide();
+	$(".restart").click(function() {
+		if(confirm("다시 시작하시겠습니까?")){	
+			window.location.reload();		
+		}
+	});
+	$(".start").click(function() {	
+		Yl.create();
+		$(".restart").show();
+	});
+});
 </script>
 </head>
 <style>
-	#div_step1{
-		 display: flex;
-		 justify-content: center;
-		 padding-top: 50px;
-		 
-	}
-	#div_step2{
-		 display: flex;
-		 justify-content: center;
-		 padding-top: 50px;
-	}
+	
+   #div_step1{
+       display: flex;
+       justify-content: center;
+       padding-top: 20px;
+       font-family: 'Jua', sans-serif;
+       font-size: 30px;
+   }
+   #div_step2{
+       display: flex;
+       justify-content: center;
+       margin-top: 20px;
+       font-family: 'Jua', sans-serif;
+       font-size: 30px;
+   }
+   
+   #div_step3{
+  	   display: flex;
+  	   justify-content: center;
+       font-family: 'Jua', sans-serif;
+       font-size: 50px;
+   }
+ 
 </style>
 
 <body>
 
-<div id="div_step1" style="font-size:12px;">
+ 	<div id="div_step3"> 사다리 게임</div>
+<div id="div_step1">
  
-인원 선택
+인원을 선택해 주세요
 <select id="sel_num">
  <option value="2">2</option>
  <option value="3">3</option>
@@ -358,25 +388,27 @@ document.onkeydown = function(e){
  <option value="20">20</option>
 </select>
 명
-<input type="button" value="만들기" onclick="Yl.init();">
-<button onClick="window.location.reload()">다시시작</button>
+<input type="button" value="사다리 만들기" onclick="Yl.init();" class="start">
 </div>
 
-<div id="div_step2" style="font-size:12px;display:none;">
- 입력후 게임 시작 <input type="button" value="시작" onclick="Yl.create();">
- <button onClick="window.location.reload()">다시시작</button>
+<div id="div_step2" style="font-size:30px; display:none;">
+<input type="button" value="게임 시작">
 </div>
 
-<div id="div_body" style="width:1000px;height:450px;border:1px solid #CCCCCC;position:relative; margin:40px auto;"></div>
+<div id="div_body" style="width:1050px;height:480px;border:5px solid black;position:relative; margin:40px auto; background-color: #fff;"></div>
+
+<div id="div_step2" style="font-size:30px;" >
+<button class="restart" >다시시작</button>
+</div>
 
 
 <%@ include file="footer.jsp"%>
 
-	<!-- Bootstrap core JS-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<!-- Core theme JS-->
-	<script src="./resources/assets/js/scripts.js"></script>
+   <!-- Bootstrap core JS-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- Core theme JS-->
+   <script src="./resources/assets/js/scripts.js"></script>
 
 </body>
 </html>

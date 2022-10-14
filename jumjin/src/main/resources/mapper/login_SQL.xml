@@ -6,7 +6,7 @@
 
 	<select id="login" parameterType="HashMap" resultType="HashMap">
 		SELECT count(*) as count, b_name FROM big_user 
-		WHERE b_id=#{id } AND b_pw=#{pw }
+		WHERE b_id=#{id } AND b_pw=HEX(AES_ENCRYPT(#{pw }, 'java'))
 	</select>
 	
 	<select id="myInfo" parameterType="HashMap" resultType="HashMap">
