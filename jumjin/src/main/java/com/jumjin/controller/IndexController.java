@@ -27,11 +27,6 @@ public class IndexController {
 		ModelAndView mv = new ModelAndView("map");
 		return mv;
 	}
-	@GetMapping(value = "/join.do")
-	public ModelAndView join(CommandMap map) throws Exception {
-		ModelAndView mv = new ModelAndView("join");
-		return mv;
-	}
 	
 	@GetMapping(value = "/info.do")
 	public ModelAndView info(CommandMap map) throws Exception {

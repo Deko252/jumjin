@@ -17,4 +17,14 @@ public class LoginServiceImpl implements LoginService {
 	public Map<String, Object> login(Map<String, Object> map) {
 		return loginDAO.login(map);
 	}
+
+	@Override
+	public int join(Map<String, Object> map) {
+		return loginDAO.join(map);	
+	}
+
+	@Override
+	public int idCheck(Map<String, Object> map) {
+		return loginDAO.idCheck(map);
+	}
 }

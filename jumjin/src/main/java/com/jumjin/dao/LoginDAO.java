@@ -12,4 +12,12 @@ public class LoginDAO extends AbstractDAO{
 		return (Map<String, Object>) selectOne("login.login", map);
 	}
 
+	public int join(Map<String, Object> map) {
+		return (int) insert("login.join", map);
+	}
+
+	public int idCheck(Map<String, Object> map) {
+		return (int) selectOne("login.idCheck", map);
+	}
+
 }

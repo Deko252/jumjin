@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jumjin.common.CommandMap;
 import com.jumjin.service.LoginService;
@@ -57,6 +58,29 @@ public class LoginController {
 		}
 		
 		return "redirect:/index.do";
+	}
+	
+	@GetMapping("/join.do")
+	public String join() {
+		return "join";
+	}
+	
+	@PostMapping("/idCheck.do")
+	public @ResponseBody String idCheck(CommandMap map) {
+		//System.out.println(map.getMap());//{id=ffffff}
+		int result = loginService.idCheck(map.getMap());
+		return String.valueOf(result);// 0 1
+	}
+	
+	@PostMapping("/join.do")
+	public String join(CommandMap map) {
+		//사용자가 입력한 데이터를 데이터베이스에 저장하고 페이지 이동하는 메소드
+		System.out.println(map.getMap());
+		//{name=po1, pw2=01234657, id=poseidon1, pw1=01234567, email=email@email.co.kr}
+		int result = loginService.join(map.getMap());
+		
+		//System.out.println("결과는 : " + result);
+		return "redirect:/login.do?result=" + result;
 	}
 
 }

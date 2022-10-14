@@ -87,7 +87,6 @@ body {
 		$("#id").on("change", function(){
 			var id = $("#id").val();
 			if (id.length < 5) {
-				//alert("아이디는 5글자 이상으로 입력하세요.");
 				$("#resultMsg").text("아이디는 5글자 이상으로 입력하세요.");
 				$("#resultMsg").css("color", "#dc3545");
 				$("#id").focus();
@@ -103,8 +102,8 @@ body {
 					//$("#resultMsg").text("통신에 성공했습니다." + data);
 					if (data == 1) {
 						$("#resultMsg").text("이미 가입된 아이디입니다.");
-						//$("#resultMsg").append("<br>");
-						//$("#resultMsg").append("다른 아이디를 입력하세요.");
+						$("#resultMsg").append("<br>");
+						$("#resultMsg").append("다른 아이디를 입력하세요.");
 						$("#resultMsg").css("color", "#dc3545");
 					} else {
 						$("#resultMsg").text("가입 가능한 아이디입니다.");
@@ -113,12 +112,8 @@ body {
 				}).fail(function(xhr){//통신 실패
 					$("#resultMsg").text("문제가 발생했습니다." + xhr.status);
 				});
-			}
-			
-		});//ajax끝
-		
-		
-		
+			}		
+		});//ajax끝	
 	});
 </script>
 
@@ -137,11 +132,11 @@ body {
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <h2 class="mb-3">회원가입</h2>
-        <form class="validation-form" novalidate>
+        <form class="validation-form" action="./join.do" method="post" novalidate>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="id">아이디</label>
-              <input type="text" class="form-control" id="id" placeholder="5글자 이상 입력하세요." required maxlength="20">
+              <input type="text" class="form-control" id="id" name="id" placeholder="5글자 이상 입력하세요." required maxlength="20" required>
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
               </div>
@@ -149,7 +144,7 @@ body {
             </div>
             <div class="col-md-6 mb-3">
               <label for="name">이름</label>
-              <input type="text" class="form-control" id="name" placeholder="" required>
+              <input type="text" class="form-control" id="name" name="name" placeholder="" required>
               <div class="invalid-feedback">
                 이름을 입력해주세요.
               </div>
@@ -158,7 +153,7 @@ body {
 
           <div class="mb-3">
             <label for="password">비밀번호</label>
-            <input type="password" class="form-control" id="password" placeholder="6자리 이상 입력해주세요." required>
+            <input type="password" class="form-control" id="pw" name="pw" placeholder="6자리 이상 입력해주세요." required>
             <div class="invalid-feedback">
               비밀번호를 입력해주세요.
             </div>
@@ -166,7 +161,7 @@ body {
 
           <div class="mb-3">
             <label for="password">비밀번호 확인</label>
-            <input type="password" class="form-control" id="password" placeholder="한번 더 입력해주세요." required>
+            <input type="password" class="form-control" id="pw2" name="pw2" placeholder="한번 더 입력해주세요." required>
             <div class="invalid-feedback">
               한번 더 입력해 주세요.
             </div>
@@ -174,15 +169,14 @@ body {
 
           <div class="mb-3">
             <label for="phoneNumber">휴대폰<span class="text-muted">&nbsp;</span></label>
-            <input type="text" class="form-control" id="phoneNumber" placeholder="010-1234-5678 ">
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="010-1234-5678">
           </div>
           
           <div class="mb-3">
             <label for="email">이메일<span class="text-muted">&nbsp;</span></label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
           </div>
-
-          
+      
           <hr class="mb-4">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="aggrement" required>

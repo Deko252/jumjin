@@ -19,7 +19,7 @@
 	</select>
 	
 	<insert id="join" parameterType="Hashmap">
-		INSERT INTO big_user (b_id, b_pw, b_name, b_email)
-		VALUES(#{id }, HEX(AES_ENCRYPT(#{pw}, 'java')), #{name }, #{email })
+		INSERT INTO big_user (b_id, b_pw, b_name, b_email, b_num)
+		VALUES(#{id }, HEX(AES_ENCRYPT(#{pw }, 'java')), #{name }, #{email }, #{phoneNumber })
 	</insert>
 </mapper>
