@@ -26,7 +26,7 @@ body {
 .input-form {
   max-width: 680px;
 
-  margin-top: 80px;
+  margin-top: 60px;
   padding: 32px;
 
   background: #fff;
@@ -112,12 +112,7 @@ body {
 			
 		});//ajax끝
 		
-		$(".btn-primary").click(function(){
-			var id = $("#id").val();
-			if (id.length < 5) {
-				$("#id").css("border-color", "#dc3545");		
-			}
-		});
+		
 		
 	});
 </script>
@@ -141,7 +136,7 @@ body {
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="id">아이디</label>
-              <input type="text" class="form-control" id="id" placeholder="" required maxlength="20">
+              <input type="text" class="form-control" id="id" placeholder="5글자 이상 입력하세요." required maxlength="20">
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
               </div>
@@ -149,7 +144,7 @@ body {
             </div>
             <div class="col-md-6 mb-3">
               <label for="name">이름</label>
-              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <input type="text" class="form-control" id="name" placeholder="" required>
               <div class="invalid-feedback">
                 이름을 입력해주세요.
               </div>
@@ -204,7 +199,9 @@ body {
 
       Array.prototype.filter.call(forms, (form) => {
         form.addEventListener('submit', function (event) {
+        	var id = $("#id").val();
           if (form.checkValidity() === false) {
+        	  
             event.preventDefault();
             event.stopPropagation();
           }

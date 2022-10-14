@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,19 +55,25 @@
         <ul>
           <li><a href="./index.do">홈으로</a></li>
           <li><a href="./roulette.do">룰렛</a></li>
-          <li><a href="./ghostLeg.do">사다리타기</a></li>
+          <li><a href="./ghostLeg">사다리타기</a></li>
           <li><a href="./board.do">게시판</a></li>
-          <li><a href="./login.do">로그인</a></li>
+          
+          <c:if test="${sessionScope.id eq null }">
+	          <li><a href="./login.do">로그인</a></li>
+          </c:if>
+          
           <li><a href="./join.do">회원가입</a></li>
-          <li class="dropdown"><a href="#"><span>메뉴</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="./index.do">홈으로</a></li>
-              <li><a href="./roulette.do">룰렛돌리기</a></li>
-              <li><a href="./ghostLeg">사다리타기</a></li>
-              <li><a href="./board.do">게시판</a></li>
-              <li><a href="./login.do">로그인</a></li>
-              <li><a href="./join.do">회원가입</a></li>
-            </ul>
+          
+          <li class="dropdown">
+          	<c:if test="${sessionScope.id ne null }">
+          		<span>${sessionScope.id }님</span>
+         			<a href="#"><i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            		<ul>
+		            <li><a href="./index.do">로그아웃</a></li>
+		            <li><a href="./info.do">개인정보</a></li>
+         		   </ul>
+          	</c:if>
+          
           </li>
         </ul>
       </nav><!-- .navbar -->
