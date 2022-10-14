@@ -44,5 +44,19 @@ public class LoginController {
 			return "redirect:/index.do";
 		}
 	}
+	
+	@GetMapping("/logout.do")
+	public String logout(HttpSession session) {
+		//세션 종료
+		//session.invalidate();//전체 종료
+		if(session.getAttribute("id") != null) {			
+			session.removeAttribute("id");
+		}
+		if(session.getAttribute("name") != null) {
+			session.removeAttribute("name");
+		}
+		
+		return "redirect:/index.do";
+	}
 
 }

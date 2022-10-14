@@ -86,7 +86,7 @@ body {
           <button class="btn btn-primary btn-lg btn-block" type="submit">로그인</button>
           <a href="./join.do" class="btn btn-primary btn-lg btn-block" type="submit">회원가입</a>
           <c:if test="${param.error ne null }">
-          <h2 style="color: red">아이디와 비밀번호가 일치하지 않습니다.</h2>
+          	<h2 style="color: red">아이디와 비밀번호가 일치하지 않습니다.</h2>
           </c:if> 
         </form>
       </div>
