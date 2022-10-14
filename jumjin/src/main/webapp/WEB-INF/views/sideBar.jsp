@@ -13,4 +13,4 @@
 		<li class="sidebar-nav-item"><a href="#login">로그인</a></li>
 		<li class="sidebar-nav-item"><a href="#join">회원가입</a></li>
 	</ul>
-</nav>
+</nav> 

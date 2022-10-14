@@ -40,6 +40,12 @@ body {
 .custom-control{
 	text-align: center;
 }
+#resultMsg{
+	width: 100%;
+	margin-top: 0.25rem;
+	font-size: 80%;
+	color: #dc3545;
+}
 .btn-primary{
 	background-color: #EB2524; 
 	border-color: #EB2524;
@@ -48,7 +54,73 @@ body {
 	background-color: #1F1D1E;
 	border-color: #1F1D1E;
 }
+.was-validated .form-control:invalid, .form-control.is-invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}  
+.was-validated .form-control:valid, .form-control.is-valid {
+  border-color: #198754;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
 </style>
+
+<script>
+	$(function(){
+		//alert("!");
+		$("#id").on("change", function(){
+			var id = $("#id").val();
+			if (id.length < 5) {
+				//alert("아이디는 5글자 이상으로 입력하세요.");
+				$("#resultMsg").text("아이디는 5글자 이상으로 입력하세요.");
+				$("#resultMsg").css("color", "#dc3545");
+				$("#id").focus();
+			}else{	
+				//alert("입력한 값은 : " + id);
+				//$("#resultMsg").text("입력한 값은 : " + id);
+					$.ajax({
+					url : "./idCheck.do",
+					data : {"id" : id},
+					type : "POST",
+					dataType : "html"
+				}).done(function(data){//통신 성공
+					//$("#resultMsg").text("통신에 성공했습니다." + data);
+					if (data == 1) {
+						$("#resultMsg").text("이미 가입된 아이디입니다.");
+						//$("#resultMsg").append("<br>");
+						//$("#resultMsg").append("다른 아이디를 입력하세요.");
+						$("#resultMsg").css("color", "#dc3545");
+					} else {
+						$("#resultMsg").text("가입 가능한 아이디입니다.");
+						$("#resultMsg").css("color", "#198754");
+					}
+				}).fail(function(xhr){//통신 실패
+					$("#resultMsg").text("문제가 발생했습니다." + xhr.status);
+				});
+			}
+			
+		});//ajax끝
+		
+		$(".btn-primary").click(function(){
+			var id = $("#id").val();
+			if (id.length < 5) {
+				$("#id").css("border-color", "#dc3545");		
+			}
+		});
+		
+	});
+</script>
 
 </head>
 <body id="page-top">
@@ -69,10 +141,11 @@ body {
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="id">아이디</label>
-              <input type="text" class="form-control" id="id" placeholder="" value="" required>
+              <input type="text" class="form-control" id="id" placeholder="" required maxlength="20">
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
               </div>
+	              <p id="resultMsg"></p>
             </div>
             <div class="col-md-6 mb-3">
               <label for="name">이름</label>
