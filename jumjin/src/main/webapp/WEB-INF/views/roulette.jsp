@@ -23,7 +23,7 @@
 		body {          
 			width: 100%; 
 	        height: 100vh; 
-			background: skyblue; 
+			background:#F5B649 ; 
 			overflow : hidden;
 		}	
 		.container {
@@ -308,6 +308,9 @@
     		}
 		}
     </script>
+    
+    <%@ include file="sideBar.jsp" %>
+    
     <div class="container"> 
     		<header class="header">
     			<h1 class="title">룰렛</h1>

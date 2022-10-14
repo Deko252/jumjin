@@ -5,6 +5,8 @@
 <html>
 <head>
 <%@ include file="head.jsp"%>
+    <%@ include file="sideBar.jsp" %>
+
 
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
@@ -319,7 +321,7 @@ document.onkeydown = function(e){
 	#div_step1{
 		 display: flex;
 		 justify-content: center;
-		 margin-top: 50px;
+		 padding-top: 50px;
 		 
 	}
 	#div_step2{
