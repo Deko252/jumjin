@@ -61,9 +61,8 @@
           
           <c:if test="${sessionScope.id eq null }">
 	          <li><a href="./login.do">로그인</a></li>
+	          <li><a href="./join.do">회원가입</a></li>
           </c:if>
-          
-          <li><a href="./join.do">회원가입</a></li>
           
           <li class="dropdown">
           	<c:if test="${sessionScope.id ne null }">
