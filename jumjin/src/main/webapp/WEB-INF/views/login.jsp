@@ -65,27 +65,29 @@ body {
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <h2 class="mb-3">로그인</h2>
-        <form class="validation-form" novalidate>
+        <form action="./login.do" method="post" class="validation-form" novalidate >
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="name">아이디</label>
-              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <input type="text" class="form-control" id="name" name="id" placeholder="" value="" required>
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="nickname">비밀번호</label>
-              <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
+              <input type="password" class="form-control" id="nickname" name="pw" placeholder="" value="" required >
               <div class="invalid-feedback">
                 비밀번호를 입력해주세요.
               </div>
             </div>
           </div>
-
           <div class="mb-4"></div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">취소</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">로그인</button>
+          <a href="./join.do" class="btn btn-primary btn-lg btn-block" type="submit">회원가입</a>
+          <c:if test="${param.error ne null }">
+          <h2 style="color: red">아이디와 비밀번호가 일치하지 않습니다.</h2>
+          </c:if> 
         </form>
       </div>
     </div>

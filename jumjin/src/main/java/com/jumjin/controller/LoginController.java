@@ -26,10 +26,23 @@ public class LoginController {
 	@PostMapping("/login.do")
 	public String login(CommandMap map, HttpSession session) {
 		System.out.println(map.getMap());// {pw=01234567, id=jumjin}
-		// ���񽺿��� �� ��Ű��
+		//서비스에게 일 시키기
 		Map<String, Object> login = loginService.login(map.getMap());
-
-		return "redirect:/main.do";
-
+		
+		
+		if(String.valueOf(login.get("count")).equals("0")) {
+			System.out.println("일치하지 않습니다.");
+			
+			return "redirect:/login.do?error=2580";
+			
+		} else {
+			System.out.println("일치합니다");
+			//세션도 만들어주세요.
+			session.setAttribute("name", login.get("b_name"));
+			session.setAttribute("id", map.get("id"));
+			
+			return "redirect:/index.do";
+		}
 	}
+
 }
