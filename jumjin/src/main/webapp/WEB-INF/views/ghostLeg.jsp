@@ -327,7 +327,7 @@ document.onkeydown = function(e){
 	#div_step2{
 		 display: flex;
 		 justify-content: center;
-		 margin-top: 50px;
+		 padding-top: 50px;
 	}
 </style>
 
