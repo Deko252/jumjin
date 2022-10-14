@@ -68,7 +68,7 @@
           	<c:if test="${sessionScope.id ne null }">
           		<a href="#"><span>${sessionScope.name } 님<i class="bi bi-chevron-down dropdown-indicator"></i></span></a>
             		<ul>
-		            <li><a href="./index.do">로그아웃</a></li>
+		            <li><a href="./logout.do">로그아웃</a></li>
 		            <li><a href="./info.do">개인정보</a></li>
          		   </ul>
           	</c:if>
