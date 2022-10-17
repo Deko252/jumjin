@@ -125,6 +125,16 @@ public class BoardController {
 
 		return mv;
 	}
+	
+	@PostMapping("/save.do")
+	public Map<String, Object> star(CommandMap map) {
+		
+		Map<String, Object> result = map.getMap();
+		System.out.println("별 " + result);
+		return result;
+	}
+	
+	
 
 	@GetMapping("/postDel.do")
 	public String postDel(CommandMap map, HttpSession session) {
@@ -168,18 +178,17 @@ public class BoardController {
 				int result = boardService.write(map.getMap());
 			
 
-				return "redirect:/board.do?cate=" + map.get("cate") + "&result=" + result;// 湲� �벖 �썑 �씠�룞�븷 do
+				return "redirect:/board.do?cate=" + map.get("cate") + "&result=" + result;
 			} else {
-				return "redirect:/write.do?error=1250";// �젣紐⑹씠�굹, 蹂몃Ц�씠 �뾾�떎硫� �씠�룞�븷 怨�
+				return "redirect:/write.do?error=1250";
 			}
 		} else {
-			return "redirect:/login.do?error=login";// 濡쒓렇�씤 �븯�윭 媛�湲�
+			return "redirect:/login.do?error=login";
 		}
 	}
 
 	@PostMapping("/commentWrite.do")
 	public String commentWrite(CommandMap map, HttpSession session) {
-		System.out.println("�뱾�뼱�삤�뒗 媛� : " + map.getMap());
 		String url = "redirect:/login.do";
 
 		if (session.getAttribute("id") != null) {

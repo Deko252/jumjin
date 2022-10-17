@@ -6,7 +6,6 @@
 
 	<select id="boardList" parameterType="HashMap" resultType="HashMap">
 		SELECT * FROM boardview 
-		WHERE board_cate=#{cate }  
 		LIMIT #{startPage }, #{lastPage }
 	</select>
 	

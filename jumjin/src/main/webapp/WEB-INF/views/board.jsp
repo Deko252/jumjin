@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="ko">
 
 <head>
 <%@ include file="head.jsp"%>
@@ -94,11 +94,7 @@ body {
 
 h2{
 	text-align: center;
-	margin-top: 35px;
-	margin-bottom: 30px;
-	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: 400;
-	font-size: 40px;
+	margin-top: 50px;
 }
 </style>
 
@@ -132,20 +128,16 @@ h2{
 	            	</tr>
           		</thead>
           		<tbody>
+          		<c:forEach items="${list  }" var="s">
             		<tr>
-              			<td>1</td>
-              			<td><a href="detail.do?bno=120">클릭하면 이동해요</a></td>
-              			<td>fej</td>
-              			<td>12</td>
-              			<td>5</td>
+              			<td>${s.board_no }</td>
+              			<td><a href="detail.do?bno=120">${s.board_title }</a></td>
+              			<td><c:forEach begin="1" end="${s.board_star }">⭐</c:forEach></td>
+              			<td>${s.b_name }</td>
+              			<td>${s.board_date }</td>
             		</tr>
-            		<tr>
-              			<td>2</td>
-              			<td>tfewasfitle</td>
-              			<td>fej</td>
-              			<td>12e</td>
-              			<td>5</td>
-            		</tr>
+          		</c:forEach>
+            		
           		</tbody>
         	</table>
 		    </div>

@@ -1,54 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 
-<div class="startRadio">
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id=""> 
-		<span class="startRadio__img"><span class="blind">별 1개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id=""> 
-		<span class="startRadio__img"><span class="blind">별 1.5개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id="">
-		<span class="startRadio__img"><span class="blind">별 2개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id="">
-		<span class="startRadio__img"><span class="blind">별 2.5개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id="">
-		<span class="startRadio__img"><span class="blind">별 3개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id=""> 
-		<span class="startRadio__img"><span class="blind">별 3.5개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id=""> 
-		<span class="startRadio__img"><span class="blind">별 4개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id="">
-		<span class="startRadio__img"><span class="blind">별 4.5개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id=""> 
-		<span class="startRadio__img"><span class="blind">별 5개</span></span>
-	</label> 
-	
-	<label class="startRadio__box"> 
-		<input type="radio" name="star" id="">
-		<span class="startRadio__img"><span class="blind">별 5.5개</span></span>
-	</label>
-</div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./resources/css/star.css">
+</head>
+<body>
+<form name="myform" id="myform" method="post" action="./save.do">
+    <fieldset>
+        <legend></legend>
+        <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐⭐</label>
+    
+        <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
+       
+        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
+       
+        <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
+   
+        <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
+       
+    </fieldset>
+    <button type="submit">j</button>
+</form>
+</body>
+</html>
