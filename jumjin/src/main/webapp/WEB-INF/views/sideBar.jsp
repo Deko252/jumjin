@@ -14,9 +14,11 @@
 
 <style>
 
-.sidebar-nav > .sidebar-brand a {
+.sidebar-nav > .sidebar-brand a,
+.sidebar-nav > .sidebar-brand a > span {
 	font-family: 'Gugi', cursive;
 	letter-spacing: 5px;
+	font-size: 30px;
 }
 
 .sidebar-nav > .sidebar-brand a > span {
@@ -36,7 +38,7 @@
         </c:if>
 		<li class="sidebar-nav-item"><a href="./roulette.do">룰렛돌리기</a></li>
 		<li class="sidebar-nav-item"><a href="./ghostLeg.do">사다리타기</a></li>
-		<li class="sidebar-nav-item"><a href="./map.do">음식점 검색</a></li>
+		<li class="sidebar-nav-item"><a href="./map.do">음식점검색</a></li>
 		<li class="sidebar-nav-item"><a href="./board.do">게시판</a></li>
 		
 		<c:choose>

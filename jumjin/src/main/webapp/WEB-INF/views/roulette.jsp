@@ -35,9 +35,9 @@
 		
 		.title{
 			text-align: center;
-			font-family: 'Noto Sans KR', sans-serif;
+			font-family: 'Jua', sans-serif;
 			font-weight: 500;
-			font-size: 40px;
+			font-size: 50px;
 			margin-bottom: 40px;
 		}
 		
@@ -137,7 +137,7 @@
 			transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; 
 		}
 		#addDiv{
-					position: absolute;
+			position: absolute;
 		}
 		.arrow{    
 			left: 50%;
@@ -150,6 +150,7 @@
 			border-right: 10px solid transparent;
 		}
 		#copyright{
+			margin-top: 10px;
 			font-size: 13px;
 			text-align: center;
 		}
@@ -162,7 +163,6 @@
 		    margin: 20px 10px;
 		}
 		table th {
-		    padding: 10px;
 		    font-weight: bold;
 		    vertical-align: top;
 		    color: #fff;
@@ -180,7 +180,6 @@
 			margin-left: 70px;
 		}
 		#panelInfo{
-			width: 240px;
 			font-family: 'Noto Sans KR', sans-serif;
 			font-weight: 400;
 			font-size: 18px;
@@ -296,6 +295,7 @@
     	}
     	
     	function clickUpdateBtn(index){
+    		
     		let targetPanel = document.querySelector(".panel_" + index);
     		var panelText = document.getElementById("addText").value;
     		
@@ -309,6 +309,7 @@
     	}
     	
     	function clickStartBtn() {
+    
     		
     		document.getElementById("roullete").style.animation = "";
     		var randomRotate = (Math.random() * 3000) + 1000;
@@ -324,7 +325,7 @@
     		    easing: 'ease-in-out'
     		   }
     		);         
-    		
+    	
 		}
 
     	function colorSet(target){

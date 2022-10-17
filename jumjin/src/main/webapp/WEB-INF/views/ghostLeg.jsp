@@ -334,37 +334,39 @@ $(function(){
 </script>
 </head>
 <style>
-	
-   #div_step1{
-       display: flex;
-       justify-content: center;
-       padding-top: 20px;
-       font-family: 'Jua', sans-serif;
-       font-size: 30px;
-   }
-   #div_step2{
-       display: flex;
-       justify-content: center;
-       margin-top: 20px;
-       font-family: 'Jua', sans-serif;
-       font-size: 30px;
-   }
-   
-   #div_step3{
-  	   display: flex;
-  	   justify-content: center;
-       font-family: 'Jua', sans-serif;
-       font-size: 50px;
-   }
+body {
+}
+#div_step1{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;
+}
+#div_step2{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;
+}
+
+#div_step3{
+	padding-top: 50px;
+   display: flex;
+   justify-content: center;
+    font-family: 'Jua', sans-serif;
+    font-size: 50px;
+}
  
 </style>
 
 <body>
 
- 	<div id="div_step3"> 사다리 게임</div>
+ 	<div id="div_step3">사다리 게임</div>
 <div id="div_step1">
  
-인원을 선택해 주세요
+인원을 선택해 주세요&nbsp; 
 <select id="sel_num">
  <option value="2">2</option>
  <option value="3">3</option>
@@ -386,7 +388,7 @@ $(function(){
  <option value="19">19</option>
  <option value="20">20</option>
 </select>
-명
+명&nbsp;&nbsp;
 <input type="button" value="사다리 만들기" onclick="Yl.init();" class="start">
 </div>
 

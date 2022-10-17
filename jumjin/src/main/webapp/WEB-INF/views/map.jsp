@@ -5,7 +5,7 @@
 <head>
 <%@ include file="head.jsp"%>
 <meta charset="utf-8" />
-<meta name="description" content="" />
+<meta name="description" content="" /> 
 <meta name="author" content="" />
 <title>kakao map</title>
 <link href="./resources/css/map_styles.css" rel="stylesheet" />

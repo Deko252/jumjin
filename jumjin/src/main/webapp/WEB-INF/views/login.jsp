@@ -38,9 +38,9 @@ body {
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
 }
 .input-form > h2 {
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Jua', sans-serif;
+    font-size: 50px;
 	font-weight: 400;
-	font-size: 40px;
 }
 .custom-control{
 	text-align: center;
@@ -53,6 +53,13 @@ body {
 	background-color: #1F1D1E;
 	border-color: #1F1D1E;
 }
+.mt-4{
+	margin-top: 15px !important;
+}
+.mb-4 > h2 {
+	font-size: 20px;
+}
+
 </style>
 
 </head>
@@ -91,7 +98,7 @@ body {
           <button class="btn btn-primary btn-lg btn-block" type="submit">로그인</button>
           <a href="./join.do" class="btn btn-primary btn-lg btn-block" type="submit">회원가입</a>
           <c:if test="${param.error ne null }">
-          	<h2 style="color: red">아이디와 비밀번호가 일치하지 않습니다.</h2>
+          	<h2 style="color: red; font-size: 22px; margin-top: 10px;">아이디와 비밀번호가 일치하지 않습니다.</h2>
           </c:if> 
         </form>
       </div>
