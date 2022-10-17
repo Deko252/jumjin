@@ -94,7 +94,11 @@ body {
 
 h2{
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 35px;
+	margin-bottom: 30px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+	font-size: 40px;
 }
 </style>
 

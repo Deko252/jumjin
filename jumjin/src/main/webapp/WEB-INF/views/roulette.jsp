@@ -28,9 +28,17 @@
 		}	
 		.container {
 			display: grid;
-			min-height: 100%;
+			min-height: 90%;
 			align-content: center;
 			justify-content: center;
+		}
+		
+		.title{
+			text-align: center;
+			font-family: 'Noto Sans KR', sans-serif;
+			font-weight: 500;
+			font-size: 40px;
+			margin-bottom: 40px;
 		}
 		
 		#roullete {
@@ -51,14 +59,23 @@
 			clip-path: polygon(0% 0%, 50% 50%, 0% 50%, 0% 0%);
 		}
 		
+		.btn-primary {
+			border: none;
+			background-color: #EB2524;
+			margin-top: 10px;
+		}
+		.btn-primary:hover {
+			background-color: #1F1D1E;
+		}
+		
 		.txt {
-			font-size: 17px;
+			font-size: 20px;
 			width: 260px;
 			height: 260px;
 			position: absolute;
 			top: 30px;
 			left: 30px;
-			text-align: center;
+			padding-left: 70px;
 			transform: rotate(-67deg);
 		}
 		
@@ -133,7 +150,8 @@
 			border-right: 10px solid transparent;
 		}
 		#copyright{
-			font-size: 7px;
+			font-size: 13px;
+			text-align: center;
 		}
 		
 		table {
@@ -151,11 +169,23 @@
 		    background: #ce4869 ;
 		}
 		table td {
-		    padding: 10px;
+			padding: 10px 0;
+		    text-align: center;
 		    vertical-align: top;
 		    border-bottom: 1px solid #ccc;
 		    background: #eee;
 		}
+		#addDiv{
+			margin-top: 150px;
+			margin-left: 70px;
+		}
+		#panelInfo{
+			width: 240px;
+			font-family: 'Noto Sans KR', sans-serif;
+			font-weight: 400;
+			font-size: 18px;
+		}
+		
     </style>
     
     <script type="text/javascript">
@@ -313,26 +343,27 @@
     
     <div class="container"> 
     		<header class="header">
-    			<h1 class="title">룰렛</h1>
+    			<h1 class="title">룰렛돌리기</h1>
     		</header>
     		<div class="arrow"></div>
     		<div class="eq8" id="roullete">
-				<div class="panel panel_1" style="background: #00D8FF;"><strong class="txt">${result[0] }</strong></div>
-				<div class="panel panel_2" style="background: #F2CB61;"><strong class="txt">${result[1] }</strong></div>
-				<div class="panel panel_3" style="background: #FAECC5;"><strong class="txt">${result[2] }</strong></div>
-				<div class="panel panel_4" style="background: #665C00;"><strong class="txt">${result[3] }</strong></div>
-				<div class="panel panel_5" style="background: #476600;"><strong class="txt">${result[4] }</strong></div>
-				<div class="panel panel_6" style="background: #2F9D27;"><strong class="txt">${result[5] }</strong></div>
-				<div class="panel panel_7" style="background: #003399;"><strong class="txt">${result[6] }</strong></div>
-				<div class="panel panel_8" style="background: #6B66FF;"><strong class="txt">${result[7] }</strong></div>
+				<div class="panel panel_1" style="background: #20DAD9;"><strong class="txt">${result[0] }</strong></div>
+				<div class="panel panel_2" style="background: #FF6A68;"><strong class="txt">${result[1] }</strong></div>
+				<div class="panel panel_3" style="background: #FFF358;"><strong class="txt">${result[2] }</strong></div>
+				<div class="panel panel_4" style="background: #99c5ea;"><strong class="txt">${result[3] }</strong></div>
+				<div class="panel panel_5" style="background: #FF74B1;"><strong class="txt">${result[4] }</strong></div>
+				<div class="panel panel_6" style="background: #1388DF;"><strong class="txt">${result[5] }</strong></div>
+				<div class="panel panel_7" style="background: #3CCF4E;"><strong class="txt">${result[6] }</strong></div>
+				<div class="panel panel_8" style="background: #FF7800;"><strong class="txt">${result[7] }</strong></div>
 			</div>
-			<button class="startBtn" onclick="clickStartBtn();">돌리기</button>
-			<button onClick="window.location.reload()">메뉴 새로고침</button>
+			<br>
+			<button class="btn btn-primary btn-lg btn-block" onclick="clickStartBtn();">돌리기</button>
+			<button class="btn btn-primary btn-lg btn-block" onClick="window.location.reload()">메뉴 변경</button>
 
 			<div id="addDiv">
  				<table id="panelInfo">
  					<thead>
- 						<tr><th>Contents</th><th></th></tr>
+ 						<tr><th style="font-size: 25px">메뉴</th><th></th></tr>
  					</thead>
 					<tbody id="panelInfoTbody">
 					</tbody>

@@ -15,10 +15,24 @@
 
 </head>
 <style>
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+body {
+	 z-index: 10;
+}
+h5 {
+	font-size:18px;
+	font-weight: bold;
+}
+span {
+	font-size:14px;
+}
+.option {
+	height: 30px;
+	font-size:14px;
+}
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap { width:100%;height:500px;}
-#menu_wrap {position:absolute; top:0;left:0;bottom:0;width:250px;margin:10px 0px 50px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;}
+#menu_wrap {position:absolute; top:0;left:0;bottom:0;width:300px;height: 90%; margin:10px 0px 50px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.8);z-index: 1;font-size:12px;}
 .bg_white {background:#fff;}
 #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
 #menu_wrap .option{text-align: center;}
@@ -63,11 +77,19 @@
 .custom_zoomcontrol span {display:block;width:35px;height:40px;text-align:center;cursor:pointer;}     
 .custom_zoomcontrol span img {width:15px;height:15px;padding:0px; margin-top: 12px; border:none;}             
 .custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}
+
+footer {
+	z-index: 1;
+}
+.mt-4{
+	margin-top: 15px !important;
+}
+
 </style>
 
 <body>
-   <div class="map_wrap">
    <%@ include file="sideBar.jsp" %>
+   <div class="map_wrap">
    
    <!-- 지도를 표시할 div 입니다 -->
       
@@ -342,7 +364,11 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     }
 }
+ 
 </script>
+	<!-- footer -->
+	<%@ include file="footer.jsp"%>
+	
       <!-- Bootstrap core JS-->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
    

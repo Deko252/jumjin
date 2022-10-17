@@ -37,6 +37,11 @@ body {
   -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
 }
+.input-form > h2 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+	font-size: 40px;
+}
 .custom-control{
 	text-align: center;
 }
