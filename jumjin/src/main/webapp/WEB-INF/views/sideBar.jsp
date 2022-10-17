@@ -9,7 +9,7 @@
 		<li class="sidebar-brand"><a href="./index.do">점.진.사</a></li>
         <c:if test="${sessionScope.id ne null }">
 			<li class="sidebar-nav-item"><a href="./info.do">
-          		<span>${sessionScope.name } 님</span>
+          		<span>${sessionScope.name }님 개인정보 보기</span>
         	</a></li>
         </c:if>
 		<li class="sidebar-nav-item"><a href="./roulette.do">룰렛돌리기</a></li>

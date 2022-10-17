@@ -322,14 +322,13 @@ document.onkeydown = function(e){
 
 $(function(){
 	$(".restart").hide();
+	$(".start").click(function() {	
+		$(".restart").show();
+	});
 	$(".restart").click(function() {
 		if(confirm("다시 시작하시겠습니까?")){	
 			window.location.reload();		
 		}
-	});
-	$(".start").click(function() {	
-		Yl.create();
-		$(".restart").show();
 	});
 });
 </script>
@@ -392,7 +391,7 @@ $(function(){
 </div>
 
 <div id="div_step2" style="font-size:30px; display:none;">
-<input type="button" value="게임 시작">
+<input type="button" onclick="Yl.create();" value="게임 시작">
 </div>
 
 <div id="div_body" style="width:1050px;height:480px;border:5px solid black;position:relative; margin:40px auto; background-color: #fff;"></div>
