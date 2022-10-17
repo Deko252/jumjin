@@ -21,7 +21,7 @@
 	font-size: 30px;
 }
 
-.sidebar-nav > .sidebar-brand a > span {
+.sidebar-nav > .sidebar-brand a > span { 
 	color: #F4AE34;
 }
 span {

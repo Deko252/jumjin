@@ -7,7 +7,7 @@
 
 <html lang="ko">
 
-<head>
+<head> 
 <%@ include file="head.jsp"%>
 	
 

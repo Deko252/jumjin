@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<%@ include file="head.jsp"%>
+<%@ include file="head.jsp"%> 
 
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />

@@ -41,7 +41,7 @@ body {
 	font-family: 'Jua', sans-serif;
     font-size: 50px;
 	font-weight: 400;
-}
+} 
 .custom-control{
 	text-align: center;
 }

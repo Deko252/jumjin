@@ -165,7 +165,7 @@
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
         Designed by <a href="https://bootstrapmade.com/">JumJin</a>
-      </div>
+      </div> 
     </div>
 
   </footer><!-- End Footer -->

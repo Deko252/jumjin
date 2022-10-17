@@ -177,7 +177,7 @@ body {
             <td>${info.b_email }</td>
           </div>
           
-          </c:when>
+          </c:when> 
           <c:otherwise>
 		  	<h2>엇?</h2>
 		  </c:otherwise>
