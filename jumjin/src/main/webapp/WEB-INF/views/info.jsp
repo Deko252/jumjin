@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,41 +85,24 @@ body {
 
 </style>
 
-<script>
-	$(function(){
-		//alert("!");
-		$("#id").on("change", function(){
-			var id = $("#id").val();
-			if (id.length < 5) {
-				$("#resultMsg").text("아이디는 5글자 이상으로 입력하세요.");
-				$("#resultMsg").css("color", "#dc3545");
-				$("#id").focus();
-			}else{	
-				//alert("입력한 값은 : " + id);
-				//$("#resultMsg").text("입력한 값은 : " + id);
-					$.ajax({
-					url : "./idCheck.do",
-					data : {"id" : id},
-					type : "POST",
-					dataType : "html"
-				}).done(function(data){//통신 성공
-					//$("#resultMsg").text("통신에 성공했습니다." + data);
-					if (data == 1) {
-						$("#resultMsg").text("이미 가입된 아이디입니다.");
-						$("#resultMsg").append("<br>");
-						$("#resultMsg").append("다른 아이디를 입력하세요.");
-						$("#resultMsg").css("color", "#dc3545");
-					} else {
-						$("#resultMsg").text("가입 가능한 아이디입니다.");
-						$("#resultMsg").css("color", "#198754");
-					}
-				}).fail(function(xhr){//통신 실패
-					$("#resultMsg").text("문제가 발생했습니다." + xhr.status);
-				});
-			}		
-		});//ajax끝	
-	});
-</script>
+ <script>
+    window.addEventListener('load', () => {
+      const forms = document.getElementsByClassName('validation-form');
+
+      Array.prototype.filter.call(forms, (form) => {
+        form.addEventListener('submit', function (event) {
+        	var id = $("#id").val();
+          if (form.checkValidity() === false) {
+        	  
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  </script>
 
 </head>
 <body id="page-top">
@@ -138,18 +121,21 @@ body {
         <h2 class="mb-3">회원정보</h2>
         <form class="validation-form" action="./join.do" method="post" novalidate>
           <div class="row">
+          
+          <!-- info 들어올때 -->
+          ${info }
+          <c:choose>
+          <c:when test="${info ne null }">
+          
             <div class="col-md-6 mb-3">
               <label for="id" style="font-weight: bold; font-size: 20px;">아이디</label>
-              <div >
-                db아이디
-              </div>
+              <td>${info.b_id }</td>
 	              <p id="resultMsg"></p>
+	              
             </div>
             <div class="col-md-6 mb-3">
               <label for="name" style="font-weight: bold; font-size: 20px;">이름</label>
-              <div>
-                db이름
-              </div>
+              <td>${info.b_name }</td>
             </div> 
           </div>
 
@@ -183,18 +169,20 @@ body {
 
           <div class="mb-3">
             <label for="phoneNumber" style="font-weight: bold; font-size: 20px;">휴대폰<span class="text-muted">&nbsp;</span></label>
-            <div>
-                db휴대폰번호
-            </div>
+            <td>${info.b_num }</td>
           </div>
           
           <div class="mb-3">
             <label for="email" style="font-weight: bold; font-size: 20px;">이메일<span class="text-muted">&nbsp;</span></label>
-            <div>
-                db이메일
-            </div>
+            <td>${info.b_email }</td>
           </div>
-      
+          
+          </c:when>
+          <c:otherwise>
+		  	<h2>엇?</h2>
+		  </c:otherwise>
+          </c:choose>
+          
           <hr class="mb-4">
           <div class="mb-4"></div>
           <button class="btn btn-primary btn-lg btn-block" type="reset">취소</button>
@@ -205,24 +193,6 @@ body {
       <p class="mb-1">&copy; JUMJIN 2017-2022</p>
     </footer>
   </div>
-  <script>
-    window.addEventListener('load', () => {
-      const forms = document.getElementsByClassName('validation-form');
-
-      Array.prototype.filter.call(forms, (form) => {
-        form.addEventListener('submit', function (event) {
-        	var id = $("#id").val();
-          if (form.checkValidity() === false) {
-        	  
-            event.preventDefault();
-            event.stopPropagation();
-          }
-
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  </script>
 
 	<!-- Footer -->
 	<%@ include file="footer.jsp"%>

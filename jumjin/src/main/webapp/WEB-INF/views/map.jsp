@@ -23,7 +23,7 @@ h5 {
 	font-weight: bold;
 }
 span {
-	font-size:14px;
+	font-size:16px;
 }
 .option {
 	height: 30px;

@@ -24,6 +24,10 @@
 .sidebar-nav > .sidebar-brand a > span {
 	color: #F4AE34;
 }
+span {
+	font-size:16px;
+	font-weight: bold;
+}
 
 </style>
 
@@ -33,13 +37,14 @@
 		<li class="sidebar-brand"><a href="./index.do">점<span>.</span>진<span>.</span>사</a></li>
         <c:if test="${sessionScope.id ne null }">
 			<li class="sidebar-nav-item"><a href="./info.do">
-          		<span>${sessionScope.name } 님</span>
+          		<span>${sessionScope.name } </span>님
         	</a></li>
         </c:if>
 		<li class="sidebar-nav-item"><a href="./roulette.do">룰렛돌리기</a></li>
 		<li class="sidebar-nav-item"><a href="./ghostLeg.do">사다리타기</a></li>
 		<li class="sidebar-nav-item"><a href="./map.do">음식점검색</a></li>
-		<li class="sidebar-nav-item"><a href="./board.do">게시판</a></li>
+		<li class="sidebar-nav-item"><a href="./board.do">별점게시판</a></li>
+		<li class="sidebar-nav-item"><a href="./board2.do">자유게시판</a></li>
 		
 		<c:choose>
 			<c:when test="${sessionScope.id eq null }">
