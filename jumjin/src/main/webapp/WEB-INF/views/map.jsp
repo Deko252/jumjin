@@ -5,7 +5,7 @@
 <head>
 <%@ include file="head.jsp"%>
 <meta charset="utf-8" />
-<meta name="description" content="" /> 
+<meta name="description" content="" />
 <meta name="author" content="" />
 <title>kakao map</title>
 <link href="./resources/css/map_styles.css" rel="stylesheet" />
@@ -248,7 +248,8 @@ function getListItem(index, places) {
     itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<div class="info">' +
                 '   <h5>' + places.place_name + '</h5>';
-
+ 
+                
     if (places.road_address_name) {
         itemStr += '    <span>' + places.road_address_name + '</span>' +
                     '   <span class="jibun gray">' +  places.address_name  + '</span>';
@@ -256,9 +257,15 @@ function getListItem(index, places) {
         itemStr += '    <span>' +  places.address_name  + '</span>'; 
     }
                  
-      itemStr += '  <span class="tel">' + places.phone  + '</span>' +
-                '</div>';           
-
+      	itemStr += '  <span class="tel">' + places.phone  + '</span>';
+    for (var i = 1; i < 11; i++) {
+    if((index+1) == i){
+       	itemStr += '  <span class="tel">' + '<a href="http://localhost:8086/web/detail.do?bno=' + i + '">링크</a>'  + '</span>' +
+                '</div>';
+         }
+	}
+    
+                
     el.innerHTML = itemStr;
     el.className = 'item';
 
@@ -353,9 +360,10 @@ function displayPagination(pagination) {
 // 인포윈도우에 장소명을 표시합니다
 function displayInfowindow(marker, title) {
     var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
-
+	
     infowindow.setContent(content);
     infowindow.open(map, marker);
+ 
 }
 
  // 검색결과 목록의 자식 Element를 제거하는 함수입니다

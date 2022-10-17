@@ -109,7 +109,14 @@ h2{
 
 <body id="page-top">
 	<div class="container">
+	<!-- SideBar -->
 	<%@ include file="sideBar.jsp"%>
+	<!-- Header-->
+	<!-- <header class="masthead d-flex align-items-center">
+		<div class="container px-4 px-lg-5 text-center"></div>
+	</header> -->
+
+	<!-- content -->
 	<br>
 	<div class="input-form col-md-12 mx-auto">
 	
@@ -129,16 +136,17 @@ h2{
           		<c:forEach items="${list  }" var="s">
             		<tr>
               			<td>${s.board_no }</td>
-              			<td><a href="detail.do?bno=120">${s.board_title }</a></td>
+              			<td><a href="detail.do?bno=${s.board_no }">${s.board_title }</a></td>
               			<td><c:forEach begin="1" end="${s.board_star }">⭐</c:forEach></td>
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
             		</tr>
-          		</c:forEach>  		
+          		</c:forEach>
+            		
           		</tbody>
         	</table>
-		</div>
-	  </div>
+		    </div>
+	</div>
 	</div>
 
 	<%-- <c:choose>
