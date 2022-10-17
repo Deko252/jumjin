@@ -30,7 +30,7 @@ public class RouletteController {
 		
 		Set<Integer> f_ran = new HashSet<Integer>();
 		while (f_ran.size() < 8) {
-			f_ran.add( (int) (Math.random() * 45));//0~44
+			f_ran.add( (int) (Math.random() * 65));//0~44
 		}
 		
 		List<String> r = new ArrayList<String>();
