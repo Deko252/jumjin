@@ -6,13 +6,11 @@
 
 	<select id="boardList" parameterType="HashMap" resultType="HashMap">
 		SELECT * FROM boardview
-		WHERE board_cate=#{cate }
 		LIMIT #{startPage }, #{lastPage }
 	</select>
 	
 	<select id="board2List" parameterType="HashMap" resultType="HashMap">
 		SELECT * FROM board2view
-		WHERE board_cate=#{cate }
 		LIMIT #{startPage }, #{lastPage }
 	</select>
 	
@@ -42,14 +40,21 @@
 	</update>
 	
 	<insert id="write" parameterType="HashMap">
-		INSERT INTO big_board (board_title, board_content, b_no, board_cate
+		INSERT INTO big_board (board_title, board_content, b_no
 		<if test="file != null">, board_file</if>)
-		VALUES(#{title }, #{content }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{cate }
+		VALUES(#{title }, #{content }, (SELECT b_no FROM big_user WHERE b_id=#{id })
+		<if test="file != null">, #{file }</if>)
+	</insert>
+	
+	<insert id="write2" parameterType="HashMap">
+		INSERT INTO big_board2 (board_title, board_content, b_no
+		<if test="file != null">, board_file</if>)
+		VALUES(#{title }, #{content }, (SELECT b_no FROM big_user WHERE b_id=#{id })
 		<if test="file != null">, #{file }</if>)
 	</insert>
 	
 	<select id="totalCount" parameterType="HashMap" resultType="integer">
-		SELECT COUNT(*) FROM boardview WHERE board_cate=#{cate }
+		SELECT COUNT(*) FROM boardview
 	</select>
 	
 	<update id="update" parameterType="HashMap">

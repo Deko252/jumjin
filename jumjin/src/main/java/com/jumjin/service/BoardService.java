@@ -25,4 +25,6 @@ public interface BoardService {
 	int commentDel(Map<String, Object> map);
 
 	Map<String, Object> detail2(Map<String, Object> map);
+	
+	int write2(Map<String, Object> map);
 }

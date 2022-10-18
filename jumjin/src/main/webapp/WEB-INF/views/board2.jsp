@@ -14,6 +14,29 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
 
+<script type="text/javascript">
+$(function(){
+	<c:if test="${param.result eq '1'}">
+		alert("정상 등록되었습니다.");
+	</c:if>
+	<c:if test="${param.result eq '0'}">
+		alert("저장할 수 없습니다\n다시 작성해주세요.");
+	</c:if>
+	 
+	$("#writeBtn").click(function(){
+		var check = 0;
+		<c:if test="${sessionScope.id ne null}">check = 1;</c:if>
+		if(check == 0){   
+			alert("글을 쓰려면 로그인 하셔야 합니다.");
+			location.href="./login.do";
+		} else {
+			location.href="./write2.do";//카테고리도 보내기
+		}
+	});
+});
+function linkPage(pageNo){location.href="./board.do?pageNo="+pageNo;}
+</script>
+
 <style type="text/css">
 body {
   min-height: 100vh;
@@ -95,6 +118,9 @@ h2{
 			<h2>데이터가 없습니다.</h2>
 		</c:otherwise>
 	</c:choose>
+	
+	<!-- 글쓰기 -->
+              			<button id="writeBtn" class="btn btn-primary">글쓰기</button>
 	</div>
 	</div>
 	

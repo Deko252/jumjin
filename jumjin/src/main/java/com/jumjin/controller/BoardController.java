@@ -234,9 +234,45 @@ public class BoardController {
 				int result = boardService.write(map.getMap());
 			
 
-				return "redirect:/board.do?cate=" + map.get("cate") + "&result=" + result;
+				return "redirect:/board.do?result=" + result;
 			} else {
 				return "redirect:/write.do?error=1250";
+			}
+		} else {
+			return "redirect:/login.do?error=login";
+		}
+	}
+	
+	@GetMapping("/write2.do")
+	public String write2(HttpSession session) {
+		if (session.getAttribute("id") != null) {
+			return "write2";
+		} else {
+			return "redirect:/login.do";
+		}
+	}
+
+	@PostMapping("/write2.do")
+	public String write2(CommandMap map, HttpSession session, MultipartFile file) throws IOException {
+
+		if (session.getAttribute("id") != null) {
+
+			if (map.get("title") != null && map.get("content") != null) {// �솗�씤�빐蹂닿린
+
+				map.put("id", session.getAttribute("id"));
+
+				String realPath = servletContext.getRealPath("resources/upload");
+
+				String fileName = Util.save(realPath, file);
+
+				map.put("file", fileName);
+
+				int result = boardService.write2(map.getMap());
+			
+
+				return "redirect:/board2.do?result=" + result;
+			} else {
+				return "redirect:/write2.do?error=1250";
 			}
 		} else {
 			return "redirect:/login.do?error=login";

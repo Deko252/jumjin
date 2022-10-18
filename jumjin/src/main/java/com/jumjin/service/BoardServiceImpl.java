@@ -74,4 +74,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.detail2(map);
 	}
 
+	@Override
+	public int write2(Map<String, Object> map) {
+		return boardDAO.write2(map);
+	}
+
 }

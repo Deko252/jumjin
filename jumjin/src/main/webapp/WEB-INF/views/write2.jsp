@@ -5,13 +5,6 @@
         <%@ include file="head.jsp" %>
         <!-- Core theme CSS (includes Bootstrap)-->
 		<link href="./resources/assets/css/board.css" rel="stylesheet" />
-		<script type="text/javascript">
-			$(function(){
-				<c:if test="${param.error ne null}">
-					alert("제목과 본문은 반드시 있어야 합니다");
-				</c:if>
-				$('#summernote').summernote({height: 500});});
-		</script>
 <style type="text/css">
 body {
   min-height: 100vh;
@@ -54,7 +47,6 @@ body {
 							<div class="form-group">
 								<textarea class="form-control" rows="20" id="summernote" name="content" required></textarea>
 							</div>
-							<input type="hidden" name="cate" value="${param.cate }">
 							<input type="file" name="file" accept=".png, .jpg, .gif, .jpeg, .bmp">
 							<button type="submit" class="btn btn-secondary mb-3">제출하기</button>
 						</form>
