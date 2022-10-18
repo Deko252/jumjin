@@ -78,7 +78,7 @@ h2{
 				<c:forEach items="${list }" var="l">
 					<tr>
 						<td>${l.board_no }</td>
-						<td><a href="./detail.do?cate=${param.cate }&bno=${l.board_no }">
+						<td><a href="./detail2.do?bno=${l.board_no }">
 								${l.board_title } <c:if test="${l.board_file ne null }">
 									<i class="xi-image-o"></i>
 								</c:if> <c:if test="${l.commentCount gt 0 }">

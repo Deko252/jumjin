@@ -6,11 +6,13 @@
 
 	<select id="boardList" parameterType="HashMap" resultType="HashMap">
 		SELECT * FROM boardview
+		WHERE board_cate=#{cate }
 		LIMIT #{startPage }, #{lastPage }
 	</select>
 	
 	<select id="board2List" parameterType="HashMap" resultType="HashMap">
 		SELECT * FROM board2view
+		WHERE board_cate=#{cate }
 		LIMIT #{startPage }, #{lastPage }
 	</select>
 	
@@ -18,6 +20,15 @@
 	
 	<select id="detail" parameterType="HashMap" resultType="HashMap">
 		SELECT * FROM boardview 
+		WHERE board_no=#{bno } 
+		<if test="id != null">	
+			AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+		</if>
+		
+	</select>
+	
+	<select id="detail2" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM board2view 
 		WHERE board_no=#{bno } 
 		<if test="id != null">	
 			AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })

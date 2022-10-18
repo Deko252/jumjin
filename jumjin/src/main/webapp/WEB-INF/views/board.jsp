@@ -14,6 +14,30 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
 
+<script type="text/javascript">
+$(function(){
+	<c:if test="${param.result eq '1'}">
+		alert("정상 등록되었습니다.");
+	</c:if>
+	<c:if test="${param.result eq '0'}">
+		alert("저장할 수 없습니다\n다시 작성해주세요.");
+	</c:if>
+	 
+	$("#writeBtn").click(function(){
+		var check = 0;
+		<c:if test="${sessionScope.id ne null}">check = 1;</c:if>
+		if(check == 0){   
+			alert("글을 쓰려면 로그인 하셔야 합니다.");
+			location.href="./login.do";
+		} else {
+			location.href="./write.do";//카테고리도 보내기
+		}
+	});
+});
+function linkPage(pageNo){location.href="./board.do?pageNo="+pageNo;}
+</script>
+
+
 <style type="text/css">
 body {
   min-height: 100vh;
@@ -136,7 +160,7 @@ h2{
           		<c:forEach items="${list  }" var="s">
             		<tr>
               			<td>${s.board_no }</td>
-              			<td><a href="detail.do?cate=${param.cate }&bno=${s.board_no }">${s.board_title }</a></td>
+              			<td><a href="./detail.do?bno=${s.board_no }">${s.board_title }</a></td>
               			<td><c:forEach begin="1" end="${s.board_star }">⭐</c:forEach></td>
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
@@ -146,8 +170,10 @@ h2{
           		</tbody>
         	</table>
 		    </div>
+                    	<!-- 글쓰기 -->
+              			<button id="writeBtn" class="btn btn-primary">글쓰기</button>
 	</div>
-	</div>
+</div>
 
 	<%-- <c:choose>
 		<c:when test="${fn:length(list) > 0 }">

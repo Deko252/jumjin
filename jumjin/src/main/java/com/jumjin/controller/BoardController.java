@@ -74,7 +74,7 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView("board2");
 
 		if (!map.containsKey("cate")) {
-			map.put("cate", 1);
+			map.put("cate", 2);
 		}
 
 		// pageNo
@@ -165,6 +165,23 @@ public class BoardController {
 		return mv;
 	}
 	
+	@GetMapping("/detail2.do")
+	public ModelAndView detail2(CommandMap commandMap) {
+		ModelAndView mv = new ModelAndView();
+	
+		Map<String, Object> detail2 = boardService.detail2(commandMap.getMap());
+		mv.addObject("detail", detail2);
+	
+		System.out.println("commentCount : " + detail2.get("commentCount"));
+		if (Integer.parseInt(String.valueOf(detail2.get("commentCount"))) > 0) {
+
+			List<Map<String, Object>> comments = boardService.commentsList(commandMap.getMap());
+			mv.addObject("commentsList", comments);
+		}
+
+		return mv;
+	}
+	
 	@PostMapping("/save.do")
 	public Map<String, Object> star(CommandMap map) {
 		
@@ -225,6 +242,7 @@ public class BoardController {
 			return "redirect:/login.do?error=login";
 		}
 	}
+	
 
 	@PostMapping("/commentWrite.do")
 	public String commentWrite(CommandMap map, HttpSession session) {
