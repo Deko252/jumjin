@@ -7,6 +7,13 @@
 		<link href="./resources/assets/css/board.css" rel="stylesheet" />
 
 <style type="text/css">
+#sidebar-wrapper{
+	position: fixed;
+	top:0;
+
+
+		
+}
 body {
   min-height: 100vh;
   background-color: #F4AE34;
@@ -26,6 +33,8 @@ body {
   max-width: 1200px;
   padding: 32px;
   padding-top: 15px;
+  margin-top:120px;
+  z-index:-99;
   background: #fff;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -34,6 +43,14 @@ body {
   -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
+a.btn-secondary{
+	margin:16px ;
+	margin-top:0px; 
+	font-weight: 400;
+	background-color: #fd7e14;
+}
+
+
 </style>
     </head>
     <body id="page-top">
@@ -50,6 +67,7 @@ body {
 							</div>
 							<input type="file" name="file" accept=".png, .jpg, .gif, .jpeg, .bmp">
 							<button type="submit" class="btn btn-secondary mb-3">제출하기</button>
+							 <a href="board.do" role="button" class="btn btn-secondary">취소</a>
 						</form>
                     </div>
                 </div>
