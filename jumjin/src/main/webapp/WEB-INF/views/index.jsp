@@ -53,11 +53,11 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="./index.do">홈으로</a></li>
           <li><a href="./roulette.do">룰렛돌리기</a></li>
           <li><a href="./ghostLeg.do">사다리타기</a></li>
           <li><a href="./map.do">음식점검색</a></li>
-          <li><a href="./board.do">게시판</a></li>
+          <li><a href="./board.do">가게 별점 보기</a></li>
+          <li><a href="./board2.do">게시판</a></li>
           
           <c:if test="${sessionScope.id eq null }">
 	          <li><a href="./login.do">로그인</a></li>
