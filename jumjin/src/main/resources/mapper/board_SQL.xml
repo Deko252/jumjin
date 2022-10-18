@@ -57,6 +57,11 @@
 		SELECT COUNT(*) FROM boardview
 	</select>
 	
+	<select id="totalCount2" parameterType="HashMap" resultType="integer">
+		SELECT COUNT(*) FROM board2view
+	</select>
+	
+	
 	<update id="update" parameterType="HashMap">
 		UPDATE big_board SET board_title=#{title }, board_content=#{content } 
 		WHERE board_no=#{board_no } AND b_no= (SELECT b_no FROM big_user WHERE b_id=#{id })

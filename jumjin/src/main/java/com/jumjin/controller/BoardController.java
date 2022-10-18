@@ -84,7 +84,7 @@ public class BoardController {
 		}
 
 		// totalCount
-		int totalCount = boardService.totalCount(map.getMap());
+		int totalCount = boardService.totalCount2(map.getMap());
 
 		PaginationInfo paginationInfo = new PaginationInfo();
 		paginationInfo.setCurrentPageNo(pageNo);

@@ -258,9 +258,9 @@ function getListItem(index, places) {
     }
                  
       	itemStr += '  <span class="tel">' + places.phone  + '</span>';
-    for (var i = 1; i < 11; i++) {
+    for (var i = 1; i < 16; i++) {
     if((index+1) == i){
-       	itemStr += '  <span class="tel">' + '<a href="http://localhost:8086/web/detail.do?bno=' + i + '">링크</a>'  + '</span>' +
+       	itemStr += '  <span class="tel">' + '<a href="http://localhost:8086/web/detail.do?bno=' + i + '">별점 보러가기</a>'  + '</span>' +
                 '</div>';
          }
 	}

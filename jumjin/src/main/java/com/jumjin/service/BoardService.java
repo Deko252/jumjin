@@ -27,4 +27,6 @@ public interface BoardService {
 	Map<String, Object> detail2(Map<String, Object> map);
 	
 	int write2(Map<String, Object> map);
+
+	int totalCount2(Map<String, Object> map);
 }

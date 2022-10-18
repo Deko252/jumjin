@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui" %>
 
 <!DOCTYPE html>
 
@@ -34,7 +35,7 @@ $(function(){
 		}
 	});
 });
-function linkPage(pageNo){location.href="./board.do?pageNo="+pageNo;}
+function linkPage(pageNo){location.href="./board2.do?pageNo="+pageNo;}
 </script>
 
 <style type="text/css">
@@ -151,6 +152,10 @@ h2{
 			<h2>데이터가 없습니다.</h2>
 		</c:otherwise>
 	</c:choose>
+	<!-- 페이징 -->
+           <div style="width: 100%; border-top: 1px solid gray; height: 30px; text-align: center;">
+                  <ui:pagination paginationInfo="${paginationInfo }" type="text" jsFunction="linkPage"/>
+           </div>
 	
 	<!-- 글쓰기 -->
     <button id="writeBtn" class="btn btn-primary">글쓰기</button>

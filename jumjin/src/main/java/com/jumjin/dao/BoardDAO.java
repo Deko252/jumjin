@@ -72,5 +72,9 @@ public class BoardDAO extends AbstractDAO {
 		int result =   (int) insert("board.write2", map);
 		return result;
 	}
+
+	public int totalCount2(Map<String, Object> map) {
+		return (int) selectOne("board.totalCount2", map);
+	}
 	
 }

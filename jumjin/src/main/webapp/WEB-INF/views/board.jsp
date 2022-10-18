@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +10,6 @@
 
 <head> 
 <%@ include file="head.jsp"%>
-	
 
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
@@ -170,6 +170,11 @@ h2{
           		</tbody>
         	</table>
 		    </div>
+		    <!-- 페이징 -->
+                    	<div style="width: 100%; border-top: 1px solid gray; height: 30px; text-align: center;">
+                    		<ui:pagination paginationInfo="${paginationInfo }" type="text" jsFunction="linkPage"/>
+                    	</div>
+		    
                     	<!-- 글쓰기 -->
               			<button id="writeBtn" class="btn btn-primary">글쓰기</button>
 	</div>
