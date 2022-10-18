@@ -55,9 +55,11 @@ body {
 h2{
 	text-align: center;
 	margin-top: 50px;
+	margin-bottom: 20px;
 }
 
 .input-form {
+	margin-top: 50px;
   max-width: 1200px;
   padding: 32px;
   padding-top: 15px;
@@ -68,6 +70,37 @@ h2{
   -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.input-form > h2 {
+	font-family: 'Jua', sans-serif;
+    font-size: 50px;
+	font-weight: 400;
+}
+.top {
+	text-align:center;
+	font-weight: bold;
+}
+.top > td:first-child { width: 10%;}
+.top > td:first-child + td { width: 50%;}
+.top > td:first-child + td + td{ width: 20%;}
+.top > td:first-child + td + td + td{ width: 20%;}
+
+.middle > td:first-child + td { text-align: left; }
+
+#writeBtn {
+	position: relative;
+	left: 90%;
+	margin-top: 10px;
+}
+.btn-primary {
+	width: 80px;
+	height: 40px;
+	border: none;
+	background-color: #EB2524;
+		
+}
+.btn-primary:hover {
+	background-color: #1F1D1E;
 }
 
 </style>
@@ -92,14 +125,14 @@ h2{
 	<c:choose>
 		<c:when test="${fn:length(list) > 0 }">
 			<table class="table table-striped table-hover">
-				<tr>
+				<tr class="top">
 					<td>번호</td>
 					<td>제목</td>
-					<td>쓴사람</td>
+					<td>글쓴이</td>
 					<td>날짜</td>
 				</tr>
 				<c:forEach items="${list }" var="l">
-					<tr>
+					<tr class="middle" style="text-align:center;">
 						<td>${l.board_no }</td>
 						<td><a href="./detail2.do?bno=${l.board_no }">
 								${l.board_title } <c:if test="${l.board_file ne null }">
@@ -120,7 +153,7 @@ h2{
 	</c:choose>
 	
 	<!-- 글쓰기 -->
-              			<button id="writeBtn" class="btn btn-primary">글쓰기</button>
+    <button id="writeBtn" class="btn btn-primary">글쓰기</button>
 	</div>
 	</div>
 	
