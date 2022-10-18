@@ -82,7 +82,7 @@
 
     </div>
   </header><!-- End Header -->
-  <!-- End Header -->
+  <!-- End Header --> 
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero" style="overflow: visible;">
