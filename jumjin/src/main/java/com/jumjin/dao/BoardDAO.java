@@ -57,5 +57,10 @@ public class BoardDAO extends AbstractDAO {
 	public int commentUpdate(Map<String, Object> map) {
 		return  (int) update("board.commentUpdate", map);
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> board2List(Map<String, Object> map) {
+		return selectList("board.board2List", map);
+	}
 	
 }

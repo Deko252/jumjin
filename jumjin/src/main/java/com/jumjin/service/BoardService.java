@@ -5,6 +5,8 @@ import java.util.Map;
 
 public interface BoardService {
 	List<Map<String, Object>> boardList(Map<String, Object> map);
+	
+	List<Map<String, Object>> board2List(Map<String, Object> map);
 
 	Map<String, Object> detail(Map<String, Object> map);
 

@@ -136,7 +136,7 @@ h2{
           		<c:forEach items="${list  }" var="s">
             		<tr>
               			<td>${s.board_no }</td>
-              			<td><a href="detail.do?bno=${s.board_no }">${s.board_title }</a></td>
+              			<td><a href="detail.do?cate=${param.cate }&bno=${s.board_no }">${s.board_title }</a></td>
               			<td><c:forEach begin="1" end="${s.board_star }">⭐</c:forEach></td>
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>

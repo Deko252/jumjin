@@ -68,6 +68,45 @@ public class BoardController {
 		
 		return mv;
 	}
+	
+	@GetMapping("/board2.do")
+	public ModelAndView board2(CommandMap map) {
+		ModelAndView mv = new ModelAndView("board2");
+
+		if (!map.containsKey("cate")) {
+			map.put("cate", 1);
+		}
+
+		// pageNo
+		int pageNo = 1;
+		if (map.containsKey("pageNo")) {
+			pageNo = Util.strToInt((String) map.get("pageNo"));
+		}
+
+		// totalCount
+		int totalCount = boardService.totalCount(map.getMap());
+
+		PaginationInfo paginationInfo = new PaginationInfo();
+		paginationInfo.setCurrentPageNo(pageNo);
+		paginationInfo.setRecordCountPerPage(10);
+		paginationInfo.setPageSize(10);
+		paginationInfo.setTotalRecordCount(totalCount);
+
+		int startPage = paginationInfo.getFirstRecordIndex();// 0
+		int lastPage = paginationInfo.getRecordCountPerPage();// 10
+
+		map.put("startPage", startPage);
+		map.put("lastPage", lastPage);
+
+		List<Map<String, Object>> list = boardService.board2List(map.getMap());
+
+		mv.addObject("list", list);
+		mv.addObject("pageNo", pageNo);
+		mv.addObject("paginationInfo", paginationInfo);
+		mv.addObject("cate", map.get("cate"));
+		
+		return mv;
+	}
 
 	@GetMapping("/update.do")
 	public ModelAndView update(HttpSession session, CommandMap map) {

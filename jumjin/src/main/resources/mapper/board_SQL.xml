@@ -5,7 +5,12 @@
 <mapper namespace="board">
 
 	<select id="boardList" parameterType="HashMap" resultType="HashMap">
-		SELECT * FROM boardview 
+		SELECT * FROM boardview
+		LIMIT #{startPage }, #{lastPage }
+	</select>
+	
+	<select id="board2List" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM board2view
 		LIMIT #{startPage }, #{lastPage }
 	</select>
 	

@@ -1,68 +1,115 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Stylish Portfolio - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="./resources/assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Simple line icons-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="./resources/assets/css/board.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
-        <nav id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#page-top">점.진.사</a></li>
-                <li class="sidebar-nav-item"><a href="#page-top">홈으로</a></li>
-                <li class="sidebar-nav-item"><a href="#about">룰렛돌리기</a></li>
-                <li class="sidebar-nav-item"><a href="#services">사다리타기</a></li>
-                <li class="sidebar-nav-item"><a href="#portfolio">게시판</a></li>
-                <li class="sidebar-nav-item"><a href="#contact">로그인</a></li>
-                <li class="sidebar-nav-item"><a href="#contact">회원가입</a></li>
-            </ul>
-        </nav>
-        <!-- Header-->
-        
-        <header class="masthead d-flex align-items-center">
-            <div class="container px-4 px-lg-5 text-center">
-            </div>
-        </header>
-        
-        <!-- Footer-->
-        <footer class="footer text-center">
-            <div class="container px-4 px-lg-5">
-                <ul class="list-inline mb-5">
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
-                    </li>
-                </ul>
-                <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>
-            </div>
-        </footer>
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="./resources/assets/js/scripts.js"></script>
-    </body>
+
+<html lang="ko">
+
+<head>
+<%@ include file="head.jsp"%>
+	
+
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="./resources/assets/css/board.css" rel="stylesheet" />
+
+<style type="text/css">
+body {
+  min-height: 100vh;
+  background-color: #F4AE34;
+}
+.blind {
+	position: absolute;
+	overflow: hidden;
+	margin: -1px;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	border: none;
+	clip: rect(0, 0, 0, 0);
+}
+h2{
+	text-align: center;
+	margin-top: 50px;
+}
+
+.input-form {
+  max-width: 1200px;
+  padding: 32px;
+  padding-top: 15px;
+  background: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+</style>
+
+
+</head>
+
+
+<body id="page-top">
+	<div class="container">
+	<!-- SideBar -->
+	<%@ include file="sideBar.jsp"%>
+	<!-- Header-->
+	<!-- <header class="masthead d-flex align-items-center">
+		<div class="container px-4 px-lg-5 text-center"></div>
+	</header> -->
+
+	<!-- content -->
+	<br>
+	<div class="input-form col-md-12 mx-auto">
+	<h2>자유 게시판</h2>
+	<c:choose>
+		<c:when test="${fn:length(list) > 0 }">
+			<table class="table table-striped table-hover">
+				<tr>
+					<td>번호</td>
+					<td>제목</td>
+					<td>쓴사람</td>
+					<td>날짜</td>
+				</tr>
+				<c:forEach items="${list }" var="l">
+					<tr>
+						<td>${l.board_no }</td>
+						<td><a href="./detail.do?cate=${param.cate }&bno=${l.board_no }">
+								${l.board_title } <c:if test="${l.board_file ne null }">
+									<i class="xi-image-o"></i>
+								</c:if> <c:if test="${l.commentCount gt 0 }">
+									<span class="badge bg-secondary">${l.commentCount }</span>
+								</c:if>
+						</a></td>
+						<td>${l.b_name }</td>
+						<td>${l.board_date }</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</c:when>
+		<c:otherwise>
+			<h2>데이터가 없습니다.</h2>
+		</c:otherwise>
+	</c:choose>
+	</div>
+	</div>
+	
+	<!-- Footer -->
+	<%@ include file="footer.jsp"%>
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"><i
+		class="fas fa-angle-up"></i></a>
+
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core theme JS-->
+	<script src="./resources/assets/js/scripts.js"></script>
+</body>
 </html>

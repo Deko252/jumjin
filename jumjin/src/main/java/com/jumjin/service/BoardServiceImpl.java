@@ -64,4 +64,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.commentDel(map);
 	}
 
+	@Override
+	public List<Map<String, Object>> board2List(Map<String, Object> map) {
+		return boardDAO.board2List(map);
+	}
+
 }

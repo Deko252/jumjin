@@ -92,7 +92,7 @@
           <h2><span>점</span>심에 <span>진</span>심인 <span>사</span>람들</h2>
           <p>뭘 먹을지 고민돼? 돌려봐~~</p>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="https://www.youtube.com/watch?v=9uzDtWkbV8Q&ab_channel=KIGLETV-Mainan%26GameAnak" class="btn-get-started">눌러봐 룰렛</a>
+            <a href="./board.do" class="btn-get-started">가게 별점 보기</a>
             <a href="https://www.youtube.com/watch?v=sraVn-RE_cE" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
@@ -133,7 +133,7 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
               <div class="icon"><img alt="게시판" src="./resources/assets/img/clipboard.png"></div>
-              <h4 class="title"><a href="./board.do" class="stretched-link">게시판</a></h4>
+              <h4 class="title"><a href="./board2.do" class="stretched-link">게시판</a></h4>
             </div>
           </div>
           <!--End Icon Box -->
