@@ -25,10 +25,10 @@ $(function(){
 	 
 	$("#writeBtn").click(function(){
 		var check = 0;
-		<c:if test="${sessionScope.grade == 1}">check = 1;</c:if>
+		<c:if test="${sessionScope.id ne null}">check = 1;</c:if>
 		if(check == 0){   
-			alert("운영자만 작성할 수 있습니다.");
-			location.href="./board.do";
+			alert("글을 쓰려면 로그인 하셔야 합니다.");
+			location.href="./login.do";
 		} else {
 			location.href="./write.do";//카테고리도 보내기
 		}
@@ -43,7 +43,12 @@ body {
   min-height: 100vh;
   background-color: #F4AE34;
 }
-
+table {
+	text-align: center;
+}
+thead > tr {
+	height: 40px;
+}
 .blind {
 	position: absolute;
 	overflow: hidden;
@@ -104,10 +109,10 @@ body {
 }
 
 .input-form {
-  margin-top:50px;
+  margin-top: 50px;
   max-width: 1200px;
   padding: 32px;
-  padding-top: 15px;
+  padding-top: 20px;
   background: #fff;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -131,7 +136,6 @@ h2{
 	left: 90%;
 	margin-top: 10px;
 }
-
 .btn-primary {
 	width: 80px;
 	height: 40px;
@@ -142,12 +146,36 @@ h2{
 .btn-primary:hover {
 	background-color: #1F1D1E;
 }
-
+.table-striped td {
+	height: 40px;
+	padding-top: 7px;
+}
+#top > th{
+	padding-bottom: 10px;
+	height: 50px;
+}
+#paging {
+	font-size: 19px;
+	letter-spacing: 10px;
+	text-decoration: none;
+	width: 100%; 
+	border-top: 1px solid gray; 
+	height: 30px; 
+	text-align: center;
+	padding-top: 5px;
+    text-decoration: none;
+}
+tbody > tr:hover > * {
+  --bs-table-accent-bg: var(--bs-table-hover-bg);
+  color: var(--bs-table-hover-color);
+}
+tbody > tr:nth-of-type(2n+1):hover > * {
+	--bs-table-accent-bg: var(--bs-table-hover-bg);
+  	color: var(--bs-table-hover-color);
+}
 </style>
 
-
 </head>
-
 
 <body id="page-top">
 	<div class="container">
@@ -166,7 +194,7 @@ h2{
 		<div class="table-responsive">
         	<table class="table table-striped table-sm">
           		<thead>
-	            	<tr>
+	            	<tr id="top">
 	              		<th scope="col">번호</th>
 	              		<th scope="col">제목</th>
 	              		<th scope="col">별점</th>
@@ -179,7 +207,7 @@ h2{
             		<tr>
               			<td>${s.board_no }</td>
               			<td><a href="./detail.do?bno=${s.board_no }">${s.board_title }</a></td>
-              			<td><c:forEach begin="1" end="${s.avg_star }">⭐</c:forEach></td>
+              			<td><c:forEach begin="1" end="${s.board_star }">⭐</c:forEach></td>
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
             		</tr>
@@ -189,15 +217,14 @@ h2{
         	</table>
 		    </div>
 		    <!-- 페이징 -->
-                    	<div style="width: 100%; border-top: 1px solid gray; height: 30px; text-align: center;">
-                    		<ui:pagination paginationInfo="${paginationInfo }" type="text" jsFunction="linkPage"/>
-                    	</div>
+           	<div id="paging" style="text-decoration:none;">
+           		<ui:pagination paginationInfo="${paginationInfo }" type="text" jsFunction="linkPage"/>
+           	</div>
 		    
                     	<!-- 글쓰기 -->
-                    	<c:if test="${sessionScope.grade == 1}">
-              				<button id="writeBtn" class="btn btn-primary">글쓰기</button>
-              			</c:if>
-
+                       <c:if test="${sessionScope.grade == 1}">
+                          <button id="writeBtn" class="btn btn-primary">글쓰기</button>
+                       </c:if>
 	</div>
 </div>
 

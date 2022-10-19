@@ -9,8 +9,6 @@
 <head>
 <%@ include file="head.jsp"%>
 
-
-
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
 <link rel="stylesheet"
@@ -19,18 +17,19 @@
 	crossorigin="anonymous">
 
 <style>
-h2 {
-	text-align: center;
-}
-
 body {
 	min-height: 100vh;
 	background-color: #F4AE34;
 }
-
+h2 {
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
 .input-form {
+	margin-top: 180px;
 	max-width: 680px;
-	margin-top: 50px;
+	height: 400px;
 	padding: 32px;
 	background: #fff;
 	-webkit-border-radius: 10px;
@@ -38,7 +37,7 @@ body {
 	border-radius: 10px;
 	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
 .input-form>h2 {
@@ -97,35 +96,64 @@ body {
 .mt-4 {
 	margin-top: 15px !important;
 }
+tr{
+	height: 50px;
+	border-bottom: 1px solid #cccccc;
+}
+tr > td:first-child {
+	width: 150px;
+}
+table {
+	margin-left: 70px;
+}
+
 </style>
 
 
 </head>
-<body id="page-top">
-<table>
+	<body id="page-top">
+	<!-- SideBar -->
+	<%@ include file="sideBar.jsp"%>
+	<div class="container">
+	<div class="input-form-backgroud row">
+	<div class="input-form col-md-12 mx-auto">
+	<h2>회원 정보</h2>
+	
+	<table>
+	
 		<tr>
-            <td>아이디</td>
+            <td style="font-weight: bold; font-size: 20px;">아이디</td>
             <td>${info.b_id }</td>
-            </tr>
-            <tr>
-            <td>닉네임</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold; font-size: 20px;">닉네임</td>
             <td>${info.b_name }</td>
-            </tr>
-            <tr>
-            <td>비밀번호</td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold; font-size: 20px;">비밀번호</td>
             <td>
-            <form action="./password.do" method="post">
-            <input type="password" name="npw" maxlength="20" placeholder="변경할 비밀번호를 입력하세요.">
-            <button type="submit" id="btn" class="btn btn-primary"><i class="bi bi-star-half"></i>변경하기<i class="bi bi-star-half"></i></button>
-            </form>
+	            <form action="./password.do" method="post">
+	            <input type="password" name="npw" maxlength="20" placeholder="변경할 비밀번호를 입력하세요.">
+	            <button type="submit" id="btn" class="btn btn-primary"><i class="bi bi-star-half"></i>변경하기<i class="bi bi-star-half"></i></button>
+	            </form>
             </td>
-            </tr>
-            <tr>
-                    				<td>이메일</td>
-                    				<td>${info.b_email }</td>
-                    			</tr>
+        </tr>
+        <tr>
+			<td style="font-weight: bold; font-size: 20px;">이메일</td>
+			<td>${info.b_email }</td>
+        </tr>
 			
 	</table>
-					
+	</div>
+	</div>
+	</div>
+	<!-- Footer -->
+	<%@ include file="footer.jsp"%>
+	
+	<!-- Bootstrap core JS-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- Core theme JS-->
+	<script src="./resources/assets/js/scripts.js"></script>				
 </body>
 </html>
