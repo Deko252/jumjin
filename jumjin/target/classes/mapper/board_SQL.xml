@@ -5,8 +5,12 @@
 <mapper namespace="board">
 
 	<select id="boardList" parameterType="HashMap" resultType="HashMap">
-		SELECT * FROM boardview 
-		WHERE board_cate=#{cate }  
+		SELECT * FROM boardview
+		LIMIT #{startPage }, #{lastPage }
+	</select>
+	
+	<select id="board2List" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM board2view
 		LIMIT #{startPage }, #{lastPage }
 	</select>
 	
@@ -21,21 +25,42 @@
 		
 	</select>
 	
+	<select id="detail2" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM board2view 
+		WHERE board_no=#{bno } 
+		<if test="id != null">	
+			AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+		</if>
+		
+	</select>
+	
 	<update id="postDel" parameterType="HashMap">
 		UPDATE big_board SET board_del=1 
 		WHERE board_no=#{bno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
 	</update>
 	
 	<insert id="write" parameterType="HashMap">
-		INSERT INTO big_board (board_title, board_content, b_no, board_cate
+		INSERT INTO big_board (board_title, board_content, b_no
 		<if test="file != null">, board_file</if>)
-		VALUES(#{title }, #{content }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{cate }
+		VALUES(#{title }, #{content }, (SELECT b_no FROM big_user WHERE b_id=#{id })
+		<if test="file != null">, #{file }</if>)
+	</insert>
+	
+	<insert id="write2" parameterType="HashMap">
+		INSERT INTO big_board2 (board_title, board_content, b_no
+		<if test="file != null">, board_file</if>)
+		VALUES(#{title }, #{content }, (SELECT b_no FROM big_user WHERE b_id=#{id })
 		<if test="file != null">, #{file }</if>)
 	</insert>
 	
 	<select id="totalCount" parameterType="HashMap" resultType="integer">
-		SELECT COUNT(*) FROM boardview WHERE board_cate=#{cate }
+		SELECT COUNT(*) FROM boardview
 	</select>
+	
+	<select id="totalCount2" parameterType="HashMap" resultType="integer">
+		SELECT COUNT(*) FROM board2view
+	</select>
+	
 	
 	<update id="update" parameterType="HashMap">
 		UPDATE big_board SET board_title=#{title }, board_content=#{content } 
@@ -43,8 +68,8 @@
 	</update>
 	
 	<insert id="commentWrite" parameterType="HashMap">
-		INSERT INTO comment (c_comment, board_no, b_no)
-		VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }))
+		INSERT INTO comment (c_comment, board_no, b_no, c_star)
+		VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{star })
 	</insert>
 	
 	<select id="commentsList" parameterType="HashMap" resultType="HashMap">

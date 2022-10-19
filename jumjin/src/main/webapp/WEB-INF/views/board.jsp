@@ -179,7 +179,7 @@ h2{
             		<tr>
               			<td>${s.board_no }</td>
               			<td><a href="./detail.do?bno=${s.board_no }">${s.board_title }</a></td>
-              			<td><c:forEach begin="1" end="${s.board_star }">⭐</c:forEach></td>
+              			<td><c:forEach begin="1" end="${s.avg_star }">⭐</c:forEach></td>
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
             		</tr>

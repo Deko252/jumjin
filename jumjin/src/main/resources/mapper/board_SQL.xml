@@ -68,8 +68,8 @@
 	</update>
 	
 	<insert id="commentWrite" parameterType="HashMap">
-		INSERT INTO comment (c_comment, board_no, b_no)
-		VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }))
+		INSERT INTO comment (c_comment, board_no, b_no, c_star)
+		VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{star })
 	</insert>
 	
 	<select id="commentsList" parameterType="HashMap" resultType="HashMap">
