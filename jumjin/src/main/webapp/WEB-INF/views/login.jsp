@@ -5,7 +5,7 @@
 	
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <%@ include file="head.jsp"%>
 
@@ -61,6 +61,17 @@ body {
 }
 
 </style>
+ <script type="text/javascript">
+$(function(){
+		var check = 0;
+		<c:if test="${sessionScope.id ne null}">check = 1;</c:if>
+		if(check == 1){
+			alert("정상적인 경로를 이용해 주세요.");
+			location.href="./index.do";
+		} 
+});
+</script>  
+
 
 </head>
 <body id="page-top">

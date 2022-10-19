@@ -64,7 +64,7 @@ a.btn-secondary{
 				<%@ include file="sideBar.jsp"%>
                     <!-- 본문내용은 여기에 -->
                     <div class="input-form col-md-12 mx-auto">
-                    	<form action="./write.do" method="post" enctype="multipart/form-data">
+                    	<form action="./write2.do" method="post" enctype="multipart/form-data">
 							<input type="text" name="title" class="form-control mt-4 mb-2" placeholder="제목을 입력해주세요." required>
 							<div class="form-group">
 								<textarea class="form-control" placeholder="내용을 입력해주세요." rows="20" id="summernote" name="content" required></textarea>

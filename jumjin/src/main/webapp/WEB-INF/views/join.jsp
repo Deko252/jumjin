@@ -5,7 +5,7 @@
 	
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <%@ include file="head.jsp"%> 
 
@@ -13,6 +13,7 @@
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 <style>
 h2{
@@ -46,6 +47,18 @@ body {
 	text-align: center;
 }
 #resultMsg{
+	width: 100%;
+	margin-top: 0.25rem;
+	font-size: 80%;
+	color: #dc3545;
+}
+#resultMsg2{
+	width: 100%;
+	margin-top: 0.25rem;
+	font-size: 80%;
+	color: #dc3545;
+}
+#resultMsg3{
 	width: 100%;
 	margin-top: 0.25rem;
 	font-size: 80%;
@@ -88,6 +101,19 @@ body {
 
 <script>
 	$(function(){
+		$("#btnF").click(function(){
+			location.href="./index.do";
+		});
+		const target = document.getElementById('btnS');
+		  target.disabled = true;
+		
+			var check = 1;
+			<c:if test="${sessionScope.id ne null}">check = 0;</c:if>
+			if(check == 0){
+				alert("로그아웃 합니다.");
+				location.href="./logout.do";
+			}				
+		
 		//alert("!");
 		$("#id").on("change", function(){
 			var id = $("#id").val();
@@ -95,14 +121,112 @@ body {
 				$("#resultMsg").text("아이디는 5글자 이상으로 입력하세요.");
 				$("#resultMsg").css("color", "#dc3545");
 				$("#id").focus();
+				const target = document.getElementById('btnS');
+				  target.disabled = true
+				  
+				  $("#pw2").on("change", function(){
+						var pw = $("#pw").val();
+						var pw2 = $("#pw2").val();
+						if(pw2 != pw){
+							$("#resultMsg2").text("비밀번호가 일치하지 않습니다.");
+							$("#resultMsg2").css("color", "#dc3545");
+							const target = document.getElementById('btnS');
+							  target.disabled = true;
+						}else{
+							$("#resultMsg2").text("비밀번호가 일치합니다.");
+							$("#resultMsg2").css("color", "#198754");
+							const target = document.getElementById('btnS');
+							  target.disabled = true  
+							if(pw.length >= 6){
+								$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+								$("#resultMsg3").css("color", "#198754");
+								const target = document.getElementById('btnS');
+								  target.disabled = true				  
+							}else{
+								$("#resultMsg3").text("6글자 이상 입력해주세요.");
+								$("#resultMsg3").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}
+						}
+					});
+					$("#pw").on("change", function(){
+						var pw = $("#pw").val();
+						var pw2 = $("#pw2").val();
+						
+						if(pw != pw2){
+							$("#resultMsg2").text("비밀번호가 일치하지 않습니다.");
+							$("#resultMsg2").css("color", "#dc3545");
+							const target = document.getElementById('btnS');
+							  target.disabled = true;
+						}else{
+							$("#resultMsg2").text("비밀번호가 일치합니다.");
+							$("#resultMsg2").css("color", "#198754");
+							const target = document.getElementById('btnS');
+							  target.disabled = true
+							if(pw.length >= 6){
+								$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+								$("#resultMsg3").css("color", "#198754");
+								const target = document.getElementById('btnS');
+								  target.disabled = true
+							}else{
+								$("#resultMsg3").text("6글자 이상 입력해주세요.");
+								$("#resultMsg3").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}										
+						}
+					});
+					$("#pw2").on("click", function(){
+						var pw = $("#pw").val();
+						var pw2 = $("#pw2").val();
+						if(pw2 != pw){
+							$("#resultMsg2").text("비밀번호가 일치하지 않습니다.");
+							$("#resultMsg2").css("color", "#dc3545");
+							const target = document.getElementById('btnS');
+							  target.disabled = true;
+						}if(pw.length >= 6){
+							$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+							$("#resultMsg3").css("color", "#198754");
+							const target = document.getElementById('btnS');
+							  target.disabled = true
+						}else{
+							$("#resultMsg3").text("6글자 이상 입력해주세요.");
+							$("#resultMsg3").css("color", "#dc3545");
+							const target = document.getElementById('btnS');
+							  target.disabled = true;
+						}
+					});
+					$("#pw").on("click", function(){
+						var pw = $("#pw").val();
+						var pw2 = $("#pw2").val();
+						if(pw != pw2){
+							$("#resultMsg2").text("비밀번호가 일치하지 않습니다.");
+							$("#resultMsg2").css("color", "#dc3545");
+							const target = document.getElementById('btnS');
+							  target.disabled = true;
+						}
+						if(pw.length >= 6){
+							$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+							$("#resultMsg3").css("color", "#198754");
+							const target = document.getElementById('btnS');
+							  target.disabled = true
+						}else{
+							$("#resultMsg3").text("6글자 이상 입력해주세요.");
+							$("#resultMsg3").css("color", "#dc3545");
+							const target = document.getElementById('btnS');
+							  target.disabled = true;
+						}
+					});
 			}else{	
 				//alert("입력한 값은 : " + id);
-				//$("#resultMsg").text("입력한 값은 : " + id);
+				$("#resultMsg").text("입력한 값은 : " + id);
 					$.ajax({
 					url : "./idCheck.do",
 					data : {"id" : id},
 					type : "POST",
 					dataType : "html"
+
 				}).done(function(data){//통신 성공
 					//$("#resultMsg").text("통신에 성공했습니다." + data);
 					if (data == 1) {
@@ -110,15 +234,166 @@ body {
 						$("#resultMsg").append("<br>");
 						$("#resultMsg").append("다른 아이디를 입력하세요.");
 						$("#resultMsg").css("color", "#dc3545");
+						const target = document.getElementById('btnS');
+						  target.disabled = true;
 					} else {
 						$("#resultMsg").text("가입 가능한 아이디입니다.");
-						$("#resultMsg").css("color", "#198754");
+						$("#resultMsg").css("color", "#198754");						  
+						$("#pw2").on("change", function(){
+							var pw = $("#pw").val();
+							var pw2 = $("#pw2").val();
+							if(pw2 != pw){
+								$("#resultMsg2").text("비밀번호가 일치하지 않습니다.");
+								$("#resultMsg2").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}else{
+								$("#resultMsg2").text("비밀번호가 일치합니다.");
+								$("#resultMsg2").css("color", "#198754");
+								if(pw.length >= 6){
+									$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+									$("#resultMsg3").css("color", "#198754");
+									const target = document.getElementById('btnS');
+									  target.disabled = false;	
+								}else{
+									$("#resultMsg3").text("6글자 이상 입력해주세요.");
+									$("#resultMsg3").css("color", "#dc3545");
+									const target = document.getElementById('btnS');
+									  target.disabled = true;
+								}
+							}if(pw.length >= 6){
+								$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+								$("#resultMsg3").css("color", "#198754");
+							}else{
+								$("#resultMsg3").text("6글자 이상 입력해주세요.");
+								$("#resultMsg3").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}
+						});
+						$("#pw").on("change", function(){
+							var pw = $("#pw").val();
+							var pw2 = $("#pw2").val();					
+							if(pw != pw2){
+								$("#resultMsg2").text("비밀번호가 일치하지 않습니다.");
+								$("#resultMsg2").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}else{
+								$("#resultMsg2").text("비밀번호가 일치합니다.");
+								$("#resultMsg2").css("color", "#198754");
+								if(pw.length >= 6){
+									$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+									$("#resultMsg3").css("color", "#198754");
+									const target = document.getElementById('btnS');
+									  target.disabled = false;	
+								}else{
+									$("#resultMsg3").text("6글자 이상 입력해주세요.");
+									$("#resultMsg3").css("color", "#dc3545");
+									const target = document.getElementById('btnS');
+									  target.disabled = true;
+								}										
+							}if(pw.length >= 6){
+								$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+								$("#resultMsg3").css("color", "#198754");
+							}else{
+								$("#resultMsg3").text("6글자 이상 입력해주세요.");
+								$("#resultMsg3").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}
+						});
+						$("#pw2").on("click", function(){
+							var pw = $("#pw").val();
+							var pw2 = $("#pw2").val();					
+							if(pw != pw2){
+								$("#resultMsg2").text("비밀번호가 일치하지 않습니다.");
+								$("#resultMsg2").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}else{
+								$("#resultMsg2").text("비밀번호가 일치합니다.");
+								$("#resultMsg2").css("color", "#198754");
+								if(pw.length >= 6){
+									$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+									$("#resultMsg3").css("color", "#198754");
+									const target = document.getElementById('btnS');
+									  target.disabled = false;	
+								}else{
+									$("#resultMsg3").text("6글자 이상 입력해주세요.");
+									$("#resultMsg3").css("color", "#dc3545");
+									const target = document.getElementById('btnS');
+									  target.disabled = true;
+								}										
+							}if(pw.length >= 6){
+								$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+								$("#resultMsg3").css("color", "#198754");
+							}else{
+								$("#resultMsg3").text("6글자 이상 입력해주세요.");
+								$("#resultMsg3").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}
+						});
+						$("#pw").on("click", function(){
+							var pw = $("#pw").val();
+							var pw2 = $("#pw2").val();					
+							if(pw != pw2){
+								$("#resultMsg2").text("비밀번호가 일치하지 않습니다.");
+								$("#resultMsg2").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}else{
+								$("#resultMsg2").text("비밀번호가 일치합니다.");
+								$("#resultMsg2").css("color", "#198754");
+								if(pw.length >= 6){
+									$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+									$("#resultMsg3").css("color", "#198754");
+									const target = document.getElementById('btnS');
+									  target.disabled = false;	
+								}else{
+									$("#resultMsg3").text("6글자 이상 입력해주세요.");
+									$("#resultMsg3").css("color", "#dc3545");
+									const target = document.getElementById('btnS');
+									  target.disabled = true;
+								}										
+							}if(pw.length >= 6){
+								$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+								$("#resultMsg3").css("color", "#198754");
+							}else{
+								$("#resultMsg3").text("6글자 이상 입력해주세요.");
+								$("#resultMsg3").css("color", "#dc3545");
+								const target = document.getElementById('btnS');
+								  target.disabled = true;
+							}
+						});
+						$("#id").on("change", function(){
+							var id = $("#id").val();
+							if (id.length >= 5) {
+								var pw = $("#pw").val();
+								var pw2 = $("#pw2").val();
+								if(pw == pw2){
+									$("#resultMsg2").text("비밀번호가 일치합니다.");
+									$("#resultMsg2").css("color", "#198754");
+									if(pw.length >= 6){
+										$("#resultMsg3").text("사용가능한 비밀번호 입니다.");
+										$("#resultMsg3").css("color", "#198754");
+										const target = document.getElementById('btnS');
+										  target.disabled = false;
+									}
+								}
+							}
+						});
+						
 					}
 				}).fail(function(xhr){//통신 실패
 					$("#resultMsg").text("문제가 발생했습니다." + xhr.status);
 				});
 			}		
-		});//ajax끝	
+		});//ajax끝		
+		
+		
+		
 	});
 </script>
 
@@ -148,8 +423,8 @@ body {
 	              <p id="resultMsg"></p>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="name">이름</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="" required>
+              <label for="name">닉네임</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="닉네임을 입력하세요." required>
               <div class="invalid-feedback">
                 이름을 입력해주세요.
               </div>
@@ -162,6 +437,7 @@ body {
             <div class="invalid-feedback">
               비밀번호를 입력해주세요.
             </div>
+            <p id="resultMsg3"></p>
           </div>
 
           <div class="mb-3">
@@ -170,16 +446,17 @@ body {
             <div class="invalid-feedback">
               한번 더 입력해 주세요.
             </div>
+           	 <p id="resultMsg2"></p>
           </div>
 
           <div class="mb-3">
             <label for="phoneNumber">휴대폰<span class="text-muted">&nbsp;</span></label>
-            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="010-1234-5678">
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="010-1234-5678" required>
           </div>
           
           <div class="mb-3">
             <label for="email">이메일<span class="text-muted">&nbsp;</span></label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
+            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
           </div>
       
           <hr class="mb-4">
@@ -188,8 +465,8 @@ body {
             <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
           </div>
           <div class="mb-4"></div>
-          <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
-          <button class="btn btn-primary btn-lg btn-block" type="reset">취소</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit" id="btnS">가입 완료</button>
+          <button class="btn btn-primary btn-lg btn-block" type="reset" id="btnF">취소</button>
         </form>
       </div>
     </div>
