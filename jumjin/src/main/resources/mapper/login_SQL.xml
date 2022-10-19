@@ -10,8 +10,8 @@
 	</select>
 	
 	<select id="myInfo" parameterType="HashMap" resultType="HashMap">
-		SELECT * FROM big_user 
-		WHERE b_id=#{id} AND b_pw=HEX(AES_ENCRYPT(#{passwd}, 'java'))
+		SELECT * FROM big_user
+		WHERE b_id=#{id }
 	</select>
 	
 	<select id="idCheck" parameterType="HashMap" resultType="Integer">

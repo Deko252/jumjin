@@ -104,6 +104,7 @@ body {
 }
 
 .input-form {
+  margin-top:50px;
   max-width: 1200px;
   padding: 32px;
   padding-top: 15px;
@@ -125,6 +126,23 @@ h2{
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
+#writeBtn {
+	position: relative;
+	left: 90%;
+	margin-top: 10px;
+}
+
+.btn-primary {
+	width: 80px;
+	height: 40px;
+	border: none;
+	background-color: #EB2524;
+		
+}
+.btn-primary:hover {
+	background-color: #1F1D1E;
+}
+
 </style>
 
 

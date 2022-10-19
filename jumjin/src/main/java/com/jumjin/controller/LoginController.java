@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.jumjin.common.CommandMap;
 import com.jumjin.service.LoginService;
@@ -83,4 +84,45 @@ public class LoginController {
 		return "redirect:/login.do?result=" + result;
 	}
 
+	@GetMapping("/info.do")
+	public ModelAndView info(CommandMap map, HttpSession session) {
+		ModelAndView mv = new ModelAndView("info");
+		//로그인 한 사용자만
+		if(session.getAttribute("id") != null) {
+			map.put("id", session.getAttribute("id"));
+			//mv에 붙여보내기
+			Map<String, Object> info = loginService.myInfo(map.getMap());
+			mv.addObject("info", info);
+			mv.setViewName("info");				
+		}
+		return mv;
+	}
+	@PostMapping("/info.do")
+	public ModelAndView info1(CommandMap map, HttpSession session) {
+		ModelAndView mv = new ModelAndView("redirect:/login.do");
+		//로그인 한 사용자만
+		if(session.getAttribute("id") != null && map.containsKey("pw")) {
+			map.put("id", session.getAttribute("id"));
+			//mv에 붙여보내기
+			Map<String, Object> info = loginService.myInfo(map.getMap());
+			mv.addObject("info", info);
+			mv.setViewName("info");				
+		}
+		return mv;
+	}
+	
+	@PostMapping("/password.do")
+	public String password(CommandMap map, HttpSession session) {
+		//세션검사
+		if(session.getAttribute("id") != null) {
+			//데이터 오는지 확인
+			if(map.get("pw") != null) {
+				//DB에 저장하기
+				System.out.println("오는 값 확인 : " + map.getMap());
+			}
+			//페이지 이동
+			
+		}
+		return "";
+	}
 }

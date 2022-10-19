@@ -27,4 +27,9 @@ public class LoginServiceImpl implements LoginService {
 	public int idCheck(Map<String, Object> map) {
 		return loginDAO.idCheck(map);
 	}
+
+	@Override
+	public Map<String, Object> myInfo(Map<String, Object> map) {
+		return loginDAO.myInfo(map);
+	}
 }

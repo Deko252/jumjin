@@ -20,4 +20,9 @@ public class LoginDAO extends AbstractDAO{
 		return (int) selectOne("login.idCheck", map);
 	}
 
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> myInfo(Map<String, Object> map) {
+		return (Map<String, Object>) selectOne("login.myInfo", map);
+	}
+
 }

@@ -10,4 +10,6 @@ public interface LoginService {
 
 	int idCheck(Map<String, Object> map);
 
+	Map<String, Object> myInfo(Map<String, Object> map);
+
 }

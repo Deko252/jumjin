@@ -28,10 +28,4 @@ public class IndexController {
 		return mv;
 	}
 	
-	@GetMapping(value = "/info.do")
-	public ModelAndView info(CommandMap map) throws Exception {
-		ModelAndView mv = new ModelAndView("info");
-		return mv;
-	}
-	
 }
