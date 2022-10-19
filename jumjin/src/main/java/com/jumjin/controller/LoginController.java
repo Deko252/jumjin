@@ -41,7 +41,8 @@ public class LoginController {
 			System.out.println("일치합니다");
 			//세션도 만들어주세요.
 			session.setAttribute("name", login.get("b_name"));
-			session.setAttribute("id", map.get("id"));
+			session.setAttribute("id", map.get("id"));				
+			session.setAttribute("grade", login.get("b_grade"));
 			
 			return "redirect:/index.do";
 		}

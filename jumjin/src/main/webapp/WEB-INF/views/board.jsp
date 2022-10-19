@@ -25,10 +25,10 @@ $(function(){
 	 
 	$("#writeBtn").click(function(){
 		var check = 0;
-		<c:if test="${sessionScope.id ne null}">check = 1;</c:if>
+		<c:if test="${sessionScope.grade == 1}">check = 1;</c:if>
 		if(check == 0){   
-			alert("글을 쓰려면 로그인 하셔야 합니다.");
-			location.href="./login.do";
+			alert("운영자만 작성할 수 있습니다.");
+			location.href="./board.do";
 		} else {
 			location.href="./write.do";//카테고리도 보내기
 		}
@@ -194,7 +194,10 @@ h2{
                     	</div>
 		    
                     	<!-- 글쓰기 -->
-              			<button id="writeBtn" class="btn btn-primary">글쓰기</button>
+                    	<c:if test="${sessionScope.grade == 1}">
+              				<button id="writeBtn" class="btn btn-primary">글쓰기</button>
+              			</c:if>
+
 	</div>
 </div>
 

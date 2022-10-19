@@ -5,7 +5,7 @@
 <mapper namespace="login">
 
 	<select id="login" parameterType="HashMap" resultType="HashMap">
-		SELECT count(*) as count, b_name FROM big_user 
+		SELECT count(*) as count, b_name, b_grade FROM big_user 
 		WHERE b_id=#{id } AND b_pw=HEX(AES_ENCRYPT(#{pw }, 'java'))
 	</select>
 	

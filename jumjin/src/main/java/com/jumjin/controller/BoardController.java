@@ -209,17 +209,17 @@ public class BoardController {
 
 	@GetMapping("/write.do")
 	public String write(HttpSession session) {
-		if (session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null && Integer.parseInt(String.valueOf(session.getAttribute("grade")))  == 1) {
 			return "write";
 		} else {
-			return "redirect:/login.do";
+			return "redirect:/board.do";
 		}
 	}
 
 	@PostMapping("/write.do")
 	public String write(CommandMap map, HttpSession session, MultipartFile file) throws IOException {
 
-		if (session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null && Integer.parseInt(String.valueOf(session.getAttribute("grade")))  == 1) {
 
 			if (map.get("title") != null && map.get("content") != null) {// �솗�씤�빐蹂닿린
 

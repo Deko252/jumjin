@@ -33,6 +33,14 @@ body {
   -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
+
+a.btn-secondary{
+	margin:16px ;
+	margin-top:0px; 
+	font-weight: 400;
+	background-color: #fd7e14;
+}
+
 </style>
     </head>
     <body id="page-top">
@@ -49,6 +57,7 @@ body {
 							</div>
 							<input type="file" name="file" accept=".png, .jpg, .gif, .jpeg, .bmp">
 							<button type="submit" class="btn btn-secondary mb-3">제출하기</button>
+							<a href="board2.do" role="button" class="btn btn-secondary">취소</a>
 						</form>
                     </div>
                 </div>
