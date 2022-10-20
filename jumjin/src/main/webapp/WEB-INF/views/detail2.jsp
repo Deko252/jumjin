@@ -46,24 +46,98 @@ $(function(){//축약형
 		alert("삭제를 눌렀습니다.");
 		var cno = $(this).parent(".post_contact").children().text();
 		location.href="./commentDel.do?cate=${param.cate}&bno=${detail.board_no }&cno="+cno;
-	});	
+	});
 	
+	if(sessionScope.id ne null){
+		$(".CommentWriter").show();
+	}else{
+		$(".CommentWriter").hide();
+	};
+		
 });
 </script>
 
 <style type="text/css">
+#sidebar-wrapper{
+	position: fixed;
+	top:0;
+}
 body {
   min-height: 100vh;
   background-color: #F4AE34;
+  overflow: hidden;
 }
 h2{
 	text-align: center;
-	margin-top: 50px;
 }
-#button_wrap{
+.input-form {
+	margin-top: 100px;
+	max-width: 900px;
+	padding: 40px;
+	background: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+}
+#detailContent{
+	margin: 0 auto;
+}
+#detailContentWriter{
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	height: 30px;
+	padding-top: 2px;
+	margin-top: 10px;
+	text-align: right;
+}
+#detailContentMain {
 	margin-top: 20px;
 }
-
+#commentWriteBtn{
+	margin-top: 10px;
+	padding-left: 78%;
+}
+.CommentWriter {
+    margin: 30px 0 29px;
+    padding: 16px 10px 35px 18px;
+    border: 2px solid #dddddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.CommentWriter textarea{
+	overflow-x: hidden;
+    overflow-y: auto;
+    display: block;
+    width: 100%;
+    min-height: 17px;
+    padding-right: 1px;
+    border: 0;
+    font-size: 13px;
+    -webkit-appearance: none;
+    resize: none;
+    box-sizing: border-box;
+    background: transparent;
+    color: var(--skinTextColor);
+    outline: 0;
+}
+.comment_attach button {
+	display: inline-block;
+    min-width: 46px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: top;
+    border: 0;
+    background-color: white;
+    color: #aaaaaa;
+	float: right;
+}
 
 </style>
 
@@ -73,27 +147,36 @@ h2{
 	<div class="container">
 	<!-- SideBar -->
 	<%@ include file="sideBar.jsp"%>
-	<div class="d-flex" id="wrapper">
+	<div class="input-form col-md-12 mx-auto">
 		<!-- Page content wrapper-->
 		<div id="page-content-wrapper">
-			<!-- Page content-->
-			<div class="container-fluid">
 				<!-- 본문내용은 여기에 -->
-				<div style="margin: 0 auto; margin:10px; width: 90%;">
-					<div style="font-size:large; border-bottom: 1px solid gray;">${detail.board_title }</div>
-					<div style="background-color: #c0c0c0; border-bottom: 1px solid gray;">${detail.b_name } ${detail.board_date }</div>
-					<div>
+				<div id="detailContent">
+					<div style="margin-left: 20px;"><h3>${detail.board_title }</h3></div>
+					<div id="detailContentWriter">${detail.b_name } / ${detail.board_date }</div>
+					<div id="detailContentMain">
 						${detail.board_content }
 					</div>
-					<div id="button_wrap">
-				<button class="btn btn-primary" id="updateBtn">수정</button>
-				<button class="btn btn-danger" id="delBtn">삭제</button>
-				<button class="btn btn-success" onclick="location.href='./board.do'">보드</button>
-			</div>
+					
+					<c:if test="${sessionScope.id ne null }">
+					<div class="CommentWriter">
+						<div clss="comment_inbox_name">${sessionScope.name }</div>
+						<textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
+						<div class="comment_attach">
+							<button type="submit" class="">등록</button>
+						</div>
+					</c:if>
+						
+					</div>
+					
+					<div id="commentWriteBtn">
+						<button class="btn btn-primary" id="updateBtn">수정</button>
+						<button class="btn btn-danger" id="delBtn">삭제</button>
+						<button class="btn btn-success" onclick="location.href='./board.do'">보드</button>
+					</div>
 				</div>					
 			</div>
 		</div>
-	</div>
 </div>
 	<!-- Footer -->
 	<%@ include file="footer.jsp"%>
