@@ -10,9 +10,11 @@ public interface BoardService {
 
 	Map<String, Object> detail(Map<String, Object> map);
 
+	Map<String, Object> detail2(Map<String, Object> map);
+	
 	void postDel(Map<String, Object> map);
 
-	int write(Map<String, Object> map);//異붿긽硫붿냼�뱶 : �씠 �씤�꽣�럹�씠�뒪瑜� �궡�젮諛쏅뒗 �겢�옒�뒪媛� �셿�꽦
+	int write(Map<String, Object> map);
 
 	int totalCount(Map<String, Object> map);
 
@@ -20,13 +22,17 @@ public interface BoardService {
 
 	int commentWrite(Map<String, Object> map);
 
+	int commentWrite2(Map<String, Object> map);
+
 	List<Map<String, Object>> commentsList(Map<String, Object> map);
 
+	List<Map<String, Object>> commentsList2(Map<String, Object> map);
+	
 	int commentDel(Map<String, Object> map);
 
-	Map<String, Object> detail2(Map<String, Object> map);
 	
 	int write2(Map<String, Object> map);
 
 	int totalCount2(Map<String, Object> map);
+
 }

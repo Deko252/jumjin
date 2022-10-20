@@ -3,9 +3,6 @@
 <html lang="ko">
 <head>
 <%@ include file="head.jsp"%>
-<script type="text/javascript">
-
-</script>
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
 <script type="text/javascript">
 $(function(){//축약형
@@ -14,13 +11,13 @@ $(function(){//축약형
 		//alert("삭제버튼을 눌렀습니다");
 		if(confirm("삭제하시겠습니까?")){
 			alert("삭제합니다");
-			location.href="./postDel.do?bno=${detail.board_no }";
+			location.href="./postDel.do?bno=${detail2.board_no }";
 		}
 	});
 	$("#updateBtn").click(function(){
 		if(confirm("수정하시겠습니까?")){
 			alert("수정합니다");
-			location.href="./update.do?bno=${detail.board_no}";	
+			location.href="./update.do?bno=${detail2.board_no}";	
 		}
 	});
 	
@@ -32,8 +29,8 @@ $(function(){//축약형
 		$("#commentWriteForm").hide();//댓글창 사라지기
 		//alert(comment);
 		var form = "<div id='commentWriteForm'>"; 
-		form += "<form action='./commentWrite.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
-		form += "<input type='hidden' name='bno' value=${detail.board_no }>";
+		form += "<form action='./commentWrite2.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
+		form += "<input type='hidden' name='bno' value=${detail2.board_no }>";
 		form += "<input type='hidden' name='cno' value="+cno+">";
 		form += "<button type='submit' class='btn btn-primary'>수정하기</button>"; 
 		form += "</form>";
@@ -45,14 +42,14 @@ $(function(){//축약형
 	$(".delete").click(function(){
 		alert("삭제를 눌렀습니다.");
 		var cno = $(this).parent(".post_contact").children().text();
-		location.href="./commentDel.do?cate=${param.cate}&bno=${detail.board_no }&cno="+cno;
+		location.href="./commentDel.do?cate=${param.cate}&bno=${detail2.board_no }&cno="+cno;
 	});
 	
-	if(sessionScope.id ne null){
+	/* if(sessionScope.id ne null){
 		$(".CommentWriter").show();
 	}else{
 		$(".CommentWriter").hide();
-	};
+	}; */
 		
 });
 </script>
@@ -139,6 +136,47 @@ h2{
 	float: right;
 }
 
+/* .....못생긴거 */
+
+.comment_row{
+   margin: 30px 0px;
+   padding: 5px;
+   width: 100%;
+   min-height:80px;
+   height:auto;
+   background-color: #E6E6E6;
+}
+.comment_info{
+   width:100%;
+   height:30px;
+   line-height:30px;
+   color:white;
+   background-color: #B5B5B5;
+}
+.post_contact{
+   float: left;
+   width: 300px;
+   padding-left: 10px;
+   font-size: 16px;   
+}
+.comment_button{
+   float: right;
+   width: 400px;
+   text-align: right;
+   padding-right: 10px;   
+   font-size: 16px; 
+}
+.comment_content{
+   height:20px;
+   width: 100%;
+   padding-left: 15px;
+   padding-top: 10px;
+}
+.post_contact > span{
+	display: none;
+}
+
+
 </style>
 
 
@@ -152,21 +190,52 @@ h2{
 		<div id="page-content-wrapper">
 				<!-- 본문내용은 여기에 -->
 				<div id="detailContent">
-					<div style="margin-left: 20px;"><h3>${detail.board_title }</h3></div>
-					<div id="detailContentWriter">${detail.b_name } / ${detail.board_date }</div>
+					<div style="margin-left: 20px;"><h3>${detail2.board_title }</h3></div>
+					<div id="detailContentWriter">${detail2.b_name } / ${detail2.board_date }</div>
 					<div id="detailContentMain">
-						${detail.board_content }
+						${detail2.board_content }
 					</div>
 					
-					<c:if test="${sessionScope.id ne null }">
+				<%-- 	<c:if test="${sessionScope.id ne null }">
 					<div class="CommentWriter">
-						<div clss="comment_inbox_name">${sessionScope.name }</div>
+ 	                 <form action="./commentWrite.do" method="post" >
+						<div class="comment_inbox_name">${sessionScope.name }</div>
 						<textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
 						<div class="comment_attach">
-							<button type="submit" class="">등록</button>
+							<button type="submit" class="btn btn-primary">등록</button>
 						</div>
-					</c:if>
-						
+						 <input type="hidden" name="bno" value="${detail.board_no }">
+						</form>
+						</div>
+					</c:if> --%>
+					
+
+					  <div id="comments">      
+               <div id="commentWriteForm">
+                  <form action="./commentWrite2.do" method="post" id="myform">
+                  <button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
+                     <input type="hidden" name="bno" value="${detail2.board_no }">
+                     <textarea name="comment"></textarea>
+                  </form>
+               </div>
+               
+               <!-- 댓글 리스트를 출력 -->
+                  <c:forEach items="${commentsList2 }" var="co">
+                  <div class="comment_row">
+                     <div class="comment_info">
+                        <div class="post_contact">
+                           <span id="cno">${co.c_no }</span>
+                           ${co.b_id }&nbsp;/&nbsp;${co.b_name }
+                           <c:if test="${sessionScope.id eq co.b_id }">
+                           <a class="edit" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-pen"></i></a>
+                           <a class="delete" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-trash"></i></a>
+                           </c:if>
+                        </div>
+                     </div>
+                     <div class="comment_content">${co.c_comment }</div>
+                  </div>               
+                  </c:forEach>                  
+	
 					</div>
 					
 					<div id="commentWriteBtn">

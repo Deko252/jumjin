@@ -45,9 +45,18 @@ public class BoardDAO extends AbstractDAO {
 		return (int) insert("board.commentWrite", map);
 	}
 
+	public int commentWrite2(Map<String, Object> map) {
+		return (int) insert("board.commentWrite2", map);
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> commentsList(Map<String, Object> map) {
 		return selectList("board.commentsList", map);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> commentsList2(Map<String, Object> map) {
+		return selectList("board.commentsList2", map);
 	}
 
 	public int commentDel(Map<String, Object> map) {
@@ -63,6 +72,7 @@ public class BoardDAO extends AbstractDAO {
 		return selectList("board.board2List", map);
 	}
 	
+	
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> detail2(Map<String, Object> map) {
 		return (Map<String, Object>) selectOne("board.detail2", map);
@@ -76,5 +86,6 @@ public class BoardDAO extends AbstractDAO {
 	public int totalCount2(Map<String, Object> map) {
 		return (int) selectOne("board.totalCount2", map);
 	}
+
 	
 }

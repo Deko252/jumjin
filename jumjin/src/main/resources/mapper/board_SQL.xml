@@ -68,13 +68,25 @@
 	</update>
 	
 	<insert id="commentWrite" parameterType="HashMap">
-		INSERT INTO comment (c_comment, board_no, b_no, c_star)
-		VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{star })
-	</insert>
+      INSERT INTO comment (c_comment, board_no, b_no, c_star)
+      VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{star })
+   </insert>
+	
+	<insert id="commentWrite2" parameterType="HashMap">
+      INSERT INTO comment2 (c_comment, board_no, b_no)
+      VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }))
+   </insert>
+	
 	
 	<select id="commentsList" parameterType="HashMap" resultType="HashMap">
 		SELECT c.*, u.b_id, u.b_name
 		FROM comment c JOIN big_user u ON c.b_no=u.b_no
+		WHERE c.board_no=#{bno }
+	</select>
+	
+	<select id="commentsList2" parameterType="HashMap" resultType="HashMap">
+		SELECT c.*, u.b_id, u.b_name
+		FROM comment2 c JOIN big_user u ON c.b_no=u.b_no
 		WHERE c.board_no=#{bno }
 	</select>
 	

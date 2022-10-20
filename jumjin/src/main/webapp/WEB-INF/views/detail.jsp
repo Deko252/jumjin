@@ -5,6 +5,7 @@
 <head>
 <%@ include file="head.jsp"%>
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
+
 <script type="text/javascript">
 $(function(){//축약형
    //alert("!");
