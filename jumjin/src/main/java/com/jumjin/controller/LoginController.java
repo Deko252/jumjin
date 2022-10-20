@@ -117,13 +117,14 @@ public class LoginController {
 		//세션검사
 		if(session.getAttribute("id") != null) {
 			//데이터 오는지 확인
-			if(map.get("pw") != null) {
+			if(map.get("npw") != null) {
 				//DB에 저장하기
+				map.put("id", session.getAttribute("id"));
 				System.out.println("오는 값 확인 : " + map.getMap());
+				loginService.password(map.getMap());
 			}
 			//페이지 이동
-			
 		}
-		return "";
+		return "redirect:/logout.do";
 	}
 }

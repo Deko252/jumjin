@@ -32,4 +32,10 @@ public class LoginServiceImpl implements LoginService {
 	public Map<String, Object> myInfo(Map<String, Object> map) {
 		return loginDAO.myInfo(map);
 	}
+
+	@Override
+	public void password(Map<String, Object> map) {
+		loginDAO.password(map);
+	}
+
 }

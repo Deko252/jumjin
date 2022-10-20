@@ -12,4 +12,6 @@ public interface LoginService {
 
 	Map<String, Object> myInfo(Map<String, Object> map);
 
+	void password(Map<String, Object> map);
+	
 }

@@ -23,7 +23,46 @@ $(function(){
 		if(check == 0){
 			alert("로그인 하세요.");
 			location.href="./login.do";
-		} 
+		}
+		const target = document.getElementById('btn');
+		  target.disabled = true;		
+		$("#pass").on("change", function(){
+			var pw = $("#pass").val();
+			if (pw.length >= 6) {
+				const target = document.getElementById('btn');
+				  target.disabled = false;	
+			}else if(pw.length < 6){
+				const target = document.getElementById('btn');
+				  target.disabled = true;	
+			}
+		});
+		$("#pass").on("click", function(){
+			var pw = $("#pass").val();
+			if (pw.length >= 6) {
+				const target = document.getElementById('btn');
+				  target.disabled = false;	
+			}else if(pw.length < 6){
+				const target = document.getElementById('btn');
+				  target.disabled = true;	
+			}
+		});
+		$("#btn").click(function(){	
+			if(confirm("비밀번호를 변경하시겠습니까?")){
+			  var form = document.createElement("form");
+		         form.setAttribute("charset", "UTF-8");
+		         form.setAttribute("method", "post");  //Post 방식
+		         form.setAttribute("action", "./password.do"); //요청 보낼 주소
+		         var pass = document.createElement("input");
+		         pass.setAttribute("type", "password");
+		         pass.setAttribute("name", "npw");
+		         pass.setAttribute("value", $("#pass").val());
+		         form.appendChild(pass);
+		          
+		         document.body.appendChild(form);
+		         form.submit();
+		         alert("변경 되었습니다. 다시 로그인 해주세요.");			         		         
+			}
+	});
 });
 </script>  
 
@@ -143,10 +182,8 @@ table {
         <tr>
             <td style="font-weight: bold; font-size: 20px;">비밀번호</td>
             <td>
-               <form action="./password.do" method="post">
-               <input type="password" name="npw" maxlength="20" placeholder="변경할 비밀번호를 입력하세요.">
+               <input type="password" name="npw" maxlength="20" id="pass" placeholder="변경할 비밀번호를 입력하세요." required>
                <button type="submit" id="btn" class="btn btn-primary"><i class="bi bi-star-half"></i>변경하기<i class="bi bi-star-half"></i></button>
-               </form>
             </td>
         </tr>
         <tr>
@@ -167,4 +204,4 @@ table {
    <!-- Core theme JS-->
    <script src="./resources/assets/js/scripts.js"></script>            
 </body>
-</html>\
+</html>

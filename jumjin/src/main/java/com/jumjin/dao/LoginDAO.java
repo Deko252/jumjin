@@ -25,4 +25,9 @@ public class LoginDAO extends AbstractDAO{
 		return (Map<String, Object>) selectOne("login.myInfo", map);
 	}
 
+	public void password(Map<String, Object> map) {
+		update("login.password", map);
+	}
+
+
 }
