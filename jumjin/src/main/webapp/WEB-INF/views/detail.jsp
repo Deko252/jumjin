@@ -5,7 +5,6 @@
 <head>
 <%@ include file="head.jsp"%>
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
-
 <script type="text/javascript">
 $(function(){//축약형
    //alert("!");
@@ -283,29 +282,31 @@ h3 {
       
       <h2>음식점 소개</h2>
       <div id="head_info">
-         <div id="foodPic_main"><img alt="restaurantPic" src="./resources/img/gugong.jpg"></div>
+         <div id="foodPic_main"><img alt="restaurantPic" src="./resources/assets/img/${detail.board_main }"></div>
             <div id="text_wrap">
                <div><h3>${detail.board_title }</h3></div>
-               <div><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp; 경기도 부천시 중동로262번길 102</div>
-               <div><i class="fa-solid fa-phone"></i>&nbsp;&nbsp; 032-323-4007 </div>
-               <div><i class="fa-regular fa-clock"></i>&nbsp;&nbsp; 매일 11:00 ~ 22:00</div>      
+               <div><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp; ${detail.board_add }</div>
+               <div><i class="fa-solid fa-phone"></i>&nbsp;&nbsp; ${detail.board_tel }</div>
+               <div><i class="fa-regular fa-clock"></i>&nbsp;&nbsp; ${detail.board_time }</div>      
                <div id="avgStar"><c:forEach begin="1" end="${detail.avg_star }">⭐</c:forEach></div>
             </div>   
       </div>
       <div id="foodPic_menu">
          <h3>대표메뉴</h3>
          <div id="food_wrap">
-            <div><img alt="음식사진1" src="./resources/img/food1.jpg"> 
-               <div class="food_info">떡갈비구이</div>
+            <div><img alt="음식사진1" src="./resources/assets/img/${detail.board_pic1 }"> 
+               <div class="food_info">${detail.name_pic1 }</div>
             </div>
-            <div><img alt="음식사진2" src="./resources/img/food2.jpg">
-            <div class="food_info">낙지볶음</div>
+            <div><img alt="음식사진2" src="./resources/assets/img/${detail.board_pic2 }">
+            <div class="food_info">${detail.name_pic2 }</div>
             </div>
-            <div><img alt="음식사진3" src="./resources/img/food3.jpg">
-            <div class="food_info">황태구이</div>
+            <div><img alt="음식사진3" src="./resources/assets/img/${detail.board_pic3 }">
+            <div class="food_info">${detail.name_pic3 }</div>
             </div>
          </div>   
       </div>
+      
+ 
       
          <div id="comments">      
                <div id="commentWriteForm">

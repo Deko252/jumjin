@@ -135,6 +135,9 @@ public class BoardController {
 			
 				int result = boardService.update(map.getMap());
 
+		
+
+				
 				return "redirect:/board.do?cate=" + map.get("cate") + "&bno=" + map.get("board_no") + "&result="
 						+ result;
 			} else {
@@ -150,6 +153,7 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 	
 		Map<String, Object> detail = boardService.detail(commandMap.getMap());
+		System.out.println("-------------" + detail);
 		mv.addObject("detail", detail);
 	
 		System.out.println("commentCount : " + detail.get("commentCount"));
@@ -164,17 +168,16 @@ public class BoardController {
 	
 	@GetMapping("/detail2.do")
 	public ModelAndView detail2(CommandMap commandMap) {
-		ModelAndView mv = new ModelAndView("detail2");
+		ModelAndView mv = new ModelAndView();
 	
 		Map<String, Object> detail2 = boardService.detail2(commandMap.getMap());
-		mv.addObject("detail2", detail2);
-		System.out.println(detail2);
+		mv.addObject("detail", detail2);
 	
 		System.out.println("commentCount : " + detail2.get("commentCount"));
 		if (Integer.parseInt(String.valueOf(detail2.get("commentCount"))) > 0) {
 
-			List<Map<String, Object>> comments = boardService.commentsList2(commandMap.getMap());
-			mv.addObject("commentsList2", comments);
+			List<Map<String, Object>> comments = boardService.commentsList(commandMap.getMap());
+			mv.addObject("commentsList", comments);
 		}
 
 		return mv;
@@ -198,7 +201,7 @@ public class BoardController {
 			boardService.postDel(map.getMap());
 		
 
-			return "redirect:/board2.do";
+			return "redirect:/board.do?cate=" + map.get("cate");
 		} else {
 			return "redirect:/login.do";
 		}
@@ -219,11 +222,12 @@ public class BoardController {
 
 		if (session.getAttribute("id") != null && Integer.parseInt(String.valueOf(session.getAttribute("grade")))  == 1) {
 
-			if (map.get("title") != null && map.get("content") != null) {
+			if (map.get("title") != null && map.get("content") != null) {// �솗�씤�빐蹂닿린
 
 				map.put("id", session.getAttribute("id"));
 
 				String realPath = servletContext.getRealPath("resources/upload");
+
 				String fileName = Util.save(realPath, file);
 
 				map.put("file", fileName);
@@ -282,23 +286,11 @@ public class BoardController {
 		String url = "redirect:/login.do";
 
 		if (session.getAttribute("id") != null) {
+
 			map.put("id", session.getAttribute("id"));
 			int result = boardService.commentWrite(map.getMap());
 
 			url = "redirect:/detail.do?bno=" + map.get("bno") + "&result=" + result;
-		}
-		return url;
-	}
-	
-	@PostMapping("/commentWrite2.do")
-	public String commentWrite2(CommandMap map, HttpSession session) {
-		String url = "redirect:/login.do";
-
-		if (session.getAttribute("id") != null) {
-			map.put("id", session.getAttribute("id"));
-			int result = boardService.commentWrite2(map.getMap());
-						
-			url = "redirect:/detail2.do?bno=" + map.get("bno") + "&result=" + result;
 		}
 		return url;
 	}
