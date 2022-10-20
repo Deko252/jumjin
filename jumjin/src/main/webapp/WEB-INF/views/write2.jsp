@@ -12,9 +12,9 @@
 	top:0;
 }
 body {
-  min-height: 100vh;
-  background-color: #F4AE34;
-  overflow: hidden;
+	min-height: 100vh;
+	background-color: #F4AE34;
+	overflow: hidden;
 }
 .blind {
 	position: absolute;
@@ -26,19 +26,19 @@ body {
 	border: none;
 	clip: rect(0, 0, 0, 0);
 }
-
+.container {
+}
 .input-form {
 	margin-top: 80px;
-  max-width: 1200px;
-  padding: 15px 32px 5px;
-  z-index:-99;
-  background: #fff;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	width: 1200px;
+	padding: 15px 32px 5px;
+	background: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
 a.btn-secondary{
 	margin:16px ;

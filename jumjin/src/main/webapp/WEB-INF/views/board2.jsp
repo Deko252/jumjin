@@ -173,6 +173,10 @@ tbody > tr:nth-of-type(2n+1):hover > * {
 	--bs-table-accent-bg: var(--bs-table-hover-bg);
   	color: var(--bs-table-hover-color);
 }
+#top > th:first-child { width: 10%;}
+#top > th:first-child + th { width: 50%;}
+#top > th:first-child + th + th{ width: 20%;}
+#top > th:first-child + th + th + th{ width: 20%;}
 </style>
 
 </head>
@@ -197,7 +201,6 @@ tbody > tr:nth-of-type(2n+1):hover > * {
 	            	<tr id="top">
 	              		<th scope="col">번호</th>
 	              		<th scope="col">제목</th>
-	              		<th scope="col">별점</th>
 	              		<th scope="col">글쓴이</th>
 	              		<th scope="col">날짜</th>
 	            	</tr>
@@ -206,8 +209,7 @@ tbody > tr:nth-of-type(2n+1):hover > * {
           		<c:forEach items="${list  }" var="s">
             		<tr>
               			<td>${s.board_no }</td>
-              			<td><a href="./detail.do?bno=${s.board_no }">${s.board_title }</a></td>
-              			<td><c:forEach begin="1" end="${s.board_star }">⭐</c:forEach></td>
+              			<td><a href="./detail2.do?bno=${s.board_no }">${s.board_title }</a></td>
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
             		</tr>

@@ -27,15 +27,15 @@ span {
 }
 .option {
 	height: 30px;
-	font-size:14px;
+	font-size:15px;
 }
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap { width:100%;height:500px;}
-#menu_wrap {position:absolute; top:0;left:0;bottom:0;width:300px;height: 90%; margin:10px 0px 50px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.8);z-index: 1;font-size:12px;}
+#menu_wrap {position:absolute; top:0;left:0;bottom:0;width:340px;height: 90%; margin:10px 0px 50px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.8);z-index: 1;font-size:12px;}
 .bg_white {background:#fff;}
 #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
-#menu_wrap .option{text-align: center;}
+#menu_wrap .option{text-align: center; height: 40px; padding-top: 8px;}
 #menu_wrap .option p {margin:10px 0;}  
 #menu_wrap .option button {margin-left:5px;}
 #placesList li {list-style: none;}
@@ -77,7 +77,7 @@ span {
 .custom_zoomcontrol span {display:block;width:35px;height:40px;text-align:center;cursor:pointer;}     
 .custom_zoomcontrol span img {width:15px;height:15px;padding:0px; margin-top: 12px; border:none;}             
 .custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}
-
+#keyword {width:150px;}
 footer {
 	z-index: 1;
 }
