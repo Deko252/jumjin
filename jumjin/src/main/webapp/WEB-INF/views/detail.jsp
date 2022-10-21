@@ -47,6 +47,12 @@ $(function(){//축약형
       location.href="./commentDel.do?bno=${detail.board_no }&cno="+cno;
    });
    
+   if(${sessionScope.id ne null }){
+		$("#myform2").show();
+	}else{
+		$("#myform2").hide();
+	};
+   
 });
 </script>
 
@@ -72,7 +78,7 @@ body{
 	min-width: 1200px;
 	padding: 70px;
 	padding-top: 15px;
-	padding-bottom: 10px;
+	padding-bottom: 50px;
 	background: white;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -147,13 +153,12 @@ h3 {
 }
 
 #comments{
-   margin:50px 0;
+   margin: 80px 0;
    width: 100%;
    
 }
 #commentWriteForm{
-   width: 100%;
-   height: 100px;    
+   width: 100%;  
    
 }
 #star_place{
@@ -163,18 +168,55 @@ h3 {
    margin-top: 100px;
 }
 
-#commentWriteForm textarea {
+/* #commentWriteForm textarea {
    margin:0px;
    width: calc(70% - 100px);
    height: 70px;
    left: -5px;
 
-}
-#commentWriteForm button {
+} */
+/* #commentWriteForm button {
    width: 100px;
    height: 100px;
-   float: right;
-   
+   float: right;  
+} */
+.CommentWriter {
+    margin: 5px 0 29px;
+    padding: 16px 10px 35px 18px;
+    border: 2px solid #dddddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.CommentWriter textarea{
+	overflow-x: hidden;
+    overflow-y: auto;
+    display: block;
+    width: 100%;
+    min-height: 17px;
+    padding-right: 1px;
+    border: 0;
+    font-size: 13px;
+    -webkit-appearance: none;
+    resize: none;
+    box-sizing: border-box;
+    background: transparent;
+    color: var(--skinTextColor);
+    outline: 0;
+}
+.comment_attach button {
+	display: inline-block;
+    min-width: 46px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: top;
+    border: 0;
+    background-color: white;
+    color: #aaaaaa;
+	float: right;
 }
 .comment_row{
    margin: 30px 0px;
@@ -248,24 +290,27 @@ h3 {
 	margin-top: 10px;
 }
 #write_btn {
-	background-color: #EB2524;
-	border:#EB2524;
-	width: 100px;
-	height: 100px;
-	font-weight: bold;
+	height: 32px;
+	font-size: 15px;
 }
 #write_btn:hover {
 	background-color: #1F1D1E;
 }
-#commentWriteForm textarea {
-	width: 90%;
-}
 #commentWriteBtn{
-	margin-top: 10px;
-	padding-left: 80%;
+	float: right;
 }
 .btn-danger, .btn-success {
 	margin-left: 5px;
+}
+#write_btn {
+	height: 32px;
+	font-size: 15px;
+}
+#write_btn:hover {
+	background-color: #dddddd;
+}
+#myform2 > textarea {
+	font-size: 14px;
 }
 .footer{
 	position: relative;
@@ -310,44 +355,51 @@ h3 {
          </div>   
       </div>
       
-         <div id="comments">      
-               <div id="commentWriteForm">
-                  <form action="./commentWrite.do" method="post" id="myform"  onsubmit="submit();">
-                  <button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
-                     <input type="hidden" name="bno" value="${detail.board_no }">
-                     <div id="star_place">
-                      <fieldset>
-                                 <input type="radio" name="star" value="5" id="rate1"><label for="rate1">⭐</label><!-- name sql java / id js css jq -->
-                                 <input type="radio" name="star" value="4" id="rate2"><label for="rate2">⭐</label>
-                               	<input type="radio" name="star" value="3" id="rate3"><label for="rate3">⭐</label>
-                                <input type="radio" name="star" value="2" id="rate4"><label for="rate4">⭐</label>
-                                <input type="radio" name="star" value="1" id="rate5" checked="checked"><label for="rate5">⭐</label>          
-                         </fieldset>
-                         </div>
-                     <textarea name="comment"></textarea>
-                  </form>
-               </div>
-                  <c:forEach items="${commentsList }" var="co">
-                  <div class="comment_row">
-                     <div class="comment_info">
-                        <div class="post_contact">
-                           <span id="cno">${co.c_no }</span>
-                           ${co.b_id }&nbsp;/&nbsp;${co.b_name }
-                           <c:if test="${sessionScope.id eq co.b_id }">
-                           <a class="edit" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-pen"></i></a>
-                           <a class="delete" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-trash"></i></a>
-                           </c:if>
+		<div id="comments">
+        	<form action="./commentWrite.do" method="post" onsubmit="submit();"	id="myform2">
+			<div id="myform">
+	            <div id="star_place">
+	            	<fieldset>
+						<input type="radio" name="star" value="5" id="rate1"><label for="rate1">⭐</label><!-- name sql java / id js css jq -->
+						<input type="radio" name="star" value="4" id="rate2"><label for="rate2">⭐</label>
+						<input type="radio" name="star" value="3" id="rate3"><label for="rate3">⭐</label>
+						<input type="radio" name="star" value="2" id="rate4"><label for="rate4">⭐</label>
+						<input type="radio" name="star" value="1" id="rate5" checked="checked"><label for="rate5">⭐</label>          
+	            	</fieldset>
+	            </div>
+			</div> 
+        <div id="commentWriteForm" class="CommentWriter">
+	            <div class="comment_inbox_name">${sessionScope.name }</div>
+	            <textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
+	            <div class="comment_attach">
+		            <button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
+	            </div>
+	            <input type="hidden" name="bno" value="${detail.board_no }">
+       	</div>
+            </form>
+        	<c:forEach items="${commentsList }" var="co">
+            	<div class="comment_row">
+                	<div class="comment_info">
+                    	<div class="post_contact">
+                        	<span id="cno">${co.c_no }</span>
+                           	${co.b_id }&nbsp;/&nbsp;${co.b_name }
+                           	<c:if test="${sessionScope.id eq co.b_id }">
+                           	<a class="edit" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-pen"></i></a>
+                          	<a class="delete" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-trash"></i></a>
+                       		</c:if>
                         </div>
-                        <div class="comment_button">
-                        <c:forEach begin="1" end="${co.c_star }">⭐</c:forEach> &nbsp;/&nbsp; ${co.c_date }
-                        </div>
-                     </div>
-                     <div class="comment_content">${co.c_comment }</div>
-                  </div>               
-                  </c:forEach>                  
+	                    <div class="comment_button">
+	                        <c:forEach begin="1" end="${co.c_star }">⭐</c:forEach> &nbsp;/&nbsp; ${co.c_date }
+	                    </div>
+                 	</div>
+                     	<div class="comment_content">${co.c_comment }</div>
+                 </div>               
+            </c:forEach> 
+                                   
          <div id="commentWriteBtn">
             <button class="btn btn-success" onclick="location.href='./board.do'">돌아가기</button>
          </div>
+         
       </div>
       </div>
    </div>
