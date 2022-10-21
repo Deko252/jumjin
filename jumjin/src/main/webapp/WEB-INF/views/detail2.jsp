@@ -46,11 +46,11 @@ $(function(){//축약형
 		location.href="./commentDel2.do?bno=${detail2.board_no }&cno="+cno;
 	});
 	
-	/* if(sessionScope.id ne null){
+	if(${sessionScope.id ne null }){
 		$(".CommentWriter").show();
 	}else{
 		$(".CommentWriter").hide();
-	}; */
+	};
 		
 });
 </script>
@@ -72,6 +72,7 @@ h2{
 	margin-top: 100px;
 	max-width: 900px;
 	padding: 40px;
+	padding-bottom: 60px;
 	background: #fff;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -95,8 +96,7 @@ h2{
 	margin-top: 20px;
 }
 #commentWriteBtn{
-	margin-top: 10px;
-	padding-left: 78%;
+	float: right;
 }
 .CommentWriter {
     margin: 30px 0 29px;
@@ -176,7 +176,16 @@ h2{
 .post_contact > span{
 	display: none;
 }
-
+#write_btn {
+	height: 32px;
+	font-size: 15px;
+}
+#write_btn:hover {
+	background-color: #dddddd;
+}
+#myform > textarea {
+	font-size: 14px;
+}
 
 </style>
 
@@ -193,9 +202,7 @@ h2{
 				<div id="detailContent">
 					<div style="margin-left: 20px;"><h3>${detail2.board_title }</h3></div>
 					<div id="detailContentWriter">${detail2.b_name } / ${detail2.board_date }</div>
-					<div id="detailContentMain">
-						${detail2.board_content }
-					</div>
+					<div id="detailContentMain">${detail2.board_content }</div>
 					
 				<%-- 	<c:if test="${sessionScope.id ne null }">
 					<div class="CommentWriter">
@@ -210,15 +217,17 @@ h2{
 						</div>
 					</c:if> --%>
 					
-
-					  <div id="comments">      
-               <div id="commentWriteForm">
-                  <form action="./commentWrite2.do" method="post" id="myform">
-                  <button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
-                     <input type="hidden" name="bno" value="${detail2.board_no }">
-                     <textarea name="comment"></textarea>
-                  </form>
-               </div>
+                <div id="comments">      
+                <div id="commentWriteForm" class="CommentWriter">
+                	<form action="./commentWrite2.do" method="post" id="myform">
+                    	<div class="comment_inbox_name">${sessionScope.name }</div>
+                     	<textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
+                    	<div class="comment_attach">
+                    		<button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
+                    	</div>
+                     	<input type="hidden" name="bno" value="${detail2.board_no }">
+                  	</form>
+               	</div>
                
                <!-- 댓글 리스트를 출력 -->
                   <c:forEach items="${commentsList2 }" var="co">

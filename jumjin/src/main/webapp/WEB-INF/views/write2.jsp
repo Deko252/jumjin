@@ -44,7 +44,7 @@ body {
 .container {
 }
 .input-form {
-	margin-top: 80px;
+	margin-top: 50px;
 	width: 1200px;
 	padding: 15px 32px 5px;
 	background: #fff;
@@ -60,6 +60,7 @@ a.btn-secondary{
 	margin-top:0px; 
 	font-weight: 400;
 	background-color: #fd7e14;
+	border: 1px solid #fd7e14;
 }
 #writeBtn {
 	position: relative;
@@ -69,7 +70,9 @@ a.btn-secondary{
 #findFile {
 	margin-top: 10px;
 }
-
+.mt-4{
+	margin-top: 1rem !important;
+}
 
 </style>
     </head>
