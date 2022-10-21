@@ -4,9 +4,12 @@
     <head>
         <%@ include file="head.jsp" %>
         <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link href="./resources/css/map_styles.css" rel="stylesheet" />
+<link href="./resources/assets/css/board.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 	<!-- include summernote css/js -->
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -67,13 +70,16 @@ a.btn-secondary{
 	margin-top: 10px;
 }
 
+
 </style>
     </head>
+      
     <body id="page-top">
                 <!-- Page content-->
                 <div class="container">
 				<!-- SideBar -->
-				<%@ include file="sideBar.jsp"%>
+      <%@ include file="sideBar.jsp" %>
+				 
                     <!-- 본문내용은 여기에 -->
                     <div class="input-form col-md-12 mx-auto">
                     	<form action="./write2.do" method="post" enctype="multipart/form-data">
@@ -89,6 +95,7 @@ a.btn-secondary{
 						</form>
                     </div>
                 </div>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afab85b277584170c156a224f1486e30&libraries=services"></script>
         <!-- Footer -->
 	<%@ include file="footer.jsp"%>
 	<!-- Scroll to Top Button-->
@@ -98,6 +105,7 @@ a.btn-secondary{
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		
 
 	<!-- Core theme JS-->
 	<script src="./resources/assets/js/scripts.js"></script>
