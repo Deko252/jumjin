@@ -15,8 +15,8 @@ public class AdminDAO extends AbstractDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> userList() {
-		return selectList("admin.userList");
+	public List<Map<String, Object>> userList(Map<String, Object> map) {
+		return selectList("admin.userList", map);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -34,5 +34,9 @@ public class AdminDAO extends AbstractDAO {
 
 	public int userGradeAJAX(Map<String, Object> map) {
 		return (int) update("admin.userGradeAJAX", map);
+	}
+
+	public int userCount(Map<String, Object> map) {
+		return (int) selectOne("admin.userCount", map);
 	}
 }

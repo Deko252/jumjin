@@ -74,8 +74,34 @@ public class AdminController {
 	public ModelAndView userList(CommandMap map) {
 		ModelAndView mv = new ModelAndView("admin/admin_user");
 		// 데이터
-		List<Map<String, Object>> userList = adminService.userList();
+		
+		int pageNo = 1;
+		if (map.containsKey("pageNo")) {
+			pageNo = Util.strToInt((String) map.get("pageNo"));
+		}
+
+		// totalCount
+		int totalCount = adminService.userCount(map.getMap());
+
+		PaginationInfo paginationInfo = new PaginationInfo();
+		paginationInfo.setCurrentPageNo(pageNo);
+		paginationInfo.setRecordCountPerPage(10);
+		paginationInfo.setPageSize(10);
+		paginationInfo.setTotalRecordCount(totalCount);
+
+		int startPage = paginationInfo.getFirstRecordIndex();// 0
+		int lastPage = paginationInfo.getRecordCountPerPage();// 10
+		System.out.println(startPage);
+		System.out.println(lastPage);
+
+		map.put("startPage", startPage);
+		map.put("lastPage", lastPage);
+		
+		List<Map<String, Object>> userList = adminService.userList(map.getMap());
 		mv.addObject("userList", userList);
+		mv.addObject("pageNo", pageNo);
+		mv.addObject("paginationInfo", paginationInfo);
+		
 		return mv; 
 	}
 	//2020-09-30 poseidon 상세보기 새로운 창으로 열리게 하기

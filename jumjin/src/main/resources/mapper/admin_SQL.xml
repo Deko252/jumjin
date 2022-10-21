@@ -17,8 +17,17 @@
 		LIMIT #{startPage }, #{lastPage }
 	</select>
 	
+	<select id="userList" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM big_user
+		LIMIT #{startPage }, #{lastPage }
+	</select>
+	
 	<select id="totalCount" parameterType="HashMap" resultType="integer">
 		SELECT COUNT(*) FROM board2view
+	</select>
+	
+	<select id="userCount" parameterType="HashMap" resultType="integer">
+		SELECT COUNT(*) FROM big_user
 	</select>
 	
 	<select id="detail" parameterType="HashMap" resultType="HashMap">
@@ -35,9 +44,6 @@
 		WHERE board_no=#{bno }
 	</update>
 	
-	<select id="userList" parameterType="HashMap" resultType="HashMap">
-		SELECT * FROM big_user
-	</select>
 	
 	<update id="userGradeAJAX" parameterType="HashMap">
 		UPDATE big_user SET b_grade=#{grade } WHERE b_no=#{bno }

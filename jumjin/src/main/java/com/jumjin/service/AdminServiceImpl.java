@@ -20,8 +20,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<Map<String, Object>> userList() {
-		return adminDAO.userList();
+	public List<Map<String, Object>> userList(Map<String, Object> map) {
+		return adminDAO.userList(map);
 	}
 	
 	@Override
@@ -42,6 +42,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int userGradeAJAX(Map<String, Object> map) {
 		return adminDAO.userGradeAJAX(map);
+	}
+
+	@Override
+	public int userCount(Map<String, Object> map) {
+		return adminDAO.userCount(map);
 	}
 	
 

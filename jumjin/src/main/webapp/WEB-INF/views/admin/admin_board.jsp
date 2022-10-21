@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 <script type="text/javascript">
 $(function(){
 	$(".detail").click(function(){
-		var bno = $(this).val();
+		var bno = $(this).val();		
 			window.open("../detail2.do?bno=" + bno,"child","width=900, height=600");			
 	});
 });
@@ -28,7 +29,6 @@ function re(no){
 
 function linkPage(pageNo){
 	location.href="./admin_board.do?pageNo="+pageNo;
-	
 	}	
 </script>
 
