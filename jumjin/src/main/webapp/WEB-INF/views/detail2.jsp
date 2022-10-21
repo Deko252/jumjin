@@ -61,20 +61,19 @@ $(function(){//축약형
 	top:0;
 }
 body {
-  min-height: 100vh;
+  min-height: 100%;
   background-color: #F4AE34;
 }
 .container{
+	padding-top: 100px;
 	height: auto;
-	min-height: 100%;
+	min-height: calc(100% - 120px);
 	width: 100%;
-	padding-bottom: 70px;
 }
 h2{
 	text-align: center;
 }
 .input-form {
-	margin-top: 100px;
 	max-width: 900px;
 	padding: 40px;
 	padding-bottom: 60px;
@@ -193,9 +192,14 @@ h2{
 }
 .footer{
 	position: relative;
-	transform: translateY(-100%);
+	bottom: 0;
+	height: 70px;
 	padding-top: 1px;
-	margin-top: 20px;
+	margin-top: 50px;
+	/* line-height: 80px; */
+	/* transform: translateY(7%); */
+	/* padding-top: 1px; */
+	/* margin-top: 20px; */
 }
 </style>
 
