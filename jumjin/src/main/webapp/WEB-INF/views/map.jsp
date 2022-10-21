@@ -30,7 +30,7 @@ span {
 	font-size:15px;
 }
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;}
-.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#009900;text-decoration: none;font-size:17px;font-weight:bold;}
 .map_wrap { width:100%;height:500px;}
 #menu_wrap {position:absolute; top:0;left:0;bottom:0;width:340px;height: 90%; margin:10px 0px 50px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.8);z-index: 1;font-size:12px;}
 .bg_white {background:#fff;}
@@ -45,7 +45,7 @@ span {
 #placesList .item .info{padding:10px 0 10px 55px;}
 #placesList .info .gray {color:#8a8a8a;}
 #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
-#placesList .info .tel {color:#009900;}
+#placesList .info .tel {color:#000;}
 #placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
 #placesList .item .marker_1 {background-position: 0 -10px;}
 #placesList .item .marker_2 {background-position: 0 -56px;}
@@ -84,7 +84,10 @@ footer {
 .mt-4{
 	margin-top: 15px !important;
 }
-
+.info > span {
+	font-weight: normal;
+	font-size: 15px;
+}
 </style>
 
 <body>
