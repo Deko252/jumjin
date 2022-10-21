@@ -30,11 +30,14 @@ $(function(){//축약형
       var comment = $(this).parents(".comment_row").children(".comment_content").text();
       $("#commentWriteForm").hide();//댓글창 사라지기
       //alert(comment);
-      var form = "<div id='commentWriteForm'>"; 
+      var  
+      form = "<div class='CommentWriter'>"; 
       form += "<form action='./commentWrite.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
       form += "<input type='hidden' name='bno' value=${detail.board_no }>";
       form += "<input type='hidden' name='cno' value="+cno+">";
-      form += "<button type='submit' class='btn btn-primary'>수정하기</button>"; 
+      form += "<div class='comment_attach'>";
+      form += "<button type='submit' class='btn btn-primary'>수정하기</button>";
+      form += "</div>"
       form += "</form>";
       form += "</div>";
       $(this).parents(".comment_row").html(form);

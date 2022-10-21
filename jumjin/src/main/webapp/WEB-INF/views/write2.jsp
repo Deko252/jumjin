@@ -19,7 +19,7 @@
 		$(function(){
 			
 			$('#summernote').summernote({height: 500});});
-		</script>
+		</script> 
 
 <style type="text/css">
 #sidebar-wrapper{
