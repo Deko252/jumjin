@@ -38,13 +38,17 @@ public class LoginController {
 			return "redirect:/login.do?error=2580";
 			
 		} else {
-			System.out.println("일치합니다");
-			//세션도 만들어주세요.
-			session.setAttribute("name", login.get("b_name"));
-			session.setAttribute("id", map.get("id"));				
-			session.setAttribute("grade", login.get("b_grade"));
-			
-			return "redirect:/index.do";
+			if (login.get("b_grade").equals(0)) {
+				//탈퇴한 사람이니까 로그인 페이지로 다시 이동
+				return "redirect:/login.do?grade=0";
+			}else {				
+				System.out.println("일치합니다"+ login.get("b_grade"));
+				//세션도 만들어주세요.
+				session.setAttribute("name", login.get("b_name"));
+				session.setAttribute("id", map.get("id"));				
+				session.setAttribute("grade", login.get("b_grade"));
+				return "redirect:/index.do";
+			}
 		}
 	}
 	

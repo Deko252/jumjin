@@ -69,14 +69,15 @@ $(function(){
 			alert("정상적인 경로를 이용해 주세요.");
 			location.href="./index.do";
 		} 
-});
-$(function(){
-	$("#login").click(function(){
-		if ("${sessionScope.grade == 0}") {
-			location.href="./logout.do"; 
+	/* $("#login").click(function(){
+		alert("등급 : "+${sessionScope.grade });
+		if (${sessionScope.grade } == 0) {
+			//$("#name").val();
 			alert("탈퇴한 회원입니다.");
+			location.href="./logout.do"; 
 		}
-	});
+		alert("end");
+	}); */
 });
 </script>  
 
@@ -118,6 +119,9 @@ $(function(){
           <a href="./join.do" class="btn btn-primary btn-lg btn-block" type="submit">회원가입</a>
           <c:if test="${param.error ne null }">
           	<h2 style="color: red; font-size: 22px; margin-top: 10px;">아이디와 비밀번호가 일치하지 않습니다.</h2>
+          </c:if> 
+          <c:if test="${param.grade ne null }">
+          	<script type="text/javascript">alert("이미 탈퇴한 회원입니다.");</script>
           </c:if> 
         </form>
       </div>
