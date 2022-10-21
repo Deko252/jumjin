@@ -45,7 +45,7 @@ $(function(){//축약형
       alert("삭제를 눌렀습니다.");
       var cno = $(this).parent(".post_contact").children().text();
       location.href="./commentDel.do?bno=${detail.board_no }&cno="+cno;
-   });   
+   });
    
 });
 </script>
@@ -216,6 +216,7 @@ h3 {
 #star{
    height: 25px;
 }
+
 #myform fieldset{
     display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
     direction: rtl; /* 이모지 순서 반전 */
@@ -238,6 +239,8 @@ h3 {
 #myform input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 #ffff00; /* 마우스 클릭 체크 */
 }
+
+
 #button_wrap{
    margin-top: 20px;
    position: relative;
@@ -309,16 +312,16 @@ h3 {
       
          <div id="comments">      
                <div id="commentWriteForm">
-                  <form action="./commentWrite.do" method="post" id="myform">
+                  <form action="./commentWrite.do" method="post" id="myform"  onsubmit="submit();">
                   <button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
                      <input type="hidden" name="bno" value="${detail.board_no }">
                      <div id="star_place">
                       <fieldset>
                                  <input type="radio" name="star" value="5" id="rate1"><label for="rate1">⭐</label><!-- name sql java / id js css jq -->
                                  <input type="radio" name="star" value="4" id="rate2"><label for="rate2">⭐</label>
-                               <input type="radio" name="star" value="3" id="rate3"><label for="rate3">⭐</label>
+                               	<input type="radio" name="star" value="3" id="rate3"><label for="rate3">⭐</label>
                                 <input type="radio" name="star" value="2" id="rate4"><label for="rate4">⭐</label>
-                                 <input type="radio" name="star" value="1" id="rate5"><label for="rate5">⭐</label>
+                                <input type="radio" name="star" value="1" id="rate5" checked="checked"><label for="rate5">⭐</label>          
                          </fieldset>
                          </div>
                      <textarea name="comment"></textarea>

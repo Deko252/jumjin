@@ -335,12 +335,13 @@ public class BoardController {
 	@PostMapping("/commentWrite.do")
 	public String commentWrite(CommandMap map, HttpSession session) {
 		String url = "redirect:/login.do";
-
+		
 		if (session.getAttribute("id") != null) {
-			map.put("id", session.getAttribute("id"));
-			int result = boardService.commentWrite(map.getMap());
-
-			url = "redirect:/detail.do?bno=" + map.get("bno") + "&result=" + result;
+				map.put("id", session.getAttribute("id"));
+				int result = boardService.commentWrite(map.getMap());
+				
+				url = "redirect:/detail.do?bno=" + map.get("bno") + "&result=" + result;
+				
 		}
 		return url;
 	}
