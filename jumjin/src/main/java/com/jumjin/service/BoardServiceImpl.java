@@ -33,6 +33,11 @@ public class BoardServiceImpl implements BoardService {
 	public void postDel(Map<String, Object> map) {
 		boardDAO.postDel(map);
 	}
+	
+	@Override
+	public void postDel2(Map<String, Object> map) {
+		boardDAO.postDel2(map);
+	}
 
 	@Override
 	public int write(Map<String, Object> map) {
@@ -49,6 +54,11 @@ public class BoardServiceImpl implements BoardService {
 	public int update(Map<String, Object> map) {
 		return boardDAO.update(map);
 	}
+	
+	@Override
+	public int update2(Map<String, Object> map) {
+		return boardDAO.update2(map);
+	}
 
 	@Override
 	public int commentWrite(Map<String, Object> map) {
@@ -62,7 +72,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int commentWrite2(Map<String, Object> map) {
 		if(map.containsKey("cno")){
-			return boardDAO.commentUpdate(map);			
+			return boardDAO.commentUpdate2(map);			
 		} else {			
 			return boardDAO.commentWrite2(map);
 		}
@@ -82,6 +92,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int commentDel(Map<String, Object> map) {
 		return boardDAO.commentDel(map);
+	}
+	
+	@Override
+	public int commentDel2(Map<String, Object> map) {
+		return boardDAO.commentDel2(map);
 	}
 
 	@Override

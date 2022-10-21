@@ -22,4 +22,8 @@
 		INSERT INTO big_user (b_id, b_pw, b_name, b_email, b_num)
 		VALUES(#{id }, HEX(AES_ENCRYPT(#{pw }, 'java')), #{name }, #{email }, #{phoneNumber })
 	</insert>
+	
+	<update id="password" parameterType="HashMap">
+		UPDATE big_user SET b_pw=HEX(AES_ENCRYPT(#{npw }, 'java')) WHERE b_id=#{id }		
+	</update>
 </mapper>

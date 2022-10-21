@@ -13,6 +13,8 @@ public interface BoardService {
 	Map<String, Object> detail2(Map<String, Object> map);
 	
 	void postDel(Map<String, Object> map);
+	
+	void postDel2(Map<String, Object> map);
 
 	int write(Map<String, Object> map);
 
@@ -29,10 +31,13 @@ public interface BoardService {
 	List<Map<String, Object>> commentsList2(Map<String, Object> map);
 	
 	int commentDel(Map<String, Object> map);
-
+	
+	int commentDel2(Map<String, Object> map);
 	
 	int write2(Map<String, Object> map);
 
 	int totalCount2(Map<String, Object> map);
+
+	int update2(Map<String, Object> map);
 
 }

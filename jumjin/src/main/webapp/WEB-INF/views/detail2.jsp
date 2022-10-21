@@ -11,13 +11,13 @@ $(function(){//축약형
 		//alert("삭제버튼을 눌렀습니다");
 		if(confirm("삭제하시겠습니까?")){
 			alert("삭제합니다");
-			location.href="./postDel.do?bno=${detail2.board_no }";
+			location.href="./postDel2.do?bno=${detail2.board_no }";
 		}
 	});
 	$("#updateBtn").click(function(){
 		if(confirm("수정하시겠습니까?")){
 			alert("수정합니다");
-			location.href="./update.do?bno=${detail2.board_no}";	
+			location.href="./update2.do?bno=${detail2.board_no}";	
 		}
 	});
 	
@@ -36,13 +36,14 @@ $(function(){//축약형
 		form += "</form>";
 		form += "</div>";
 		$(this).parents(".comment_row").html(form);
+		
 		$(".edit").remove();//수정버튼 사라지기
 		$(".delete").remove();//삭제버튼 사라지기		
 	});	
 	$(".delete").click(function(){
 		alert("삭제를 눌렀습니다.");
 		var cno = $(this).parent(".post_contact").children().text();
-		location.href="./commentDel.do?cate=${param.cate}&bno=${detail2.board_no }&cno="+cno;
+		location.href="./commentDel2.do?bno=${detail2.board_no }&cno="+cno;
 	});
 	
 	/* if(sessionScope.id ne null){
@@ -239,9 +240,11 @@ h2{
 					</div>
 					
 					<div id="commentWriteBtn">
+					<c:if test="${detail2.b_id eq sessionScope.id}">
 						<button class="btn btn-primary" id="updateBtn">수정</button>
 						<button class="btn btn-danger" id="delBtn">삭제</button>
-						<button class="btn btn-success" onclick="location.href='./board.do'">보드</button>
+					</c:if>
+						<button class="btn btn-success" onclick="location.href='./board2.do'">돌아가기</button>
 					</div>
 				</div>					
 			</div>

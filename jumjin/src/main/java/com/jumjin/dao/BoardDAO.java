@@ -25,6 +25,11 @@ public class BoardDAO extends AbstractDAO {
 	public void postDel(Map<String, Object> map) {
 		update("board.postDel", map);
 	}
+	
+	public void postDel2(Map<String, Object> map) {
+		update("board.postDel2", map);
+	}
+	
 
 	public int write(Map<String, Object> map) {
 		//dao -> sqlSession
@@ -34,6 +39,10 @@ public class BoardDAO extends AbstractDAO {
 
 	public int update(Map<String, Object> map) {
 		return (int) update("board.update", map);
+	}
+	
+	public int update2(Map<String, Object> map) {
+		return (int) update("board.update2", map);
 	}
 
 	public void log(Map<String, Object> log) {
@@ -85,6 +94,14 @@ public class BoardDAO extends AbstractDAO {
 
 	public int totalCount2(Map<String, Object> map) {
 		return (int) selectOne("board.totalCount2", map);
+	}
+
+	public int commentDel2(Map<String, Object> map) {
+		return (int) delete("board.commentDel2", map);
+	}
+
+	public int commentUpdate2(Map<String, Object> map) {
+		return  (int) update("board.commentUpdate2", map);
 	}
 
 	

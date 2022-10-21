@@ -39,6 +39,11 @@
 		WHERE board_no=#{bno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
 	</update>
 	
+	<update id="postDel2" parameterType="HashMap">
+		UPDATE big_board2 SET board_del=1 
+		WHERE board_no=#{bno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+	</update>
+	
 	<insert id="write" parameterType="HashMap">
 		INSERT INTO big_board (board_title, board_content, b_no
 		<if test="file != null">, board_file</if>)
@@ -67,14 +72,31 @@
 		WHERE board_no=#{board_no } AND b_no= (SELECT b_no FROM big_user WHERE b_id=#{id })
 	</update>
 	
+	<update id="update2" parameterType="HashMap">
+		UPDATE big_board2 SET board_title=#{title }, board_content=#{content } 
+		WHERE board_no=#{board_no } AND b_no= (SELECT b_no FROM big_user WHERE b_id=#{id })
+	</update>
+	
 	<insert id="commentWrite" parameterType="HashMap">
-		INSERT INTO comment (c_comment, board_no, b_no, c_star)
-		VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{star })
-	</insert>
+      INSERT INTO comment (c_comment, board_no, b_no, c_star)
+      VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{star })
+   </insert>
+	
+	<insert id="commentWrite2" parameterType="HashMap">
+      INSERT INTO comment2 (c_comment, board_no, b_no)
+      VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }))
+   </insert>
+	
 	
 	<select id="commentsList" parameterType="HashMap" resultType="HashMap">
 		SELECT c.*, u.b_id, u.b_name
 		FROM comment c JOIN big_user u ON c.b_no=u.b_no
+		WHERE c.board_no=#{bno }
+	</select>
+	
+	<select id="commentsList2" parameterType="HashMap" resultType="HashMap">
+		SELECT c.*, u.b_id, u.b_name
+		FROM comment2 c JOIN big_user u ON c.b_no=u.b_no
 		WHERE c.board_no=#{bno }
 	</select>
 	
@@ -83,8 +105,18 @@
 		WHERE c_no=#{cno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
 	</delete>
 	
+	<delete id="commentDel2" parameterType="HashMap">
+		DELETE FROM comment2 
+		WHERE c_no=#{cno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+	</delete>
+	
 	<update id="commentUpdate" parameterType="HashMap">
 		UPDATE comment SET c_comment=#{comment } 
+		WHERE c_no=#{cno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+	</update>
+	
+	<update id="commentUpdate2" parameterType="HashMap">
+		UPDATE comment2 SET c_comment=#{comment } 
 		WHERE c_no=#{cno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
 	</update>
 	

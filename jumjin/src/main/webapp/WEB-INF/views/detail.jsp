@@ -5,6 +5,7 @@
 <head>
 <%@ include file="head.jsp"%>
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
+
 <script type="text/javascript">
 $(function(){//축약형
    //alert("!");
@@ -43,7 +44,7 @@ $(function(){//축약형
    $(".delete").click(function(){
       alert("삭제를 눌렀습니다.");
       var cno = $(this).parent(".post_contact").children().text();
-      location.href="./commentDel.do?cate=${param.cate}&bno=${detail.board_no }&cno="+cno;
+      location.href="./commentDel.dobno=${detail.board_no }&cno="+cno;
    });   
    
 });
@@ -306,8 +307,6 @@ h3 {
          </div>   
       </div>
       
- 
-      
          <div id="comments">      
                <div id="commentWriteForm">
                   <form action="./commentWrite.do" method="post" id="myform">
@@ -343,10 +342,7 @@ h3 {
                      <div class="comment_content">${co.c_comment }</div>
                   </div>               
                   </c:forEach>                  
-
          <div id="commentWriteBtn">
-            <button class="btn btn-primary" id="updateBtn">수정</button>
-            <button class="btn btn-danger" id="delBtn">삭제</button>
             <button class="btn btn-success" onclick="location.href='./board.do'">돌아가기</button>
          </div>
       </div>

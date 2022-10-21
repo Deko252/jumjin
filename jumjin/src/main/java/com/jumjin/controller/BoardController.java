@@ -135,10 +135,7 @@ public class BoardController {
 			
 				int result = boardService.update(map.getMap());
 
-		
-
-				
-				return "redirect:/board.do?cate=" + map.get("cate") + "&bno=" + map.get("board_no") + "&result="
+				return "redirect:/board.do?bno=" + map.get("board_no") + "&result="
 						+ result;
 			} else {
 				return "redirect:/error.do";
@@ -147,13 +144,51 @@ public class BoardController {
 			return "redirect:/login.do";
 		}
 	}
+	
+	@GetMapping("/update2.do")
+	public ModelAndView update2(HttpSession session, CommandMap map) {
+		ModelAndView mv = new ModelAndView("redirect:/error.do?error=error");
+		if (session.getAttribute("id") != null) {
+			map.put("id", session.getAttribute("id"));
+		
+			if (map.containsKey("bno")) {
+				Map<String, Object> detail2 = boardService.detail2(map.getMap());
+				if (detail2 != null) {
+					mv.addObject("detail2", detail2);
+					mv.setViewName("update2");
+				}
+			}
+		}
+		return mv;
+	}
+
+	@PostMapping("/update2.do")
+	public String update2(CommandMap map, HttpSession session) {
+		if (session.getAttribute("id") != null) {
+			if (map.containsKey("title") && map.containsKey("content") && map.containsKey("cate")
+					&& map.containsKey("board_no")) {
+
+				map.put("id", session.getAttribute("id"));
+			
+				int result = boardService.update2(map.getMap());
+
+				return "redirect:/board2.do?bno=" + map.get("board_no") + "&result="
+						+ result;
+			} else {
+				return "redirect:/error.do";
+			}
+		} else {
+			return "redirect:/login.do";
+		}
+	}
+	
+	
 
 	@GetMapping("/detail.do")
 	public ModelAndView detail(CommandMap commandMap) {
 		ModelAndView mv = new ModelAndView();
 	
 		Map<String, Object> detail = boardService.detail(commandMap.getMap());
-		System.out.println("-------------" + detail);
 		mv.addObject("detail", detail);
 	
 		System.out.println("commentCount : " + detail.get("commentCount"));
@@ -168,16 +203,17 @@ public class BoardController {
 	
 	@GetMapping("/detail2.do")
 	public ModelAndView detail2(CommandMap commandMap) {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("detail2");
 	
 		Map<String, Object> detail2 = boardService.detail2(commandMap.getMap());
-		mv.addObject("detail", detail2);
+		mv.addObject("detail2", detail2);
+		System.out.println(detail2);
 	
 		System.out.println("commentCount : " + detail2.get("commentCount"));
 		if (Integer.parseInt(String.valueOf(detail2.get("commentCount"))) > 0) {
 
-			List<Map<String, Object>> comments = boardService.commentsList(commandMap.getMap());
-			mv.addObject("commentsList", comments);
+			List<Map<String, Object>> comments = boardService.commentsList2(commandMap.getMap());
+			mv.addObject("commentsList2", comments);
 		}
 
 		return mv;
@@ -201,12 +237,28 @@ public class BoardController {
 			boardService.postDel(map.getMap());
 		
 
-			return "redirect:/board.do?cate=" + map.get("cate");
+			return "redirect:/board2.do";
 		} else {
 			return "redirect:/login.do";
 		}
 
 	}
+	
+	@GetMapping("/postDel2.do")
+	public String postDel2(CommandMap map, HttpSession session) {
+		// System.out.println(map.getMap());//{bno=48}
+		if (session.getAttribute("id") != null) {
+			map.put("id", session.getAttribute("id"));
+			boardService.postDel2(map.getMap());
+		
+
+			return "redirect:/board2.do";
+		} else {
+			return "redirect:/login.do";
+		}
+
+	}
+	
 
 	@GetMapping("/write.do")
 	public String write(HttpSession session) {
@@ -222,12 +274,11 @@ public class BoardController {
 
 		if (session.getAttribute("id") != null && Integer.parseInt(String.valueOf(session.getAttribute("grade")))  == 1) {
 
-			if (map.get("title") != null && map.get("content") != null) {// �솗�씤�빐蹂닿린
+			if (map.get("title") != null && map.get("content") != null) {
 
 				map.put("id", session.getAttribute("id"));
 
 				String realPath = servletContext.getRealPath("resources/upload");
-
 				String fileName = Util.save(realPath, file);
 
 				map.put("file", fileName);
@@ -286,11 +337,22 @@ public class BoardController {
 		String url = "redirect:/login.do";
 
 		if (session.getAttribute("id") != null) {
-
 			map.put("id", session.getAttribute("id"));
 			int result = boardService.commentWrite(map.getMap());
 
 			url = "redirect:/detail.do?bno=" + map.get("bno") + "&result=" + result;
+		}
+		return url;
+	}
+	
+	@PostMapping("/commentWrite2.do")
+	public String commentWrite2(CommandMap map, HttpSession session) {
+		String url = "redirect:/login.do";
+		if (session.getAttribute("id") != null) {
+			map.put("id", session.getAttribute("id"));
+			int result = boardService.commentWrite2(map.getMap());
+						
+			url = "redirect:/detail2.do?bno=" + map.get("bno") + "&result=" + result;
 		}
 		return url;
 	}
@@ -303,7 +365,18 @@ public class BoardController {
 
 			result = boardService.commentDel(map.getMap());
 		}
-		return "redirect:/detail.do?cate=" + map.get("cate") + "&bno=" + map.get("bno") + "&result=" + result;
+		return "redirect:/detail.do?bno=" + map.get("bno") + "&result=" + result;
+	}
+	
+	@GetMapping("/commentDel2.do")
+	public String commentDel2(CommandMap map, HttpSession session) {
+		int result = 0;
+		if (session.getAttribute("id") != null) {
+			map.put("id", session.getAttribute("id"));
+
+			result = boardService.commentDel2(map.getMap());
+		}
+		return "redirect:/detail2.do?bno=" + map.get("bno") + "&result=" + result;
 	}
 
 }
