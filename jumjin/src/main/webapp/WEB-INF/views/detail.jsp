@@ -44,7 +44,7 @@ $(function(){//축약형
    $(".delete").click(function(){
       alert("삭제를 눌렀습니다.");
       var cno = $(this).parent(".post_contact").children().text();
-      location.href="./commentDel.dobno=${detail.board_no }&cno="+cno;
+      location.href="./commentDel.do?bno=${detail.board_no }&cno="+cno;
    });   
    
 });

@@ -100,7 +100,8 @@ body {
 </style>
 
 <script>
-	$(function(){
+	$(function(){		
+		
 		$("#btnF").click(function(){
 			location.href="./index.do";
 		});
@@ -390,10 +391,11 @@ body {
 					$("#resultMsg").text("문제가 발생했습니다." + xhr.status);
 				});
 			}		
-		});//ajax끝		
+		});//ajax끝	
 		
-		
-		
+		$(".validation-form").submit(function(event){
+			alert("회원가입 되었습니다. 로그인 하세요.");
+		});
 	});
 </script>
 
@@ -412,7 +414,7 @@ body {
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
         <h2 class="mb-3">회원가입</h2>
-        <form class="validation-form" action="./join.do" method="post" novalidate>
+        <form class="validation-form" action="./join.do" method="post" onsubmit="submit();" novalidate >
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="id">아이디</label>

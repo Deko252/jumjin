@@ -63,16 +63,10 @@ public class LoginController {
 	}
 	
 	@GetMapping("/join.do")
-	public String join() {
+	public String join() {		
 		return "join";
 	}
 	
-	@PostMapping("/idCheck.do")
-	public @ResponseBody String idCheck(CommandMap map) {
-		//System.out.println(map.getMap());//{id=ffffff}
-		int result = loginService.idCheck(map.getMap());
-		return String.valueOf(result);// 0 1
-	}
 	
 	@PostMapping("/join.do")
 	public String join(CommandMap map) {
@@ -83,6 +77,12 @@ public class LoginController {
 		
 		//System.out.println("결과는 : " + result);
 		return "redirect:/login.do?result=" + result;
+	}
+	@PostMapping("/idCheck.do")
+	public @ResponseBody String idCheck(CommandMap map) {
+		//System.out.println(map.getMap());//{id=ffffff}
+		int result = loginService.idCheck(map.getMap());
+		return String.valueOf(result);// 0 1
 	}
 
 	@GetMapping("/info.do")
