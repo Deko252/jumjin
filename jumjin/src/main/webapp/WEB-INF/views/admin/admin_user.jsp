@@ -110,7 +110,7 @@ $(function(){
 			})
 			.done(function(data){
 				if(data == 1){					
-					alert("수정했습니다." + data);			
+					alert("수정했습니다.");			
 				}else{
 					alert("문제가 발생했습니다\n다시 시도하세요.");	
 				}

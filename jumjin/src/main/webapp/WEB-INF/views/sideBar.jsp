@@ -45,6 +45,11 @@ span {
 		<li class="sidebar-nav-item"><a href="./map.do">음식점검색</a></li>
 		<li class="sidebar-nav-item"><a href="./board.do">별점게시판</a></li>
 		<li class="sidebar-nav-item"><a href="./board2.do">자유게시판</a></li>
+		<c:choose>
+			<c:when test="${sessionScope.grade == 6 }">
+				<li class="sidebar-nav-item"><a href="./admin/admin_board.do">관리자 게시판</a></li>		
+			</c:when>
+		</c:choose>
 		
 		<c:choose>
 			<c:when test="${sessionScope.id eq null }">
@@ -56,10 +61,5 @@ span {
 			</c:otherwise>
 		</c:choose>
 
-		<c:choose>
-			<c:when test="${sessionScope.grade == 6 }">
-				<li class="sidebar-nav-item"><a href="./admin/admin_board.do">관리자 게시판</a></li>		
-			</c:when>
-		</c:choose>
 	</ul>
 </nav>
