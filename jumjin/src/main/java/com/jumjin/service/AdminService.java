@@ -19,4 +19,6 @@ public interface AdminService {
 
 	int userCount(Map<String, Object> map);
 
+	Map<String, Object> admin_detail(Map<String, Object> map);
+
 }

@@ -39,4 +39,9 @@ public class AdminDAO extends AbstractDAO {
 	public int userCount(Map<String, Object> map) {
 		return (int) selectOne("admin.userCount", map);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> admin_detail(Map<String, Object> map) {
+		return (Map<String, Object>) selectOne("admin.admin_detail", map);
+	}
 }

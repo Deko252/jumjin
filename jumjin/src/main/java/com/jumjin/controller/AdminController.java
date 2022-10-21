@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.jumjin.common.CommandMap;
 import com.jumjin.service.AdminService;
+import com.jumjin.service.BoardService;
 import com.jumjin.util.Util;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
@@ -27,6 +28,9 @@ public class AdminController {
 
 	@Resource(name = "adminService")
 	private AdminService adminService;
+	
+	@Resource(name = "boardService")
+	private BoardService boardService;
 	
 	@GetMapping("/admin_main.do")
 	public String login(CommandMap map) {
@@ -105,18 +109,14 @@ public class AdminController {
 		return mv; 
 	}
 	//2020-09-30 poseidon 상세보기 새로운 창으로 열리게 하기
-		@GetMapping("/detail.do")
-		public ModelAndView detail(CommandMap map) {//{bno=175}
-			ModelAndView mv = new ModelAndView("admin/detail");
-			//가져올 데이터 detail
-			//commandMap은 채집용, 전송은 getMap()으로
-			Map<String, Object> detail =  adminService.detail(map.getMap());
-			//한줄 정보를 담기 위해서 map
-			//그런 여러줄을 저장하려면 List
-			
-			mv.addObject("detail", detail);
-			return mv;	
-		}
+	/*
+	 * @GetMapping("/detail.do") public ModelAndView detail(CommandMap map)
+	 * {//{bno=175} ModelAndView mv = new ModelAndView("admin/detail"); //가져올 데이터
+	 * detail //commandMap은 채집용, 전송은 getMap()으로 Map<String, Object> detail =
+	 * adminService.detail(map.getMap()); //한줄 정보를 담기 위해서 map //그런 여러줄을 저장하려면 List
+	 * 
+	 * mv.addObject("detail", detail); return mv; }
+	 */
 		
 		@GetMapping("/postDel.do")
 		public String postDel(CommandMap map) {
@@ -139,5 +139,21 @@ public class AdminController {
 			
 			return String.valueOf(result);
 		}
-	
+		@GetMapping("/admin_detail.do")
+		public ModelAndView admin_detail(CommandMap commandMap) {
+			ModelAndView mv = new ModelAndView("admin_detail");
+		
+			Map<String, Object> admin_detail = adminService.admin_detail(commandMap.getMap());
+			mv.addObject("admin_detail", admin_detail);
+			System.out.println(admin_detail);
+		
+			System.out.println("commentCount : " + admin_detail.get("commentCount"));
+			if (Integer.parseInt(String.valueOf(admin_detail.get("commentCount"))) > 0) {
+
+				List<Map<String, Object>> comments = boardService.commentsList2(commandMap.getMap());
+				mv.addObject("commentsList2", comments);
+			}
+
+			return mv;
+		}
 }

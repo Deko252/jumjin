@@ -48,6 +48,11 @@ public class AdminServiceImpl implements AdminService {
 	public int userCount(Map<String, Object> map) {
 		return adminDAO.userCount(map);
 	}
+
+	@Override
+	public Map<String, Object> admin_detail(Map<String, Object> map) {
+		return adminDAO.admin_detail(map);
+	}
 	
 
 }

@@ -49,4 +49,8 @@
 		UPDATE big_user SET b_grade=#{grade } WHERE b_no=#{bno }
 	</update>
 	
+	<select id="admin_detail" parameterType="HashMap" resultType="HashMap">
+		SELECT * FROM adminview WHERE board_no=#{bno }	
+	</select>
+	
 </mapper>
