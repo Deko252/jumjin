@@ -31,4 +31,8 @@ public class AdminDAO extends AbstractDAO {
 	public void postChange(Map<String, Object> map) {
 		update("admin.postChange", map);	
 	}
+
+	public int userGradeAJAX(Map<String, Object> map) {
+		return (int) update("admin.userGradeAJAX", map);
+	}
 }

@@ -9,7 +9,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jumjin.common.CommandMap;
@@ -102,6 +104,14 @@ public class AdminController {
 			map.put("del", 0);//0으로 바꿔라
 			adminService.postChange(map.getMap());
 			return "redirect:/admin/admin_board.do";	
+		}
+		
+		@PostMapping("/userGradeAJAX.do")
+		public @ResponseBody String userGradeAJAX(CommandMap map) {
+			//System.out.println(map.getMap());//{bno=2, grade=0}
+			int result = adminService.userGradeAJAX(map.getMap());
+			
+			return String.valueOf(result);
 		}
 	
 }

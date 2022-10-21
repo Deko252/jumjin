@@ -38,6 +38,11 @@ public class AdminServiceImpl implements AdminService {
 	public void postChange(Map<String, Object> map) {
 		adminDAO.postChange(map);
 	}
+
+	@Override
+	public int userGradeAJAX(Map<String, Object> map) {
+		return adminDAO.userGradeAJAX(map);
+	}
 	
 
 }

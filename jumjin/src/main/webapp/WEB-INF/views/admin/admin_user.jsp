@@ -10,7 +10,6 @@
 <link href="../resources/css/adminBoard.css" rel="stylesheet">
 
 <style type="text/css">
-
 body {
 	margin: 0 auto;
 }
@@ -70,7 +69,6 @@ table {
 	height: 30px;
 	font-size: 15px;
 }
-
 body > div {
 }
 #list .tr1 {
@@ -91,8 +89,39 @@ body > div {
 a {
 	text-decoration: none;
 }
-
 </style>
+
+<script type="text/javascript">
+$(function(){
+	$("select").on("change", function(){
+		//alert(this.value);//선택된 value가 옵니다
+		//var p = $(this).closest(".tp").find(".hd").val();
+		//alert(p);
+		if(confirm("등급을 변경합니까?")){
+			var bno = $(this).closest("tr").children().first().text();
+			var grade = this.value;
+			//alert(bno + " : " + grade);
+			$.ajax({
+				url : "./userGradeAJAX.do",
+				data : {"bno" : bno, "grade" : grade},
+				type : "POST",
+				dataType : "html"
+			})
+			.done(function(data){
+				if(data == 1){					
+					alert("수정했습니다." + data);			
+				}else{
+					alert("문제가 발생했습니다\n다시 시도하세요.");	
+				}
+			})
+			.fail(function(xhr){
+				alert("문제가 발생했습니다\n다시 시도하세요." + xhr.status);
+			});
+		}
+	});
+});
+</script>
+
 
 </head>
 	<%@ include file="admin_menu.jsp" %>

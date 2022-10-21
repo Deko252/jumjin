@@ -15,4 +15,6 @@ public interface AdminService {
 
 	void postChange(Map<String, Object> map);
 
+	int userGradeAJAX(Map<String, Object> map);
+
 }

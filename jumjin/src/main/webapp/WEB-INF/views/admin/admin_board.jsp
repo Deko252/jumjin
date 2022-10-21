@@ -13,7 +13,6 @@ $(function(){
 	$(".detail").click(function(){
 		var bno = $(this).val();
 			window.open("../detail2.do?bno=" + bno,"child","width=900, height=600");			
-
 	});
 });
 function del(no){
