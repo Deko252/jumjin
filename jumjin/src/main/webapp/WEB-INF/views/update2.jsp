@@ -13,7 +13,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 	
 		<script type="text/javascript">
-			$(function(){
+			$(function(){			
 				$('#summernote').summernote(
 						{height: 500}
 				);
@@ -22,14 +22,15 @@
     </head>
     <body>      
           <div>
-                <form action="./update2.do" method="post">
-					<input type="text" name="title" class="form-control mt-4 mb-2" placeholder="제목을 입력해주세요." required value="${detail2.board_title }">
-					<div>		
-						<textarea id="summernote" name="content" required>${detail2.board_content }</textarea>
-					</div>	
-					<input type="hidden" name="board_no" value="${detail2.board_no }">
-					<button type="submit" class="btn btn-secondary mb-3">제출하기</button>
-				</form>
-           </div>
+                    	<form action="./update2.do" method="post">
+							<input type="text" name="title" class="form-control mt-4 mb-2" placeholder="제목을 입력해주세요." required value="${detail2.board_title }">
+							<div class="form-group">
+								<textarea class="form-control" rows="20" id="summernote" name="content" required>${detail2.board_content }</textarea>
+							</div>
+							<input type="hidden" name="board_no" value="${detail2.board_no }">
+							<input type="hidden" name="cate" value="${detail2.board_cate }">
+							<button type="submit" class="btn btn-secondary mb-3">제출하기</button>
+						</form>
+                    </div>
     </body>
 </html>
