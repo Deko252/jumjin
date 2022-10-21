@@ -63,7 +63,12 @@ $(function(){//축약형
 body {
   min-height: 100vh;
   background-color: #F4AE34;
-  overflow: hidden;
+}
+.container{
+	height: auto;
+	min-height: 100%;
+	width: 100%;
+	padding-bottom: 70px;
 }
 h2{
 	text-align: center;
@@ -186,7 +191,12 @@ h2{
 #myform > textarea {
 	font-size: 14px;
 }
-
+.footer{
+	position: relative;
+	transform: translateY(-100%);
+	padding-top: 1px;
+	margin-top: 20px;
+}
 </style>
 
 
