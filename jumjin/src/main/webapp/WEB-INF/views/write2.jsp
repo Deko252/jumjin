@@ -93,7 +93,7 @@ a.btn-secondary{
 							<input id="findFile" type="file" name="file" accept=".png, .jpg, .gif, .jpeg, .bmp">
 							<div id="writeBtn">
 							<button type="submit" class="btn btn-secondary mb-3">글쓰기</button>
-							<a href="board.do" role="button" class="btn btn-secondary">취소</a>
+							<a href="board2.do" role="button" class="btn btn-secondary">취소</a>
 							</div>
 						</form>
                     </div>
