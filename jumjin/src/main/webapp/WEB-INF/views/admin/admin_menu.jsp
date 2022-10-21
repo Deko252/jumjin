@@ -16,6 +16,7 @@ body {
    line-height: 50px;
    position: fixed;
    top: 0px;
+   font-weight: bold;
 }
 
 #adminMenu ul {
