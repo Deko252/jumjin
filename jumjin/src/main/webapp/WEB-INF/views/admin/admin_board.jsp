@@ -17,7 +17,6 @@ $(function(){
 		alert("잘못된 접근입니다.");
 		location.href="../index.do";
 	}
-	
 	$(".detail").click(function(){
 		var bno = $(this).val();		
 			window.open("./admin_detail.do?bno=" + bno,"child","width=900, height=600");			
