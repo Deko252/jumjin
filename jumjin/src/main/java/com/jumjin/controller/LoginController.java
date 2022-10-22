@@ -62,6 +62,9 @@ public class LoginController {
 		if(session.getAttribute("name") != null) {
 			session.removeAttribute("name");
 		}
+		if(session.getAttribute("grade") != null) {
+			session.removeAttribute("grade");
+		}
 		
 		return "redirect:/index.do";
 	}
