@@ -169,6 +169,8 @@ h3 {
    padding-left: 15px;
    border: 0px;
    margin-top: 100px;
+   background-color: #B5B5B5;
+   border-radius: 6px;
 }
 
 /* #commentWriteForm textarea {

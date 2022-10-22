@@ -38,7 +38,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 <style type="text/css">
-@media (max-width: 1199px) {
+@media (max-width: 1399px) {
  .footer{
  	display: none;
  }
