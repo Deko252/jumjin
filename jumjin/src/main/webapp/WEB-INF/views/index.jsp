@@ -37,6 +37,14 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+<style type="text/css">
+@media (max-width: 1199px) {
+ .footer{
+ 	display: none;
+ }
+}
+</style>  
+
 </head>
 <body>
 
@@ -149,6 +157,8 @@
   <!-- End Hero Section -->
 
   <!-- ======= Footer ======= -->
+  
+
   <footer id="footer" class="footer">
 	
 	<div class="social-links d-flex mt-4">
@@ -172,6 +182,7 @@
     </div>
 
   </footer><!-- End Footer -->
+
   <!-- End Footer -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

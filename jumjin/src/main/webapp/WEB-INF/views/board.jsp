@@ -175,6 +175,15 @@ tbody > tr:nth-of-type(2n+1):hover > * {
 }
 </style>
 
+<style type="text/css">
+@media (max-width: 767px) {
+ .footer{
+ 	display: none;
+ }
+}
+</style> 
+
+
 </head>
 
 <body id="page-top">
