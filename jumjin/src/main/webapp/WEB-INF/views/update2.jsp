@@ -11,15 +11,18 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-	<!-- include summernote css/js -->
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<!-- include libraries(jQuery, bootstrap) -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 	
-		<script type="text/javascript">
-		$(function(){
-			
-			$('#summernote').summernote({height: 500});});
-		</script>
+<script type="text/javascript">
+$(function(){$('#summernote').summernote({height: 500});});
+</script>
 
 <style type="text/css">
 #sidebar-wrapper{
@@ -45,9 +48,8 @@ body {
 padding-top: 50px;
 }
 .input-form {
-
 	width: 1200px;
-	padding: 15px 32px 70px;
+	padding: 15px 32px 20px;
 	background: #fff;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -57,11 +59,14 @@ padding-top: 50px;
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
 a.btn-secondary{
-	margin:16px ;
-	margin-top:0px; 
+	margin-top:0px;
+	margin-left: 5px;
 	font-weight: 400;
 	background-color: #fd7e14;
 	border: 1px solid #fd7e14;
+}
+#right-btnn > .mb-3{
+	margin-bottom: 0 !important;
 }
 #writeBtn {
 	position: relative;
@@ -75,7 +80,10 @@ a.btn-secondary{
 	margin-top: 1rem !important;
 }
 #right-btnn{
-float: right;
+	float: right;
+}
+#sidebar-wrapper{
+	font-size: 16px;
 }
 </style>
     </head>

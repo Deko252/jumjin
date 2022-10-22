@@ -47,7 +47,7 @@ body {
 .input-form {
 	margin-top: 50px;
 	width: 1200px;
-	padding: 15px 32px 5px;
+	padding: 15px 32px 20px;
 	background: #fff;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -57,15 +57,17 @@ body {
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
 a.btn-secondary{
-	margin:16px ;
-	margin-top:0px; 
+	margin-top:0px;
+	margin-left: 5px;
 	font-weight: 400;
 	background-color: #fd7e14;
 	border: 1px solid #fd7e14;
 }
+#writeBtn > .mb-3{
+	margin-bottom: 0 !important;
+}
 #writeBtn {
-	position: relative;
-	left: 85%;
+	float: right;
 	margin-top: 10px;
 }
 #findFile {
@@ -74,7 +76,9 @@ a.btn-secondary{
 .mt-4{
 	margin-top: 0;
 }
-
+#sidebar-wrapper{
+	font-size: 16px;
+}
 /* .note-style,
 .note-fontname,
 .note-para .btn-group,
