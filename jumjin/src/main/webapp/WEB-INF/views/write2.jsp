@@ -4,8 +4,6 @@
     <head>
         <%@ include file="head.jsp" %>
         <!-- Core theme CSS (includes Bootstrap)-->
-
-<link href="./resources/css/map_styles.css" rel="stylesheet" />
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -72,6 +70,14 @@ a.btn-secondary{
 }
 .mt-4{
 	margin-top: 1rem !important;
+}
+
+.note-style,
+.note-fontname,
+.note-para .btn-group,
+.note-table,
+.note-view .btn-fullscreen{
+	display: none;
 }
 
 </style>
