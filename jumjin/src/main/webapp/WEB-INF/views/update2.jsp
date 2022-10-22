@@ -68,7 +68,7 @@ a.btn-secondary{
 #right-btnn > .mb-3{
 	margin-bottom: 0 !important;
 }
-#writeBtn {
+#writeBtn { 
 	position: relative;
 	left: 85%;
 	margin-top: 10px;
@@ -84,6 +84,14 @@ a.btn-secondary{
 }
 #sidebar-wrapper{
 	font-size: 16px;
+}
+.note-font .note-btn-bold,
+.note-fontname,
+.note-color-all,
+.note-table,
+.note-insert button:first-child + button,
+.note-insert button:first-child + button + button{
+	display: none;
 }
 </style>
     </head>

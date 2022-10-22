@@ -79,13 +79,14 @@ a.btn-secondary{
 #sidebar-wrapper{
 	font-size: 16px;
 }
-/* .note-style,
+.note-font .note-btn-bold,
 .note-fontname,
-.note-para .btn-group,
+.note-color-all,
 .note-table,
-.note-view .btn-fullscreen{
+.note-insert button:first-child + button,
+.note-insert button:first-child + button + button{
 	display: none;
-} */
+}
 
 </style>
     </head>
