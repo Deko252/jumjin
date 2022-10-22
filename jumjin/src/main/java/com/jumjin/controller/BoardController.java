@@ -273,16 +273,21 @@ public class BoardController {
 	public String write(CommandMap map, HttpSession session, MultipartFile file) throws IOException {
 
 		if (session.getAttribute("id") != null && Integer.parseInt(String.valueOf(session.getAttribute("grade")))  == 1) {
-
+			
+			
 			if (map.get("title") != null && map.get("content") != null) {
 
 				map.put("id", session.getAttribute("id"));
 
-				String realPath = servletContext.getRealPath("resources/upload");
-				String fileName = Util.save(realPath, file);
-
-				map.put("file", fileName);
-
+				
+					String realPath = servletContext.getRealPath("resources/upload");
+					String fileName = Util.save(realPath, file);
+					
+					map.put("file", fileName);
+				
+				
+					
+				
 				int result = boardService.write(map.getMap());
 			
 
@@ -306,19 +311,20 @@ public class BoardController {
 
 	@PostMapping("/write2.do")
 	public String write2(CommandMap map, HttpSession session, MultipartFile file) throws IOException {
-
+		System.out.println(file.getSize());
 		if (session.getAttribute("id") != null) {
 
-			if (map.get("title") != null && map.get("content") != null) {// �솗�씤�빐蹂닿린
-
+			if (map.get("title") != null && map.get("content") != null) {
 				map.put("id", session.getAttribute("id"));
 
-				String realPath = servletContext.getRealPath("resources/upload");
 
-				String fileName = Util.save(realPath, file);
-
-				map.put("file", fileName);
-
+				if(!file.isEmpty()) {
+					String realPath = servletContext.getRealPath("resources/upload");
+					String fileName = Util.save(realPath, file);
+					
+					map.put("file", fileName);
+				}
+					
 				int result = boardService.write2(map.getMap());
 			
 
