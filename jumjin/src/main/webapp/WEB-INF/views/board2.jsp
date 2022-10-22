@@ -155,15 +155,18 @@ h2{
 	height: 50px;
 }
 #paging {
-	font-size: 19px;
-	letter-spacing: 10px;
+	margin: 0 auto;
+	font-size: 18px;
+	letter-spacing: 2px;
 	text-decoration: none;
-	width: 100%; 
-	border-top: 1px solid gray; 
+	width: 600px;
 	height: 30px; 
 	text-align: center;
 	padding-top: 5px;
     text-decoration: none;
+}
+.table-responsive {
+	border-bottom: 1px solid gray;
 }
 tbody > tr:hover > * {
   --bs-table-accent-bg: var(--bs-table-hover-bg);
