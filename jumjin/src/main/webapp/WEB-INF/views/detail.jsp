@@ -31,7 +31,7 @@ $(function(){//축약형
       $("#commentWriteForm").hide();//댓글창 사라지기
       //alert(comment);
       var  
-      form = "<div class='CommentWriter'>"; 
+      form = "<div class='CommentWriter' style='border: 2px solid #ffffff'>"; 
       form += "<form action='./commentWrite.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
       form += "<input type='hidden' name='bno' value=${detail.board_no }>";
       form += "<input type='hidden' name='cno' value="+cno+">";
@@ -156,7 +156,7 @@ h3 {
 }
 
 #comments{
-   margin: 80px 0;
+   margin: 80px 0 50px;
    width: 100%;
    
 }
@@ -222,7 +222,7 @@ h3 {
 	float: right;
 }
 .comment_row{
-   margin: 30px 0px;
+   margin: 15px 0px;
    padding: 5px;
    width: 100%;
    min-height:80px;

@@ -28,7 +28,7 @@ $(function(){//축약형
 		var comment = $(this).parents(".comment_row").children(".comment_content").text();
 		$("#commentWriteForm").hide();//댓글창 사라지기
 		//alert(comment);
-		var form = "<div class='CommentWriter'>"; 
+		var form = "<div class='CommentWriter' style='border:2px solid #ffffff'>"; 
 		form += "<form action='./commentWrite2.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
 		form += "<input type='hidden' name='bno' value=${detail2.board_no }>";
 		form += "<input type='hidden' name='cno' value="+cno+">";
@@ -101,11 +101,14 @@ h2{
 #detailContentMain {
 	margin-top: 20px;
 }
+p {
+	margin-bottom: 50px;
+}
 #commentWriteBtn{
 	float: right;
 }
 .CommentWriter {
-    margin: 30px 0 29px;
+    margin: 5px 0 10px;
     padding: 16px 10px 35px 18px;
     border: 2px solid #dddddd;
     border-radius: 6px;
@@ -146,7 +149,7 @@ h2{
 /* .....못생긴거 */
 
 .comment_row{
-   margin: 30px 0px;
+   margin: 15px 0px;
    padding: 5px;
    width: 100%;
    min-height:80px;
@@ -218,11 +221,20 @@ h2{
 				<div id="detailContent">
 					<div style="margin-left: 20px;"><h3>${detail2.board_title }</h3></div>
 					<div id="detailContentWriter">${detail2.b_name } / ${detail2.board_date }</div>
-					<div id="detailContentMain">${detail2.board_content }
-					<c:if test="${detail2.board_file ne null}">
-						<img alt="img" src="./resources/upload/${detail2.board_file }">
-					</c:if>
-					</div>
+					<div id="detailContentMain">${detail2.board_content }</div>
+					
+				<%-- 	<c:if test="${sessionScope.id ne null }">
+					<div class="CommentWriter">
+ 	                 <form action="./commentWrite.do" method="post" >
+						<div class="comment_inbox_name">${sessionScope.name }</div>
+						<textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
+						<div class="comment_attach">
+							<button type="submit" class="btn btn-primary">등록</button>
+						</div>
+						 <input type="hidden" name="bno" value="${detail.board_no }">
+						</form>
+						</div>
+					</c:if> --%>
 					
                 <div id="comments">      
                 <div id="commentWriteForm" class="CommentWriter">

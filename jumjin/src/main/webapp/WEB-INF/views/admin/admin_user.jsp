@@ -26,7 +26,7 @@ h1 {
 table {
 	border: 1px solid gray;
 	width: 1200px;
-	height: 500px;
+	max-height: 500px;
 }
 #list td {
 	font-size: 17px;
@@ -94,12 +94,6 @@ a {
 
 <script type="text/javascript">
 $(function(){
-	var check = 0;
-	<c:if test="${sessionScope.grade == 6 }">check = 1;</c:if>
-	if(check == 0){
-		alert("잘못된 접근입니다.");
-		location.href="../index.do";
-	}
 	$("select").on("change", function(){
 		//alert(this.value);//선택된 value가 옵니다
 		//var p = $(this).closest(".tp").find(".hd").val();
@@ -116,7 +110,7 @@ $(function(){
 			})
 			.done(function(data){
 				if(data == 1){					
-					alert("수정했습니다.");			
+					alert("수정했습니다." + data);			
 				}else{
 					alert("문제가 발생했습니다\n다시 시도하세요.");	
 				}
