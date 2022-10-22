@@ -72,7 +72,7 @@ a.btn-secondary{
 	margin-top: 10px;
 }
 .mt-4{
-	margin-top: 1rem !important;
+	margin-top: 0;
 }
 
 /* .note-style,
