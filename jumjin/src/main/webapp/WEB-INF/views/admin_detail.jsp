@@ -211,20 +211,11 @@ h2{
 				<div id="detailContent">
 					<div style="margin-left: 20px;"><h3>${admin_detail.board_title }</h3></div>
 					<div id="detailContentWriter">${admin_detail.b_name } / ${admin_detail.board_date }</div>
-					<div id="detailContentMain">${admin_detail.board_content }</div>
-					
-				<%-- 	<c:if test="${sessionScope.id ne null }">
-					<div class="CommentWriter">
- 	                 <form action="./commentWrite.do" method="post" >
-						<div class="comment_inbox_name">${sessionScope.name }</div>
-						<textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
-						<div class="comment_attach">
-							<button type="submit" class="btn btn-primary">등록</button>
-						</div>
-						 <input type="hidden" name="bno" value="${detail.board_no }">
-						</form>
-						</div>
-					</c:if> --%>
+					<div id="detailContentMain">${admin_detail.board_content }
+						<c:if test="${admin_detail.board_file ne null}">
+							<img alt="img" src="../resources/upload/${admin_detail.board_file }">
+						</c:if>
+					</div>
 					
                 <div id="comments">      
                 <div id="commentWriteForm" class="CommentWriter">
