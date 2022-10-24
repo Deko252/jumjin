@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -394,7 +395,7 @@ h3 {
                        		</c:if>
                         </div>
 	                    <div class="comment_button">
-	                        <c:forEach begin="1" end="${co.c_star }">⭐</c:forEach> &nbsp;/&nbsp; ${co.c_date }
+	                        <c:forEach begin="1" end="${co.c_star }">⭐</c:forEach> &nbsp;/&nbsp; <fmt:formatDate pattern="yyyy-MM-dd-HH:mm" value="${co.c_date }"/>
 	                    </div>
                  	</div>
                      	<div class="comment_content">${co.c_comment }</div>

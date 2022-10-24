@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -256,8 +257,11 @@ p {
                            <a class="edit" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-pen"></i></a>
                            <a class="delete" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-trash"></i></a>
                            </c:if>
-                        </div>
-                     </div>
+                        </div>          
+                           <div class="comment_button">
+                           <fmt:formatDate pattern="yyyy-MM-dd-HH:mm" value="${co.c_date }"/>
+                           </div>
+                     </div>                   
                      <div class="comment_content">${co.c_comment }</div>
                   </div>               
                   </c:forEach>                  
