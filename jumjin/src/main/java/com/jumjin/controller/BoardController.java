@@ -322,7 +322,16 @@ public class BoardController {
 					String realPath = servletContext.getRealPath("resources/upload");
 					String fileName = Util.save(realPath, file);
 					
+				
 					map.put("file", fileName);
+				}
+				
+				if (map.get("title") != null) {
+					String com = (String) map.get("title");
+					com = com.replaceAll("<", "&lt;");
+					com = com.replaceAll(">", "&gt;");
+					System.out.println(com+"-----------------------------------------");
+					map.put("title", com);
 				}
 					
 				int result = boardService.write2(map.getMap());
@@ -357,6 +366,17 @@ public class BoardController {
 		String url = "redirect:/login.do";
 		if (session.getAttribute("id") != null) {
 			map.put("id", session.getAttribute("id"));
+			
+			if (map.get("comment") != null) {
+				String com = (String) map.get("comment");
+				com = com.replaceAll("<", "&lt;");
+				com = com.replaceAll(">", "&gt;");
+				System.out.println(com+"-----------------------------------------");
+				map.put("comment", com);
+			}
+			
+			
+			
 			int result = boardService.commentWrite2(map.getMap());
 						
 			url = "redirect:/detail2.do?bno=" + map.get("bno") + "&result=" + result;
