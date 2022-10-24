@@ -90,6 +90,12 @@ h2{
 #detailContent{
 	margin: 0 auto;
 }
+#detailContent img {
+	display: block;
+	margin: auto;
+	max-width: 820px;
+	
+}
 #detailContentWriter{
 	border-top: 1px solid #dddddd;
 	border-bottom: 1px solid #dddddd;
