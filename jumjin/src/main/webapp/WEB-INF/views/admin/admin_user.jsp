@@ -94,6 +94,12 @@ a {
 
 <script type="text/javascript">
 $(function(){
+		var check = 0;
+		<c:if test="${sessionScope.grade == 6 }">check = 1;</c:if>
+		if(check == 0){
+			alert("잘못된 접근입니다.");
+			location.href="../index.do";
+		}
 	$("select").on("change", function(){
 		//alert(this.value);//선택된 value가 옵니다
 		//var p = $(this).closest(".tp").find(".hd").val();
