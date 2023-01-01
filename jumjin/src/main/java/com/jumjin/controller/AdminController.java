@@ -39,7 +39,6 @@ public class AdminController {
 	@GetMapping("/admin_board.do")
 	public ModelAndView admin_board(CommandMap map) {
 		ModelAndView mv = new ModelAndView("admin/admin_board");
-	
 		
 		int pageNo = 1;
 		if (map.containsKey("pageNo")) {
@@ -73,7 +72,6 @@ public class AdminController {
 	@GetMapping("/admin_user.do")
 	public ModelAndView userList(CommandMap map) {
 		ModelAndView mv = new ModelAndView("admin/admin_user");
-		// �뜲�씠�꽣
 		
 		int pageNo = 1;
 		if (map.containsKey("pageNo")) {
