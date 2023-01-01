@@ -12,18 +12,6 @@
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/${VERSION}/kakao.min.js" integrity="${INTEGRITY_VALUE}" crossorigin="anonymous"></script>    
-  <script src="https://t1.kakaocdn.net/kakao_js_sdk/${VERSION}/kakao.min.js"
-    integrity="${INTEGRITY_VALUE}" crossorigin="anonymous"></script>
-  <script>
-    // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해야 합니다.
-    Kakao.init('afab85b277584170c156a224f1486e30');
-
-    // SDK 초기화 여부를 판단합니다.
-    console.log(Kakao.isInitialized());
-  </script>
-
-
 </head>
 <style>
 body {
@@ -135,7 +123,7 @@ footer {
     </div>
     
 </div>
-<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afab85b277584170c156a224f1486e30&libraries=services"></script> -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=afab85b277584170c156a224f1486e30&libraries=services"></script>
 <script>
 
 // 마커를 담을 배열입니다
