@@ -10,14 +10,14 @@ $(function(){//축약형
 	//alert("!");
 	$("#delBtn").click(function(){
 		//alert("삭제버튼을 눌렀습니다");
-		if(confirm("삭제하시겠습니까?")){
-			alert("삭제합니다");
+		if(confirm("게시글을 삭제하시겠습니까?")){
+			alert("게시글을 삭제합니다.");
 			location.href="./postDel2.do?bno=${detail2.board_no }";
 		}
 	});
 	$("#updateBtn").click(function(){
-		if(confirm("수정하시겠습니까?")){
-			alert("수정합니다");
+		if(confirm("게시글을 수정하시겠습니까?")){
+			alert("게시글을 수정합니다.");
 			location.href="./update2.do?bno=${detail2.board_no}";	
 		}
 	});
