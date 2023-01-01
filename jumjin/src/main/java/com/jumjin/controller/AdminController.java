@@ -40,10 +40,6 @@ public class AdminController {
 	public ModelAndView admin_board(CommandMap map) {
 		ModelAndView mv = new ModelAndView("admin/admin_board");
 	
-		/*
-		 * //데이터 List<Map<String, Object>> boardList = adminService.boardList();
-		 * mv.addObject("boardList", boardList);
-		 */ 
 		
 		int pageNo = 1;
 		if (map.containsKey("pageNo")) {
@@ -77,7 +73,7 @@ public class AdminController {
 	@GetMapping("/admin_user.do")
 	public ModelAndView userList(CommandMap map) {
 		ModelAndView mv = new ModelAndView("admin/admin_user");
-		// 데이터
+		// �뜲�씠�꽣
 		
 		int pageNo = 1;
 		if (map.containsKey("pageNo")) {
@@ -108,26 +104,17 @@ public class AdminController {
 		
 		return mv; 
 	}
-	//2020-09-30 poseidon 상세보기 새로운 창으로 열리게 하기
-	/*
-	 * @GetMapping("/detail.do") public ModelAndView detail(CommandMap map)
-	 * {//{bno=175} ModelAndView mv = new ModelAndView("admin/detail"); //가져올 데이터
-	 * detail //commandMap은 채집용, 전송은 getMap()으로 Map<String, Object> detail =
-	 * adminService.detail(map.getMap()); //한줄 정보를 담기 위해서 map //그런 여러줄을 저장하려면 List
-	 * 
-	 * mv.addObject("detail", detail); return mv; }
-	 */
 		
 		@GetMapping("/postDel.do")
 		public String postDel(CommandMap map) {
-			map.put("del", 1);//1로 바꿔라
+			map.put("del", 1);
 			adminService.postChange(map.getMap());
 			return "redirect:/admin/admin_board.do";
 		}
 		
 		@GetMapping("/postRemove.do")
 		public String postRemove(CommandMap map) {
-			map.put("del", 0);//0으로 바꿔라
+			map.put("del", 0);
 			adminService.postChange(map.getMap());
 			return "redirect:/admin/admin_board.do";	
 		}
@@ -139,6 +126,7 @@ public class AdminController {
 			
 			return String.valueOf(result);
 		}
+		
 		@GetMapping("/admin_detail.do")
 		public ModelAndView admin_detail(CommandMap commandMap) {
 			ModelAndView mv = new ModelAndView("admin_detail");

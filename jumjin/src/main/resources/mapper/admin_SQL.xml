@@ -50,7 +50,9 @@
 	</update>
 	
 	<select id="admin_detail" parameterType="HashMap" resultType="HashMap">
-		SELECT * FROM adminview WHERE board_no=#{bno }	
+		SELECT * FROM adminview a JOIN big_user u
+		ON a.b_no = u.b_no
+		 WHERE board_no=#{bno }	
 	</select>
 	
 </mapper>

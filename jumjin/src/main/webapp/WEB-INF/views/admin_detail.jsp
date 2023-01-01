@@ -21,6 +21,9 @@ $(function(){//축약형
 			location.href="./update2.do?bno=${detail2.board_no}";	
 		}
 	});
+	$("#write_btn").click(function(){
+		alert("이 페이지에서는 댓글 작성이 불가능합니다.");
+	});
 	
 	$(".edit").click(function(){
 		alert("수정을 눌렀습니다.");
@@ -52,7 +55,7 @@ $(function(){//축약형
 	}else{
 		$(".CommentWriter").hide();
 	};
-		
+	
 });
 </script>
 
@@ -217,17 +220,20 @@ h2{
 						</c:if>
 					</div>
 					
-                <div id="comments">      
+			
+                <div id="comments">
+            
                 <div id="commentWriteForm" class="CommentWriter">
-                	<form action="./commentWrite2.do" method="post" id="myform">
+                	<!-- <form action="./commentWrite2.do" method="post" id="myform"> -->
                     	<div class="comment_inbox_name">${sessionScope.name }</div>
                      	<textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
                     	<div class="comment_attach">
                     		<button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
                     	</div>
                      	<input type="hidden" name="bno" value="${admin_detail.board_no }">
-                  	</form>
+                  <!-- 	</form> -->
                	</div>
+             	   	
                
                <!-- 댓글 리스트를 출력 -->
                   <c:forEach items="${commentsList2 }" var="co">
