@@ -209,13 +209,14 @@ public class BoardController {
 		mv.addObject("detail2", detail2);
 		System.out.println(detail2);
 	
-		System.out.println("commentCount : " + detail2.get("commentCount"));
+		//System.out.println("commentCount : " + detail2.get("commentCount"));
 		if (Integer.parseInt(String.valueOf(detail2.get("commentCount"))) > 0) {
 
 			List<Map<String, Object>> comments = boardService.commentsList2(commandMap.getMap());
 			mv.addObject("commentsList2", comments);
 		}
-		System.out.println(" board_no : " + detail2.get("board_no"));
+		//System.out.println(" board_no : " + detail2.get("board_no"));
+		
 		//조회수
 		boardService.viewcount(detail2.get("board_no"));
 		return mv;

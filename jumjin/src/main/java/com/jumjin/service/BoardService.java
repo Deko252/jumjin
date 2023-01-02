@@ -42,5 +42,4 @@ public interface BoardService {
 
 	int viewcount(Object object);
 
-
 }

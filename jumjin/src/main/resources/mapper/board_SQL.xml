@@ -127,4 +127,5 @@
 		WHERE board_no=#{board_no }
 	</update>
 	
+	
 </mapper>

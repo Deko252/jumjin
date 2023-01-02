@@ -108,6 +108,5 @@ public class BoardDAO extends AbstractDAO {
 		return  (int) update("board.viewcount", object);
 	}
 
-
 	
 }

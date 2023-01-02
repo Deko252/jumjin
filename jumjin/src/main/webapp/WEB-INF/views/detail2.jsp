@@ -18,7 +18,7 @@ $(function(){//축약형
 	$("#updateBtn").click(function(){
 		if(confirm("수정하시겠습니까?")){
 			alert("수정합니다");
-			location.href="./update2.do?bno=${detail2.board_no}";	
+			location.href="./update2.do?bno=${detail2.board_no}";
 		}
 	});
 	

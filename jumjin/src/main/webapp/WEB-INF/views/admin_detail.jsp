@@ -23,6 +23,7 @@ $(function(){//축약형
 	});
 	$("#write_btn").click(function(){
 		alert("이 페이지에서는 댓글 작성이 불가능합니다.");
+		
 	});
 	
 	$(".edit").click(function(){
