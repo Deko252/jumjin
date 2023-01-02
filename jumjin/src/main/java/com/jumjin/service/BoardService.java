@@ -40,4 +40,7 @@ public interface BoardService {
 
 	int update2(Map<String, Object> map);
 
+	int viewcount(Object object);
+
+
 }

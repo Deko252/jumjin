@@ -3,6 +3,7 @@ package com.jumjin.controller;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -47,6 +48,8 @@ public class LoginController {
 				session.setAttribute("name", login.get("b_name"));
 				session.setAttribute("id", map.get("id"));				
 				session.setAttribute("grade", login.get("b_grade"));
+				
+				
 				return "redirect:/index.do";
 			}
 		}

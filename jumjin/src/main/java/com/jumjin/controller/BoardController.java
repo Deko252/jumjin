@@ -215,7 +215,9 @@ public class BoardController {
 			List<Map<String, Object>> comments = boardService.commentsList2(commandMap.getMap());
 			mv.addObject("commentsList2", comments);
 		}
-
+		System.out.println(" board_no : " + detail2.get("board_no"));
+		//조회수
+		boardService.viewcount(detail2.get("board_no"));
 		return mv;
 	}
 	
@@ -405,5 +407,7 @@ public class BoardController {
 		}
 		return "redirect:/detail2.do?bno=" + map.get("bno") + "&result=" + result;
 	}
+	
+	
 
 }

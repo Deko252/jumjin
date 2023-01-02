@@ -115,4 +115,11 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.totalCount2(map);
 	}
 
+	@Override
+	public int viewcount(Object object) {
+		return boardDAO.viewcount(object);
+	}
+
+
+
 }

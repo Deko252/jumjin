@@ -105,6 +105,7 @@ $(function(){
               <div class="invalid-feedback">
                 아이디를 입력해주세요.
               </div>
+            <input type="checkbox" name="autoLogin">로그인 상태 유지
             </div>
             <div class="col-md-6 mb-3">
               <label for="nickname">비밀번호</label>

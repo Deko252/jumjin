@@ -104,5 +104,10 @@ public class BoardDAO extends AbstractDAO {
 		return  (int) update("board.commentUpdate2", map);
 	}
 
+	public int viewcount(Object object) {
+		return  (int) update("board.viewcount", object);
+	}
+
+
 	
 }

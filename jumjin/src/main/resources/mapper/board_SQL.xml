@@ -31,7 +31,6 @@
 		<if test="id != null">	
 			AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
 		</if>
-		
 	</select>
 	
 	<update id="postDel" parameterType="HashMap">
@@ -119,6 +118,13 @@
 	<update id="commentUpdate2" parameterType="HashMap">
 		UPDATE comment2 SET c_comment=#{comment } 
 		WHERE c_no=#{cno } AND b_no=(SELECT b_no FROM big_user WHERE b_id=#{id })
+	</update>
+	
+	<!-- 조회수 -->
+	<update id="viewcount" parameterType="HashMap">
+		UPDATE big_board2
+		SET VIEW_COUNT = VIEW_COUNT + 1
+		WHERE board_no=#{board_no }
 	</update>
 	
 </mapper>
