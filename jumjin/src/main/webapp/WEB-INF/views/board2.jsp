@@ -221,7 +221,7 @@ tbody > tr:nth-of-type(2n+1):hover > * {
           		<c:forEach items="${list  }" var="s">
             		<tr>
               			<td>${s.board_no }</td>
-              			<td><a href="./detail2.do?bno=${s.board_no }">${s.board_title }</a></td>
+              			<td><a href="./detail2.do?bno=${s.board_no }">${s.board_title } <small>[${s.commentCount }]</small></a></td>
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
             		</tr>
