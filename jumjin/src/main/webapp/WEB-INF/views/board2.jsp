@@ -177,9 +177,10 @@ tbody > tr:nth-of-type(2n+1):hover > * {
   	color: var(--bs-table-hover-color);
 }
 #top > th:first-child { width: 10%;}
-#top > th:first-child + th { width: 50%;}
-#top > th:first-child + th + th{ width: 20%;}
+#top > th:first-child + th { width: 40%;}
+#top > th:first-child + th + th{ width: 15%;}
 #top > th:first-child + th + th + th{ width: 20%;}
+#top > th:first-child + th + th + th +th{ width: 15%;}
 </style>
 
 
@@ -215,6 +216,7 @@ tbody > tr:nth-of-type(2n+1):hover > * {
 	              		<th scope="col">제목</th>
 	              		<th scope="col">글쓴이</th>
 	              		<th scope="col">날짜</th>
+	              		<th scope="col">조회수</th>
 	            	</tr>
           		</thead>
           		<tbody>
@@ -224,6 +226,7 @@ tbody > tr:nth-of-type(2n+1):hover > * {
               			<td><a href="./detail2.do?bno=${s.board_no }">${s.board_title } <small>[${s.commentCount }]</small></a></td>
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
+              			<td>${s.VIEW_COUNT }</td>
             		</tr>
           		</c:forEach>
             		
