@@ -120,6 +120,10 @@ h2{
 p {
 	margin-bottom: 50px;
 }
+#like_Btn_wrap{
+	display:flex;
+	justify-content: center;
+}
 #commentWriteBtn{
 	float: right;
 }
@@ -243,7 +247,9 @@ p {
 						</c:if>
 					</div>
 					
-					<div><button type="submit" class="btn btn-primary"  id="like_Btn">추천 ${detail2.b_like }</button></div>
+					<div id="like_Btn_wrap">
+						<button type="submit" class="btn btn-primary"  id="like_Btn">추천 ${detail2.b_like }</button>
+					</div>
 					
                 <div id="comments">      
                 <div id="commentWriteForm" class="CommentWriter">
