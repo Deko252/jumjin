@@ -180,7 +180,7 @@ tbody > tr:nth-of-type(2n+1):hover > * {
 #top > th:first-child + th { width: 40%;}
 #top > th:first-child + th + th{ width: 15%;}
 #top > th:first-child + th + th + th{ width: 20%;}
-#top > th:first-child + th + th + th +th{ width: 15%;}
+/* #top > th:first-child + th + th + th +th{ width: 15%;} */
 </style>
 
 
@@ -217,6 +217,7 @@ tbody > tr:nth-of-type(2n+1):hover > * {
 	              		<th scope="col">글쓴이</th>
 	              		<th scope="col">날짜</th>
 	              		<th scope="col">조회수</th>
+	              		<th scope="col">추천</th>
 	            	</tr>
           		</thead>
           		<tbody>
@@ -227,6 +228,7 @@ tbody > tr:nth-of-type(2n+1):hover > * {
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
               			<td>${s.VIEW_COUNT }</td>
+              			<td>${s.b_like }</td>
             		</tr>
           		</c:forEach>
             		
