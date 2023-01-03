@@ -227,7 +227,7 @@ p {
 				<!-- 본문내용은 여기에 -->
 				<div id="detailContent">
 					<div style="margin-left: 20px;"><h3>${detail2.board_title }</h3></div>
-					<div id="detailContentWriter">${detail2.b_name } / ${detail2.board_date }</div>
+					<div id="detailContentWriter"><div>조회수 ${detail2.VIEW_COUNT }</div> ${detail2.b_name } / ${detail2.board_date }</div>
 					<div id="detailContentMain">${detail2.board_content }
 						<c:if test="${detail2.board_file ne null}">
 							<img alt="img" src="./resources/upload/${detail2.board_file }">
