@@ -120,9 +120,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void like(Map<String, Object> map) {
-		boardDAO.like(map);
-		
+	public int like(Object object) {
+		return boardDAO.like(object);
 	}
 
 }

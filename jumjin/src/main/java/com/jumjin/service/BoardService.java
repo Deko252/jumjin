@@ -42,7 +42,7 @@ public interface BoardService {
 
 	int viewcount(Object object);
 
-	void like(Map<String, Object> map);
+	int like(Object object);
 
 
 }

@@ -108,8 +108,8 @@ public class BoardDAO extends AbstractDAO {
 		return  (int) update("board.viewcount", object);
 	}
 
-	public void like(Map<String, Object> map) {
-		update("board.like", map);
+	public int like(Object object) {
+		return (int) update("board.like", object);
 		
 	}
 

@@ -413,8 +413,8 @@ public class BoardController {
 	//좋아요 - 수정필요 : 한 글에 한 번만 누를 수 있도록 테이블을 만들어야 함.
 	@GetMapping("/like")
 	public String like(CommandMap map) {
-		//System.out.println(map.getMap());//{mb_cate=1, mb_no=90, pageNo=10}
-		boardService.like(map.getMap());
+		System.out.println(map.get("bno"));//{mb_cate=1, mb_no=90, pageNo=10}
+		boardService.like(map.get("bno"));
 		//String url = "forward:/detail2.do?bno=" + map.get("bno");
 		
 		return "redirect:/detail2.do?bno=" + map.get("bno");
