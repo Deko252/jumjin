@@ -50,12 +50,21 @@ $(function(){//축약형
 	});
 	
 	if(${sessionScope.id ne null }){
-		$(".CommentWriter").show();
-	}else{
-		$(".CommentWriter").hide();
-	};
-		
+        $(".CommentWriter").show();
+        $("#like_Btn").show();
+        $("#like_Btn").click(function(){
+            if(confirm("해당 글을 추천하시겠습니까?")){
+                location.href="./like.do?bno=${detail2.board_no }";
+                alert("해당 글을 추천하였습니다.");
+                }
+            });
+    }else{
+        $(".CommentWriter").hide();
+        $("#like_Btn").hide();
+    };
 });
+
+
 </script>
 
 <style type="text/css">
@@ -233,6 +242,8 @@ p {
 							<img alt="img" src="./resources/upload/${detail2.board_file }">
 						</c:if>
 					</div>
+					
+					<div><button type="submit" class="btn btn-primary"  id="like_Btn">추천 ${detail2.b_like }</button></div>
 					
                 <div id="comments">      
                 <div id="commentWriteForm" class="CommentWriter">

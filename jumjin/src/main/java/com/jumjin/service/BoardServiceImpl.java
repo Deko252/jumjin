@@ -41,7 +41,6 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int write(Map<String, Object> map) {
-		//�꽌鍮꾩뒪 -> dao -> 
 		return boardDAO.write(map);
 	}
 
@@ -120,5 +119,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.viewcount(object);
 	}
 
+	@Override
+	public void like(Map<String, Object> map) {
+		boardDAO.like(map);
+		
+	}
 
 }

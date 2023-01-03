@@ -219,6 +219,7 @@ public class BoardController {
 		
 		//조회수
 		boardService.viewcount(detail2.get("board_no"));
+		
 		return mv;
 	}
 	
@@ -409,6 +410,14 @@ public class BoardController {
 		return "redirect:/detail2.do?bno=" + map.get("bno") + "&result=" + result;
 	}
 	
+	//좋아요 - 수정필요 : 한 글에 한 번만 누를 수 있도록 테이블을 만들어야 함.
+	@GetMapping("/like")
+	public String like(CommandMap map) {
+		//System.out.println(map.getMap());//{mb_cate=1, mb_no=90, pageNo=10}
+		boardService.like(map.getMap());
+		//String url = "forward:/detail2.do?bno=" + map.get("bno");
+		
+		return "redirect:/detail2.do?bno=" + map.get("bno");
+	}
 	
-
 }
