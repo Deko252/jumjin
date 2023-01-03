@@ -124,4 +124,9 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.like(object);
 	}
 
+	@Override
+	public int dislike(Object object) {
+		return boardDAO.dislike(object);
+	}
+
 }

@@ -52,15 +52,23 @@ $(function(){//축약형
 	if(${sessionScope.id ne null }){
         $(".CommentWriter").show();
         $("#like_Btn").show();
+        $("#dislike_Btn").show();
         $("#like_Btn").click(function(){
             if(confirm("해당 글을 추천하시겠습니까?")){
                 location.href="./like.do?bno=${detail2.board_no }";
                 alert("해당 글을 추천하였습니다.");
                 }
             });
+        $("#dislike_Btn").click(function(){
+            if(confirm("해당 글을 비추천하시겠습니까?")){
+                location.href="./dislike.do?bno=${detail2.board_no }";
+                alert("해당 글을 비추천하였습니다.");
+                }
+            });
     }else{
         $(".CommentWriter").hide();
         $("#like_Btn").hide();
+        $("#dislike_Btn").hide();
     };
 });
 
@@ -121,8 +129,13 @@ p {
 	margin-bottom: 50px;
 }
 #like_Btn_wrap{
-	display:flex;
-	justify-content: center;
+	width: 820px;
+
+}
+#like_btn_wrap{
+	text-align:center;
+	width: 200px;
+	margin: 0 auto;
 }
 #commentWriteBtn{
 	float: right;
@@ -248,7 +261,10 @@ p {
 					</div>
 					
 					<div id="like_Btn_wrap">
-						<button type="submit" class="btn btn-primary"  id="like_Btn">추천 ${detail2.b_like }</button>
+						<div id="like_btn_wrap">
+							<button type="submit" class="btn btn-primary"  id="like_Btn">추천</button>
+							<button type="submit" class="btn btn-primary"  id="dislike_Btn">비추천</button>
+						</div>
 					</div>
 					
                 <div id="comments">      

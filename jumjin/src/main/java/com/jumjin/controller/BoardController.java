@@ -420,4 +420,11 @@ public class BoardController {
 		return "redirect:/detail2.do?bno=" + map.get("bno");
 	}
 	
+	@GetMapping("/dislike")
+	public String dislike(CommandMap map) {
+		boardService.dislike(map.get("bno"));
+		
+		return "redirect:/detail2.do?bno=" + map.get("bno");
+	}
+	
 }
