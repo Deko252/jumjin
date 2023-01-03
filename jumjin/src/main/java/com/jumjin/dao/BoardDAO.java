@@ -115,7 +115,5 @@ public class BoardDAO extends AbstractDAO {
 
 	public int dislike(Object object) {
 		return (int) update("board.dislike", object);
-	}
-
-	
+	}	
 }

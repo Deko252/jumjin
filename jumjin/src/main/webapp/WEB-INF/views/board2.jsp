@@ -228,7 +228,7 @@ tbody > tr:nth-of-type(2n+1):hover > * {
               			<td>${s.b_name }</td>
               			<td>${s.board_date }</td>
               			<td>${s.VIEW_COUNT }</td>
-              			<td>${s.b_like }</td>
+              			<td>${s.b_like - s.b_dislike }</td>
             		</tr>
           		</c:forEach>
             		

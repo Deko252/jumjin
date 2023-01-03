@@ -133,9 +133,9 @@
 		WHERE board_no=#{board_no }
 	</update>
 	
-		<update id="dislike" parameterType="HashMap">
+	<update id="dislike" parameterType="HashMap">
 		UPDATE big_board2 
-		SET b_like=b_like-1 
+		SET b_dislike=b_dislike+1 
 		WHERE board_no=#{board_no }
 	</update>
 	

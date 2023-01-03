@@ -128,5 +128,4 @@ public class BoardServiceImpl implements BoardService {
 	public int dislike(Object object) {
 		return boardDAO.dislike(object);
 	}
-
 }

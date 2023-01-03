@@ -52,14 +52,14 @@ $(function(){//축약형
 	if(${sessionScope.id ne null }){
         $(".CommentWriter").show();
         $("#like_Btn").show();
-        $("#dislike_Btn").show();
+        $(".dislike_Btn").show();
         $("#like_Btn").click(function(){
             if(confirm("해당 글을 추천하시겠습니까?")){
                 location.href="./like.do?bno=${detail2.board_no }";
                 alert("해당 글을 추천하였습니다.");
                 }
             });
-        $("#dislike_Btn").click(function(){
+        $(".dislike_Btn").on("click", function(){
             if(confirm("해당 글을 비추천하시겠습니까?")){
                 location.href="./dislike.do?bno=${detail2.board_no }";
                 alert("해당 글을 비추천하였습니다.");
@@ -68,7 +68,7 @@ $(function(){//축약형
     }else{
         $(".CommentWriter").hide();
         $("#like_Btn").hide();
-        $("#dislike_Btn").hide();
+        $(".dislike_Btn").hide();
     };
 });
 
@@ -253,7 +253,7 @@ p {
 				<!-- 본문내용은 여기에 -->
 				<div id="detailContent">
 					<div style="margin-left: 20px;"><h3>${detail2.board_title }</h3></div>
-					<div id="detailContentWriter"><div>조회수 ${detail2.VIEW_COUNT }</div> ${detail2.b_name } / ${detail2.board_date }</div>
+					<div id="detailContentWriter"><div>조회수 ${detail2.VIEW_COUNT } / 추천 ${detail2.b_like - detail2.b_dislike }</div> ${detail2.b_name } / ${detail2.board_date }</div>
 					<div id="detailContentMain">${detail2.board_content }
 						<c:if test="${detail2.board_file ne null}">
 							<img alt="img" src="./resources/upload/${detail2.board_file }">
@@ -262,8 +262,8 @@ p {
 					
 					<div id="like_Btn_wrap">
 						<div id="like_btn_wrap">
-							<button type="submit" class="btn btn-primary"  id="like_Btn">추천</button>
-							<button type="submit" class="btn btn-primary"  id="dislike_Btn">비추천</button>
+							<button type="submit" id="like_Btn">추천 ${detail2.b_like }</button>
+							<button type="submit" class="dislike_Btn">비추천 -${detail2.b_dislike }</button>
 						</div>
 					</div>
 					
