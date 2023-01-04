@@ -52,14 +52,14 @@ $(function(){//축약형
 	if(${sessionScope.id ne null }){
         $(".CommentWriter").show();
         $("#like_Btn").show();
-        $(".dislike_Btn").show();
+        $("#dislike_Btn").show();
         $("#like_Btn").click(function(){
             if(confirm("해당 글을 추천하시겠습니까?")){
                 location.href="./like.do?bno=${detail2.board_no }";
                 alert("해당 글을 추천하였습니다.");
                 }
             });
-        $(".dislike_Btn").on("click", function(){
+        $("#dislike_Btn").on("click", function(){
             if(confirm("해당 글을 비추천하시겠습니까?")){
                 location.href="./dislike.do?bno=${detail2.board_no }";
                 alert("해당 글을 비추천하였습니다.");
@@ -68,7 +68,7 @@ $(function(){//축약형
     }else{
         $(".CommentWriter").hide();
         $("#like_Btn").hide();
-        $(".dislike_Btn").hide();
+        $("#dislike_Btn").hide();
     };
 });
 
@@ -262,8 +262,8 @@ p {
 					
 					<div id="like_Btn_wrap">
 						<div id="like_btn_wrap">
-							<button type="submit" id="like_Btn">추천 ${detail2.b_like }</button>
-							<button type="submit" class="dislike_Btn">비추천 -${detail2.b_dislike }</button>
+							<button type="submit" id="like_Btn"><i class="fa-regular fa-thumbs-up"></i>추천 ${detail2.b_like }</button>
+							<button type="submit" id="dislike_Btn"><i class="fa-regular fa-thumbs-down"></i>비추천 ${detail2.b_dislike }</button>
 						</div>
 					</div>
 					
