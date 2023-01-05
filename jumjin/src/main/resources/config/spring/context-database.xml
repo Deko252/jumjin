@@ -3,12 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="dataSourceSpied" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="username" value="jumjin" />
-		<property name="password" value="01234567" />
-		<property name="url" value="jdbc:mariadb://wisejia.iptime.org:3306/jumjin" />
-		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
-	</bean>
+    <bean id="dataSourceSpied" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="username" value="poseidon13" />
+        <property name="password" value="woorijuju13" />
+        <!-- 로컬호스트로 작업할때 (작업용) -->
+        <property name="url" value="jdbc:mariadb://poseidon13.cafe24.com:3306/poseidon13" />
+        <!-- 파일질라로 올릴때 (완성본) -->
+        <!-- <property name="url" value="jdbc:mariadb://localhost:3306/poseidon13" /> -->
+        <property name="driverClassName" value="org.mariadb.jdbc.Driver" />
+    </bean>
 
 	<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
 		<constructor-arg ref="dataSourceSpied" />
