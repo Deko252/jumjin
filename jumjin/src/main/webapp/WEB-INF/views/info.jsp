@@ -24,28 +24,55 @@ $(function(){
 			alert("로그인 하세요.");
 			location.href="./login.do";
 		}
-		const target = document.getElementById('btn');
-		  target.disabled = true;		
-		$("#pass").on("change", function(){
-			var pw = $("#pass").val();
-			if (pw.length >= 6) {
-				const target = document.getElementById('btn');
-				  target.disabled = false;	
-			}else if(pw.length < 6){
-				const target = document.getElementById('btn');
-				  target.disabled = true;	
-			}
-		});
-		$("#pass").on("click", function(){
-			var pw = $("#pass").val();
-			if (pw.length >= 6) {
-				const target = document.getElementById('btn');
-				  target.disabled = false;	
-			}else if(pw.length < 6){
-				const target = document.getElementById('btn');
-				  target.disabled = true;	
-			}
-		});
+		const target = document.getElementById("btn");
+		  target.disabled = true		
+		  
+		$("#pw1").on("change", function(){
+			var pw1 = $("#pw1").val();
+			var pw2 = $("#pw2").val();
+
+			if (pw1 == "" || pw1.length < 8) {
+				$("#resultMsg").text("암호는 여덟자리 이상으로 만들어야 합니다.");
+				$("#resultMsg").css("color", "#dc3545");
+				$("#pw1").focus();
+				const target = document.getElementById("btn");
+				  target.disabled = true
+			} else if (pw1 != pw2) {
+				$("#resultMsg").text("두 암호가 일치하지 않습니다.");
+				$("#resultMsg").css("color", "#dc3545");
+				$("#pw1").focus();
+				const target = document.getElementById("btn");
+				  target.disabled = true
+			} else if(pw1 == pw2){
+				$("#resultMsg").text("암호가 일치합니다.");
+				$("#resultMsg").css("color", "#6ddd65");  
+				const target = document.getElementById("btn");
+				  target.disabled = false
+			}	
+		});	
+		$("#pw2").on("change", function(){
+			var pw1 = $("#pw1").val();
+			var pw2 = $("#pw2").val();
+			
+			if (pw2 == "" || pw2.length < 8) {
+				$("#resultMsg").text("암호는 여덟자리 이상으로 만들어야 합니다.");
+				$("#resultMsg").css("color", "#dc3545");
+				$("#pw1").focus();
+				const target = document.getElementById("btn");
+				  target.disabled = true
+			} else if (pw2 != pw1) {
+				$("#resultMsg").text("두 암호가 일치하지 않습니다.");
+				$("#resultMsg").css("color", "#dc3545");
+				$("#pw2").focus();
+				const target = document.getElementById("btn");
+				  target.disabled = true
+			}else if(pw2 == pw1) {
+				$("#resultMsg").text("암호가 일치합니다.");
+				$("#resultMsg").css("color", "#6ddd65");    
+				const target = document.getElementById("btn");
+				  target.disabled = false
+			}	
+		});		
 		$("#btn").click(function(){	
 			if(confirm("비밀번호를 변경하시겠습니까?")){
 			  var form = document.createElement("form");
@@ -78,8 +105,8 @@ h2 {
 }
 .input-form {
    margin-top: 180px;
-   max-width: 680px;
-   height: 400px;
+   max-width: 880px;
+   height: 650px;
    padding: 32px;
    background: #fff;
    -webkit-border-radius: 10px;
@@ -147,14 +174,36 @@ h2 {
    margin-top: 15px !important;
 }
 tr{
-   height: 50px;
+   height: 90px;
    border-bottom: 1px solid #cccccc;
 }
 tr > td:first-child {
-   width: 150px;
+   width: 500px;
 }
 table {
    margin-left: 70px;
+}
+#info_wrap{
+	display: flex;
+	height: 150px;
+}
+#pw_wrap{
+	width: 200px;
+}
+#pw1{
+	margin-top: 10px;
+}
+#pw2{
+	margin-top: 20px;
+}
+#btn_wrap{
+	margin-right: 20px;
+	margin-left: 10px;
+}
+#btn{
+	height: 80px;
+	width: 100px;
+	margin-top: 15px;
 }
 
 </style>
@@ -181,10 +230,17 @@ table {
         </tr>
         <tr>
             <td style="font-weight: bold; font-size: 20px;">비밀번호</td>
-            <td>
-               <input type="password" name="npw" maxlength="20" id="pass" placeholder="변경할 비밀번호를 입력하세요." required>
-               <button type="submit" id="btn" class="btn btn-primary"><i class="bi bi-star-half"></i>변경하기<i class="bi bi-star-half"></i></button>
-            </td>
+          		 <td id="info_wrap">
+          		 	<div id="pw_wrap">
+						<input type="password" name="pw1" id="pw1" placeholder="변경할 암호를 입력하세요" required="required">
+						<input type="password" name="pw2" id="pw2" placeholder="한번 더 입력해주세요" required="required">
+						<p id="resultMsg"></p>
+						<p id="resultMsg1"></p>	
+					</div>	
+					<div id="btn_wrap">
+							<button id="btn" type="submit" class="btn btn-danger">변경하기</button>
+					</div>		
+				</td>
         </tr>
         <tr>
          <td style="font-weight: bold; font-size: 20px;">이메일</td>
