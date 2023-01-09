@@ -72,7 +72,7 @@ $(function(){
 				const target = document.getElementById("btn");
 				  target.disabled = false
 			}	
-		});		
+		});
 		$("#btn").click(function(){	
 			if(confirm("비밀번호를 변경하시겠습니까?")){
 			  var form = document.createElement("form");
@@ -82,7 +82,7 @@ $(function(){
 		         var pass = document.createElement("input");
 		         pass.setAttribute("type", "password");
 		         pass.setAttribute("name", "npw");
-		         pass.setAttribute("value", $("#pass").val());
+		         pass.setAttribute("value", $("#pw2").val());
 		         form.appendChild(pass);
 		          
 		         document.body.appendChild(form);
@@ -232,8 +232,8 @@ table {
             <td style="font-weight: bold; font-size: 20px;">비밀번호</td>
           		 <td id="info_wrap">
           		 	<div id="pw_wrap">
-						<input type="password" name="pw1" id="pw1" placeholder="변경할 암호를 입력하세요" required="required">
-						<input type="password" name="pw2" id="pw2" placeholder="한번 더 입력해주세요" required="required">
+						<input type="password" name="pw1" id="pw1" maxlength="20" placeholder="변경할 암호를 입력하세요" required="required">
+						<input type="password" name="npw" id="pw2" maxlength="20" placeholder="한번 더 입력해주세요" required="required">
 						<p id="resultMsg"></p>
 						<p id="resultMsg1"></p>	
 					</div>	
