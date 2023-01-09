@@ -31,8 +31,8 @@ $(function(){
 			var pw1 = $("#pw1").val();
 			var pw2 = $("#pw2").val();
 
-			if (pw1 == "" || pw1.length < 8) {
-				$("#resultMsg").text("암호는 여덟자리 이상으로 만들어야 합니다.");
+			if (pw1 == "" || pw1.length < 6) {
+				$("#resultMsg").text("6글자 이상 입력해주세요.");
 				$("#resultMsg").css("color", "#dc3545");
 				$("#pw1").focus();
 				const target = document.getElementById("btn");
@@ -54,8 +54,8 @@ $(function(){
 			var pw1 = $("#pw1").val();
 			var pw2 = $("#pw2").val();
 			
-			if (pw2 == "" || pw2.length < 8) {
-				$("#resultMsg").text("암호는 여덟자리 이상으로 만들어야 합니다.");
+			if (pw2 == "" || pw2.length < 6) {
+				$("#resultMsg").text("6글자 이상 입력해주세요.");
 				$("#resultMsg").css("color", "#dc3545");
 				$("#pw1").focus();
 				const target = document.getElementById("btn");
@@ -191,10 +191,10 @@ table {
 	width: 200px;
 }
 #pw1{
-	margin-top: 10px;
+	margin-top: 22px;
 }
 #pw2{
-	margin-top: 20px;
+	margin-top: 10px;
 }
 #btn_wrap{
 	margin-right: 20px;

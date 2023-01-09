@@ -293,9 +293,12 @@ p {
                         </div>          
                            <div class="comment_button">
                            <fmt:formatDate pattern="yyyy-MM-dd-HH:mm" value="${co.c_date }"/>
-                           </div>
+                           </div>                        
                      </div>                   
                      <div class="comment_content">${co.c_comment }</div>
+                     <div id="cdate">
+								<button class="btn btn-primary btn-sm comment2">대댓글 달기</button>
+							</div>
                   </div>               
                   </c:forEach>                  
 	
