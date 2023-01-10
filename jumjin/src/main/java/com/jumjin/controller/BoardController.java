@@ -425,5 +425,24 @@ public class BoardController {
 		
 		return "redirect:/detail2.do?bno=" + map.get("bno");
 	}
+	//대댓글 ccommentInsert
+		@PostMapping("ccommentInsert.do")
+		public String ccommentInsert(CommandMap map, HttpSession session) {
+			//System.out.println(map.getMap());
+			//{c_no=27, mb_no=186, pageNo=1, comment=ㅁㅈㄻㅈㄷㄹ ㄹㄷㅈㄻㄷㄹ ㅁㄹㄷㅁ}
+			if(session.getAttribute("id") != null) {
+				map.put("id", session.getAttribute("id"));
+				//특수문자, 엔터키 처리
+				/*
+				 * map.put("comment", Util.removeSC((String)map.get("comment")));
+				 * map.put("comment", Util.addBR((String)map.get("comment")));
+				 */
+				boardService.ccommentInsert(map.getMap());
+				return "redirect:detail2?bno="+map.get("bno");
+			} else {
+				return "redirect:/login";
+			}
+		}
+	
 	
 }

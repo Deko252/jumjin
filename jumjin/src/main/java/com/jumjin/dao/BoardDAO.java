@@ -115,5 +115,10 @@ public class BoardDAO extends AbstractDAO {
 
 	public int dislike(Object object) {
 		return (int) update("board.dislike", object);
+	}
+
+	public void ccommentInsert(Map<String, Object> map) {
+		insert("board.ccommentInsert", map);
+		
 	}	
 }

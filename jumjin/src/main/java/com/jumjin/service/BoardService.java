@@ -45,4 +45,6 @@ public interface BoardService {
 	int like(Object object);
 
 	int dislike(Object object);
+
+	void ccommentInsert(Map<String, Object> map);
 }

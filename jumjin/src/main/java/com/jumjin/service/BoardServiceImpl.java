@@ -128,4 +128,10 @@ public class BoardServiceImpl implements BoardService {
 	public int dislike(Object object) {
 		return boardDAO.dislike(object);
 	}
+
+	@Override
+	public void ccommentInsert(Map<String, Object> map) {
+		boardDAO.ccommentInsert(map);
+		
+	}
 }

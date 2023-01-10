@@ -76,8 +76,8 @@ $(function(){//축약형
 		alert("????");
 			$("#cdate").slideToggle('slow');
 			//alert(cno);
-			var form = "<div class='CommentWriter' style='border:2px solid #ffffff'>"; 
-			form += "<form action='./commentWrite2.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
+		var form = "<div class='CommentWriter' style='border:2px solid #ffffff'>"; 
+			form += "<form action='./ccommentInsert.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
 			form += "<input type='hidden' name='c_no' value='${co.c_no }'>";
 			form += "<input type='hidden' name='b_no' value='${co.b_name }'>";
 			form += "<input type='hidden' name='board_no' value='${co.board_no }'>"
