@@ -70,6 +70,22 @@ $(function(){//축약형
         $("#like_Btn").hide();
         $("#dislike_Btn").hide();
     };
+    	
+    $("#cdate").hide();
+	$(".reply").click(function(){
+		alert("????");
+			$("#cdate").slideToggle('slow');
+			//alert(cno);
+			var form = "<div class='CommentWriter' style='border:2px solid #ffffff'>"; 
+			form += "<form action='./commentWrite2.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
+			form += "<input type='hidden' name='c_no' value='${co.c_no }'>";
+			form += "<input type='hidden' name='b_no' value='${co.b_name }'>";
+			form += "<input type='hidden' name='board_no' value='${co.board_no }'>"
+			form += "<button type='submit'>댓글 쓰기</button>";
+			form += "</form>";
+			form += "</div>";
+			$(this).parents(".comment_row").html(form);	
+	});
 });
 
 
@@ -228,6 +244,10 @@ p {
 #myform > textarea {
 	font-size: 14px;
 }
+#cdate textarea{
+	width: 500px;
+	height: 100%;
+}
 .footer{
 	position: relative;
 	bottom: 0;
@@ -278,6 +298,7 @@ p {
                      	<input type="hidden" name="bno" value="${detail2.board_no }">
                   	</form>
                	</div>
+               	
                
                <!-- 댓글 리스트를 출력 -->
                   <c:forEach items="${commentsList2 }" var="co">
@@ -289,6 +310,7 @@ p {
                            <c:if test="${sessionScope.id eq co.b_id }">
                            <a class="edit" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-pen"></i></a>
                            <a class="delete" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-trash"></i></a>
+                           <a class="reply" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-comment-dots"></i></a>
                            </c:if>
                         </div>          
                            <div class="comment_button">
@@ -296,13 +318,24 @@ p {
                            </div>                        
                      </div>                   
                      <div class="comment_content">${co.c_comment }</div>
-                     <div id="cdate">
-								<button class="btn btn-primary btn-sm comment2">대댓글 달기</button>
-							</div>
                   </div>               
-                  </c:forEach>                  
-	
+                  </c:forEach>
+                  
+                  <!-- 아이디 바꿔도 상관읎슮 -->
+                  <div id="cdate">      
+                  <!-- 액션은 아마 코멘트 작성.do랑 연결해도 괜찮?지않을까싶읆 -->  
+                 	<form action="./commentWrite2.do" method="post">
+						<textarea name="comment"></textarea>
+						<input type="hidden" name="c_no" value="${co.c_no }">
+						<input type="hidden" name="b_no" value="${co.b_name }">
+						<input type="hidden" name="board_no" value="${co.board_no }">
+						<button type="submit">댓글 쓰기</button>
+					</form>	
+			
+				</div> 
+				
 					</div>
+					
 					
 					<div id="commentWriteBtn">
 					<c:if test="${detail2.b_id eq sessionScope.id}">
