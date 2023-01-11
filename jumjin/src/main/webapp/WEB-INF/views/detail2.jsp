@@ -73,17 +73,16 @@ $(function(){//축약형
     	
     $("#cdate").hide();
 	$(".reply").click(function(){
-		alert("????");
+		//alert("????");
 			$("#cdate").slideToggle('slow');
+			var cno = $(this).parent(".post_contact").children().text();
 			//alert(cno);
 		var form = "<div class='CommentWriter' style='border:2px solid #ffffff'>"; 
 			form += "<form action='./ccommentInsert.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
-			form += "<input type='hidden' name='c_no' value='${co.c_no }'>";
-			form += "<input type='hidden' name='b_no' value='${co.b_name }'>";
-			form += "<input type='hidden' name='board_no' value='${co.board_no }'>"
-			form += "<button type='submit'>댓글 쓰기</button>";
-			form += "</form>";
-			form += "</div>";
+			form += "<input type='hidden' name='bno' value='${detail2.board_no }'>"
+			form += "<input type='hidden' name='b_no' value='${detail2.b_name }'>";
+			form += "<input type='hidden' name='cno' value="+cno+">";
+			form += '</form></div>';
 			$(this).parents(".comment_row").html(form);	
 	});
 });
@@ -324,11 +323,11 @@ p {
                   <!-- 아이디 바꿔도 상관읎슮 -->
                   <div id="cdate">      
                   <!-- 액션은 아마 코멘트 작성.do랑 연결해도 괜찮?지않을까싶읆 -->  
-                 	<form action="./commentWrite2.do" method="post">
+                 	<form action="./ccommentInsert.do" method="post">
 						<textarea name="comment"></textarea>
-						<input type="hidden" name="c_no" value="${co.c_no }">
-						<input type="hidden" name="b_no" value="${co.b_name }">
-						<input type="hidden" name="board_no" value="${co.board_no }">
+						<input type="hidden" name="c_no" value="${detail2.c_no }">
+						<input type="hidden" name="b_no" value="${detail2.b_name }">
+						<input type="hidden" name="bno" value="${detail2.board_no }">
 						<button type="submit">댓글 쓰기</button>
 					</form>	
 			

@@ -375,7 +375,7 @@ public class BoardController {
 				String com = (String) map.get("comment");
 				com = com.replaceAll("<", "&lt;");
 				com = com.replaceAll(">", "&gt;");
-				System.out.println(com+"-----------------------------------------");
+				/* System.out.println(com+"-----------------------------------------"); */
 				map.put("comment", com);
 			}
 			
@@ -438,7 +438,7 @@ public class BoardController {
 				 * map.put("comment", Util.addBR((String)map.get("comment")));
 				 */
 				boardService.ccommentInsert(map.getMap());
-				return "redirect:detail2?bno="+map.get("bno");
+				return "redirect:/detail2.do?bno="+map.get("bno");
 			} else {
 				return "redirect:/login";
 			}
