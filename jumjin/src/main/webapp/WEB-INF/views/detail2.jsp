@@ -71,19 +71,20 @@ $(function(){//축약형
         $("#dislike_Btn").hide();
     };
     	
-    $("#cdate").hide();
+    $(".cdate").hide();
 	$(".reply").click(function(){
 		//alert("????");
-			$("#cdate").slideToggle('slow');
+			$(".cdate").slideToggle('slow');
 			var cno = $(this).parent(".post_contact").children().text();
 			//alert(cno);
 		var form = "<div class='CommentWriter' style='border:2px solid #ffffff'>"; 
 			form += "<form action='./ccommentInsert.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
 			form += "<input type='hidden' name='bno' value='${detail2.board_no }'>"
 			form += "<input type='hidden' name='b_no' value='${detail2.b_name }'>";
-			form += "<input type='hidden' name='cno' value="+cno+">";
+			form += "<input type='hidden' name='cno' value='${detail.c_comment}'>";
 			form += '</form></div>';
-			$(this).parents(".comment_row").html(form);	
+			$(this).parents(".comment_row").html(form);			
+		
 	});
 });
 
@@ -243,9 +244,14 @@ p {
 #myform > textarea {
 	font-size: 14px;
 }
-#cdate textarea{
+.cdate{
+	display:none;
+}
+.cdate textarea{
+	position:relative;
 	width: 500px;
 	height: 100%;
+	margin-top: 20px;
 }
 .footer{
 	position: relative;
@@ -306,33 +312,35 @@ p {
                         <div class="post_contact">
                            <span id="cno">${co.c_no }</span>
                            ${co.b_id }&nbsp;/&nbsp;${co.b_name }
-                           <c:if test="${sessionScope.id eq co.b_id }">
-                           <a class="edit" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-pen"></i></a>
-                           <a class="delete" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-trash"></i></a>
-                           <a class="reply" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-comment-dots"></i></a>
-                           </c:if>
+                           <c:choose>
+                          	 <c:when test="${sessionScope.id eq co.b_id }">
+                          		 <a class="edit" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-pen"></i></a>
+                         		 <a class="delete" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-trash"></i></a>
+                         	  	 <a class="reply" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-comment-dots"></i></a>
+                           	 </c:when>
+                             <c:when test="${sessionScope.id ne null}">
+                           		 <a class="reply" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-comment-dots"></i></a>
+							 </c:when>	                           
+                            </c:choose>
                         </div>          
                            <div class="comment_button">
                            <fmt:formatDate pattern="yyyy-MM-dd-HH:mm" value="${co.c_date }"/>
                            </div>                        
                      </div>                   
-                     <div class="comment_content">${co.c_comment }</div>
-                  </div>               
+                     <div class="comment_content">${co.c_comment }</div>      
+						</div>
+                  <!-- 액션은 아마 코멘트 작성.do랑 연결해도 괜찮?지않을까싶읆 -->                 	              
+                 		<form class="cdate" action="./ccommentInsert.do" method="post">
+							<textarea name="comment"></textarea>
+							<input type="hidden" name="c_no" value="${co.c_no }">
+							<input type="hidden" name="b_no" value="${co.b_name }">
+							<input type="hidden" name="bno" value="${co.board_no }">
+							<input type="hidden" name="c_group" value="${co.c_group }">
+							<input type="hidden" name="c_child" value="${co.c_child }">
+							<button type="submit">댓글 쓰기</button>
+						</form>	
+					
                   </c:forEach>
-                  
-                  <!-- 아이디 바꿔도 상관읎슮 -->
-                  <div id="cdate">      
-                  <!-- 액션은 아마 코멘트 작성.do랑 연결해도 괜찮?지않을까싶읆 -->  
-                 	<form action="./ccommentInsert.do" method="post">
-						<textarea name="comment"></textarea>
-						<input type="hidden" name="c_no" value="${detail2.c_no }">
-						<input type="hidden" name="b_no" value="${detail2.b_name }">
-						<input type="hidden" name="bno" value="${detail2.board_no }">
-						<button type="submit">댓글 쓰기</button>
-					</form>	
-			
-				</div> 
-				
 					</div>
 					
 					
