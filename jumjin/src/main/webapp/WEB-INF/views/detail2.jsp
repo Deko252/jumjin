@@ -71,20 +71,18 @@ $(function(){//축약형
         $("#dislike_Btn").hide();
     };
     	
+    
 	$(".reply").click(function(){
-		//alert("????");
-		$(".commentWriteForm").slideToggle('slow');
-		var cno = $(this).parent(".post_contact").children().text();
-			//alert(cno);
-		var form = "<div id='commentWriteForm' class='CommentWriter'>";  
+
+		var form = "<div id='ccommentWriteForm' class='CommentWriter'>";  
 			form += "<form action='./ccommentInsert.do' method='post'><textarea name='comment'></textarea>";
 			form += "<input type='hidden' name='c_no' value='${detail2.c_no }'>";
 			form += "<input type='hidden' name='b_no' value='${detail2.b_no }'>";
 			form += "<input type='hidden' name='bno' value='${detail2.board_no }'>";
 			form += "<input type='hidden' name='c_group' value='${detail2.c_group }'>";
 			form += "<input type='hidden' name='c_child' value='${detail2.c_child }'>";
-			form += "<button type='submit'>댓글 쓰기</button></form></div>";
-		var commentDIV = $(this).parents(".comment_row");
+			form += "<button type='submit'>대댓글 작성</button></form></div>";
+		var commentDIV = $(this).parents("#comment_wrap");
 		commentDIV.append(form);
 		$(".reply").hide();
 	});
@@ -206,6 +204,7 @@ p {
    min-height:80px;
    height:auto;
    background-color: #E6E6E6;
+   border: 1px solid red;
 }
 .comment_info{
    width:100%;
@@ -246,15 +245,11 @@ p {
 #myform > textarea {
 	font-size: 14px;
 }
-.cdate{
-	display:none;
+#ccommentWriteForm button{
+	position: absolute;
+	margin-left: 690px;
 }
-.cdate textarea{
-	position:relative;
-	width: 500px;
-	height: 100%;
-	margin-top: 20px;
-}
+
 .footer{
 	position: relative;
 	bottom: 0;
@@ -309,6 +304,7 @@ p {
                
                <!-- 댓글 리스트를 출력 -->
                   <c:forEach items="${commentsList2 }" var="co">
+                 <div id="comment_wrap">
                   <div class="comment_row">
                      <div class="comment_info">
                         <div class="post_contact">
@@ -330,7 +326,8 @@ p {
                            </div>                        
                      </div>                   
                      <div class="comment_content">${co.c_comment }</div>      
-						</div>
+				</div>
+			</div>	
                  	<%-- <!-- 액션은 아마 코멘트 작성.do랑 연결해도 괜찮?지않을까싶읆 -->                 	              
                  	<form class="cdate" action="./ccommentInsert.do" method="post">
 							<textarea name="comment"></textarea>
