@@ -81,8 +81,8 @@ $(function(){//축약형
 			form += "<input type='hidden' name='bno' value='${detail2.board_no }'>";
 			form += "<input type='hidden' name='c_group' value='${detail2.c_group }'>";
 			form += "<input type='hidden' name='c_child' value='${detail2.c_child }'>";
-			form += "<button type='submit'>대댓글 작성</button></form>";
-			form += "<button id='cancle' type='button'>취소</button></div>";
+			form += "<div id='btn_wrap'><button type='submit'>대댓글 작성</button>";
+			form += "<button id='cancle' type='button'>취소</button></div></div>";
 		var commentDIV = $(this).parents("#comment_wrap");
 		commentDIV.append(form);
 		$(".reply").hide();
@@ -211,7 +211,6 @@ p {
    min-height:80px;
    height:auto;
    background-color: #E6E6E6;
-   border: 1px solid red;
 }
 .comment_info{
    width:100%;
@@ -252,9 +251,15 @@ p {
 #myform > textarea {
 	font-size: 14px;
 }
-#ccommentWriteForm button{
-	position: absolute;
-	margin-left: 690px;
+#ccommentWriteForm #btn_wrap{
+	position:absolute;
+	margin-left: 620px;
+}
+
+#btn_wrap{
+	width: 175px;
+	display:flex;
+	justify-content:space-around;
 }
 
 .footer{
