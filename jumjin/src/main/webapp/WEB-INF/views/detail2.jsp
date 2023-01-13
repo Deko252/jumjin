@@ -81,10 +81,17 @@ $(function(){//축약형
 			form += "<input type='hidden' name='bno' value='${detail2.board_no }'>";
 			form += "<input type='hidden' name='c_group' value='${detail2.c_group }'>";
 			form += "<input type='hidden' name='c_child' value='${detail2.c_child }'>";
-			form += "<button type='submit'>대댓글 작성</button></form></div>";
+			form += "<button type='submit'>대댓글 작성</button></form>";
+			form += "<button id='cancle' type='button'>취소</button></div>";
 		var commentDIV = $(this).parents("#comment_wrap");
 		commentDIV.append(form);
 		$(".reply").hide();
+		
+		$("#cancle").click(function(){
+			$("#ccommentWriteForm").remove();
+			$(".reply").show();
+		});
+		
 	});
 });
 
