@@ -440,7 +440,7 @@ public class BoardController {
 				boardService.ccommentInsert(map.getMap());
 				return "redirect:/detail2.do?bno="+map.get("bno");
 			} else {
-				return "redirect:/login";
+				return "redirect:/login.do";
 			}
 		}
 	
