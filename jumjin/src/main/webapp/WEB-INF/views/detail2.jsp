@@ -73,14 +73,15 @@ $(function(){//축약형
     	
     
 	$(".reply").click(function(){
-
+		var cno = $(this).parent(".post_contact").children().text();
+		alert(cno);
 		var form = "<div id='ccommentWriteForm' class='CommentWriter'>";  
 			form += "<form action='./ccommentInsert.do' method='post'><textarea name='comment'></textarea>";
-			form += "<input type='hidden' name='c_no' value='${detail2.c_no }'>";
+			form += "<input type='hidden' name='cno' value='"+cno+"'>";
 			form += "<input type='hidden' name='b_no' value='${detail2.b_no }'>";
 			form += "<input type='hidden' name='bno' value='${detail2.board_no }'>";
-			form += "<input type='hidden' name='c_group' value='${detail2.c_group }'>";
-			form += "<input type='hidden' name='c_child' value='${detail2.c_child }'>";
+			form += "<input type='hidden' name='c_group' value='2'>";
+			form += "<input type='hidden' name='c_child' value='"+cno+"'>";
 			form += "<div id='btn_wrap'><button type='submit'>대댓글 작성</button>";
 			form += "<button id='cancle' type='button'>취소</button></div></div>";
 		var commentDIV = $(this).parents("#comment_wrap");
@@ -259,9 +260,12 @@ p {
 #btn_wrap{
 	width: 175px;
 	display:flex;
+	font-size: 15px;
 	justify-content:space-around;
 }
-
+#btn_wrap:hover{
+	background-color: #dddddd;
+}
 .footer{
 	position: relative;
 	bottom: 0;

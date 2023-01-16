@@ -140,8 +140,8 @@
 	</update>
 	
 	<insert id="ccommentInsert" parameterType="HashMap">
-		INSERT INTO comment2 (c_comment, board_no, b_no)
-      	VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }))
+		INSERT INTO comment2 (c_comment, board_no, b_no, c_group, c_child)
+      	VALUES(#{comment }, #{bno }, (SELECT b_no FROM big_user WHERE b_id=#{id }), #{c_group }, #{c_child })
 	</insert>
 	
 	

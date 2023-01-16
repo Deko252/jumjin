@@ -428,7 +428,7 @@ public class BoardController {
 	//대댓글 ccommentInsert
 		@PostMapping("ccommentInsert.do")
 		public String ccommentInsert(CommandMap map, HttpSession session) {
-			//System.out.println(map.getMap());
+			System.out.println(map.getMap());
 			//{c_no=27, mb_no=186, pageNo=1, comment=ㅁㅈㄻㅈㄷㄹ ㄹㄷㅈㄻㄷㄹ ㅁㄹㄷㅁ}
 			if(session.getAttribute("id") != null) {
 				map.put("id", session.getAttribute("id"));
