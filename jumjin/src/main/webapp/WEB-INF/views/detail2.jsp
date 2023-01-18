@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -33,6 +35,7 @@ $(function(){//축약형
 		form += "<form action='./commentWrite2.do' method='post'><textarea name='comment'>"+comment+"</textarea>";
 		form += "<input type='hidden' name='bno' value=${detail2.board_no }>";
 		form += "<input type='hidden' name='cno' value="+cno+">";
+		form += "<input type='hidden' name='pno' value="+pno+">";
 		form += "<div class='comment_attach'>";
 		form += "<button type='submit' class='btn btn-primary'>수정하기</button>";
 		form += "</div>";
@@ -100,23 +103,27 @@ $(function(){//축약형
 </script>
 
 <style type="text/css">
-#sidebar-wrapper{
+#sidebar-wrapper {
 	position: fixed;
-	top:0;
+	top: 0;
 }
+
 body {
-  min-height: 100%;
-  background-color: #F4AE34;
+	min-height: 100%;
+	background-color: #F4AE34;
 }
-.container{
+
+.container {
 	padding-top: 100px;
 	height: auto;
 	min-height: calc(100% - 120px);
 	width: 100%;
 }
-h2{
+
+h2 {
 	text-align: center;
 }
+
 .input-form {
 	max-width: 900px;
 	padding: 40px;
@@ -129,16 +136,18 @@ h2{
 	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
-#detailContent{
+
+#detailContent {
 	margin: 0 auto;
 }
+
 #detailContent img {
 	display: block;
 	margin: auto;
 	max-width: 820px;
-	
 }
-#detailContentWriter{
+
+#detailContentWriter {
 	border-top: 1px solid #dddddd;
 	border-bottom: 1px solid #dddddd;
 	height: 30px;
@@ -146,127 +155,144 @@ h2{
 	margin-top: 10px;
 	text-align: right;
 }
+
 #detailContentMain {
 	margin-top: 20px;
 }
+
 p {
 	margin-bottom: 50px;
 }
-#like_Btn_wrap{
-	width: 820px;
 
+#like_Btn_wrap {
+	width: 820px;
 }
-#like_btn_wrap{
-	text-align:center;
+
+#like_btn_wrap {
+	text-align: center;
 	width: 200px;
 	margin: 0 auto;
 }
-#commentWriteBtn{
+
+#commentWriteBtn {
 	float: right;
 }
+
 .CommentWriter {
-    margin: 5px 0 10px;
-    padding: 16px 10px 35px 18px;
-    border: 2px solid #dddddd;
-    border-radius: 6px;
-    box-sizing: border-box;
+	margin: 5px 0 10px;
+	padding: 16px 10px 35px 18px;
+	border: 2px solid #dddddd;
+	border-radius: 6px;
+	box-sizing: border-box;
 }
-.CommentWriter textarea{
+
+.CommentWriter textarea {
 	overflow-x: hidden;
-    overflow-y: auto;
-    display: block;
-    width: 100%;
-    min-height: 17px;
-    padding-right: 1px;
-    border: 0;
-    font-size: 13px;
-    -webkit-appearance: none;
-    resize: none;
-    box-sizing: border-box;
-    background: transparent;
-    color: var(--skinTextColor);
-    outline: 0;
+	overflow-y: auto;
+	display: block;
+	width: 100%;
+	min-height: 17px;
+	padding-right: 1px;
+	border: 0;
+	font-size: 13px;
+	-webkit-appearance: none;
+	resize: none;
+	box-sizing: border-box;
+	background: transparent;
+	color: var(- -skinTextColor);
+	outline: 0;
 }
+
 .comment_attach button {
 	display: inline-block;
-    min-width: 46px;
-    height: 30px;
-    font-size: 14px;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-weight: 700;
-    text-align: center;
-    vertical-align: top;
-    border: 0;
-    background-color: white;
-    color: #aaaaaa;
+	min-width: 46px;
+	height: 30px;
+	font-size: 14px;
+	border-radius: 6px;
+	box-sizing: border-box;
+	font-weight: 700;
+	text-align: center;
+	vertical-align: top;
+	border: 0;
+	background-color: white;
+	color: #aaaaaa;
 	float: right;
 }
 
 /* .....못생긴거 */
+.comment_row {
+	margin: 15px 0px;
+	padding: 5px;
+	width: 100%;
+	min-height: 80px;
+	height: auto;
+	background-color: #E6E6E6;
+}
 
-.comment_row{
-   margin: 15px 0px;
-   padding: 5px;
-   width: 100%;
-   min-height:80px;
-   height:auto;
-   background-color: #E6E6E6;
+.comment_info {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	color: white;
+	background-color: #B5B5B5;
 }
-.comment_info{
-   width:100%;
-   height:30px;
-   line-height:30px;
-   color:white;
-   background-color: #B5B5B5;
+
+.post_contact {
+	float: left;
+	width: 300px;
+	padding-left: 10px;
+	font-size: 16px;
 }
-.post_contact{
-   float: left;
-   width: 300px;
-   padding-left: 10px;
-   font-size: 16px;   
+
+.comment_button {
+	float: right;
+	width: 400px;
+	text-align: right;
+	padding-right: 10px;
+	font-size: 16px;
 }
-.comment_button{
-   float: right;
-   width: 400px;
-   text-align: right;
-   padding-right: 10px;   
-   font-size: 16px; 
+
+.comment_content {
+	height: 20px;
+	width: 100%;
+	padding-left: 15px;
+	padding-top: 10px;
 }
-.comment_content{
-   height:20px;
-   width: 100%;
-   padding-left: 15px;
-   padding-top: 10px;
-}
-.post_contact > span{
+
+.post_contact>span {
 	display: none;
 }
+
 #write_btn {
 	height: 32px;
 	font-size: 15px;
 }
+
 #write_btn:hover {
 	background-color: #dddddd;
 }
-#myform > textarea {
+
+#myform>textarea {
 	font-size: 14px;
 }
-#ccommentWriteForm #btn_wrap{
-	position:absolute;
+
+#ccommentWriteForm #btn_wrap {
+	position: absolute;
 	margin-left: 620px;
 }
 
-#btn_wrap{
+#btn_wrap {
 	width: 175px;
-	display:flex;
+	display: flex;
 	font-size: 15px;
-	justify-content:space-around;
+	justify-content: space-around;
 }
-#btn_wrap:hover{
+
+#btn_wrap:hover {
 	background-color: #dddddd;
 }
-.footer{
+
+.footer {
 	position: relative;
 	bottom: 0;
 	height: 70px;
@@ -283,93 +309,132 @@ p {
 </head>
 <body id="page-top">
 	<div class="container">
-	<!-- SideBar -->
-	<%@ include file="sideBar.jsp"%>
-	<div class="input-form col-md-12 mx-auto">
-		<!-- Page content wrapper-->
-		<div id="page-content-wrapper">
+		<!-- SideBar -->
+		<%@ include file="sideBar.jsp"%>
+		<div class="input-form col-md-12 mx-auto">
+			<!-- Page content wrapper-->
+			<div id="page-content-wrapper">
 				<!-- 본문내용은 여기에 -->
 				<div id="detailContent">
-					<div style="margin-left: 20px;"><h3>${detail2.board_title }</h3></div>
-					<div id="detailContentWriter"><div>조회수 ${detail2.VIEW_COUNT } / 추천 ${detail2.b_like - detail2.b_dislike }</div> ${detail2.b_name } / ${detail2.board_date }</div>
+					<div style="margin-left: 20px;">
+						<h3>${detail2.board_title }</h3>
+					</div>
+					<div id="detailContentWriter">
+						<div>조회수 ${detail2.VIEW_COUNT } / 추천 ${detail2.b_like - detail2.b_dislike }</div>
+						${detail2.b_name } / ${detail2.board_date }
+					</div>
 					<div id="detailContentMain">${detail2.board_content }
 						<c:if test="${detail2.board_file ne null}">
 							<img alt="img" src="./resources/upload/${detail2.board_file }">
 						</c:if>
 					</div>
-					
+
 					<div id="like_Btn_wrap">
 						<div id="like_btn_wrap">
-							<button type="submit" id="like_Btn"><i class="fa-regular fa-thumbs-up"></i>추천 ${detail2.b_like }</button>
-							<button type="submit" id="dislike_Btn"><i class="fa-regular fa-thumbs-down"></i>비추천 ${detail2.b_dislike }</button>
+							<button type="submit" id="like_Btn">
+								<i class="fa-regular fa-thumbs-up"></i>추천 ${detail2.b_like }
+							</button>
+							<button type="submit" id="dislike_Btn">
+								<i class="fa-regular fa-thumbs-down"></i>비추천 ${detail2.b_dislike }
+							</button>
 						</div>
 					</div>
-					
-                <div id="comments">      
-                <div id="commentWriteForm" class="CommentWriter">
-                	<form action="./commentWrite2.do" method="post" id="myform">
-                    	<div class="comment_inbox_name">${sessionScope.name }</div>
-                     	<textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
-                    	<div class="comment_attach">
-                    		<button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
-                    	</div>
-                     	<input type="hidden" name="bno" value="${detail2.board_no }">
-                  	</form>
-               	</div>
-               	
-               
-               <!-- 댓글 리스트를 출력 -->
-                  <c:forEach items="${commentsList2 }" var="co">
-                 <div id="comment_wrap">
-                  <div class="comment_row">
-                     <div class="comment_info">
-                        <div class="post_contact">
-                           <span id="cno">${co.c_no }</span>
-                           ${co.b_id }&nbsp;/&nbsp;${co.b_name }
-                           <c:choose>
-                          	 <c:when test="${sessionScope.id eq co.b_id }">
-                          		 <a class="edit" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-pen"></i></a>
-                         		 <a class="delete" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-trash"></i></a>
-                         	  	 <a class="reply" id="cdate" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-comment-dots"></i></a>
-                           	 </c:when>
-                             <c:when test="${sessionScope.id ne null}">
-                           		 <a class="reply" id="cdate" style="color: #fff; cursor: pointer;"><i class="fa-solid fa-comment-dots"></i></a>
-							 </c:when>	                           
-                            </c:choose>
-                        </div>          
-                           <div class="comment_button">
-                           <fmt:formatDate pattern="yyyy-MM-dd-HH:mm" value="${co.c_date }"/>
-                           </div>                        
-                     </div>                   
-                     <div class="comment_content">${co.c_comment }</div>      
-				</div>
-			</div>	
-                 	<%-- <!-- 액션은 아마 코멘트 작성.do랑 연결해도 괜찮?지않을까싶읆 -->                 	              
-                 	<form class="cdate" action="./ccommentInsert.do" method="post">
-							<textarea name="comment"></textarea>
-							<input type="hidden" name="c_no" value="${co.c_no }">
-							<input type="hidden" name="b_no" value="${co.b_name }">
-							<input type="hidden" name="bno" value="${co.board_no }">
-							<input type="hidden" name="c_group" value="${co.c_group }">
-							<input type="hidden" name="c_child" value="${co.c_child }">
-							<button type="submit">댓글 쓰기</button>
-					</form> --%>
-					
-                  </c:forEach>
+
+					<div id="comments">
+						<div id="commentWriteForm" class="CommentWriter">
+							<form action="./commentWrite2.do" method="post" id="myform">
+								<div class="comment_inbox_name">${sessionScope.name }</div>
+								<textarea name="comment" placeholder="댓글을 남겨보세요"></textarea>
+								<div class="comment_attach">
+									<button type="submit" class="btn btn-primary" id="write_btn">글쓰기</button>
+								</div>
+								<input type="hidden" name="bno" value="${detail2.board_no }">
+							</form>
+						</div>
+
+
+						<!-- 댓글 리스트를 출력 -->
+						<c:forEach items="${commentsList2 }" var="co">
+							<c:if test="${co.c_group eq 0}">
+								<div id="comment_wrap">
+									<div class="comment_row">
+										<div class="comment_info">
+											<div class="post_contact">
+												<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
+												<c:choose>
+													<c:when test="${sessionScope.id eq co.b_id }">
+														<a class="edit" style="color: #fff; cursor: pointer;"><i
+															class="fa-solid fa-pen"></i></a>
+														<a class="delete" style="color: #fff; cursor: pointer;"><i
+															class="fa-solid fa-trash"></i></a>
+														<a class="reply" id="cdate"
+															style="color: #fff; cursor: pointer;"><i
+															class="fa-solid fa-comment-dots"></i></a>
+													</c:when>
+													<c:when test="${sessionScope.id ne null}">
+														<a class="reply" id="cdate"
+															style="color: #fff; cursor: pointer;"><i
+															class="fa-solid fa-comment-dots"></i></a>
+													</c:when>
+												</c:choose>
+											</div>
+											<div class="comment_button">
+												<fmt:formatDate pattern="yyyy-MM-dd-HH:mm"
+													value="${co.c_date }" />
+											</div>
+										</div>
+										<div class="comment_content">${co.c_comment }</div>
+									</div>
+								</div>
+							</c:if>	
+													
+							<c:set var="cno" value= "${co.c_no }" />	
+							<c:if test="${co.c_no eq cno }">
+							<c:forEach items="${commentsList2 }" var="co">
+								<c:if test="${co.c_child eq cno }">
+									<div
+										style="width: 30px; height: 65px; float: left; background-color: white; text-align: center;">
+										<i class="xi-subdirectory-arrow xi-2x"></i>
+									</div>
+									<div id="comment_wrap">
+										<div class="comment_row">
+											<div class="comment_info">
+												<div class="post_contact">
+													<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
+														<c:if test="${sessionScope.id eq co.b_id }">
+															<a class="edit" style="color: #fff; cursor: pointer;"><i
+																class="fa-solid fa-pen"></i></a>
+															<a class="delete" style="color: #fff; cursor: pointer;"><i
+																class="fa-solid fa-trash"></i></a>
+														</c:if>													
+												</div>
+												<div class="comment_button">
+													<fmt:formatDate pattern="yyyy-MM-dd-HH:mm"
+														value="${co.c_date }" />
+												</div>
+											</div>
+											<div class="comment_content">${co.c_comment }</div>
+										</div>
+									</div>
+								</c:if>
+							</c:forEach>
+							</c:if>
+						</c:forEach>
 					</div>
-					
-					
+
+
 					<div id="commentWriteBtn">
-					<c:if test="${detail2.b_id eq sessionScope.id}">
-						<button class="btn btn-primary" id="updateBtn">수정</button>
-						<button class="btn btn-danger" id="delBtn">삭제</button>
-					</c:if>
-						<button class="btn btn-success" onclick="location.href='./board2.do'">돌아가기</button>
+						<c:if test="${detail2.b_id eq sessionScope.id}">
+							<button class="btn btn-primary" id="updateBtn">수정</button>
+							<button class="btn btn-danger" id="delBtn">삭제</button>
+						</c:if>
+						<button class="btn btn-success"
+							onclick="location.href='./board2.do'">돌아가기</button>
 					</div>
-				</div>					
+				</div>
 			</div>
 		</div>
-</div>
+	</div>
 	<!-- Footer -->
 	<%@ include file="footer.jsp"%>
 

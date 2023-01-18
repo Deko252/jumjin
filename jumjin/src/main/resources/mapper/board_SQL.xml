@@ -90,14 +90,14 @@
 		SELECT c.*, u.b_id, u.b_name
 		FROM comment c JOIN big_user u ON c.b_no=u.b_no
 		WHERE c.board_no=#{bno }
-		ORDER BY c_no DESC
+		ORDER BY c_no ASC
 	</select>
 	
 	<select id="commentsList2" parameterType="HashMap" resultType="HashMap">
 		SELECT c.*, u.b_id, u.b_name
 		FROM comment2 c JOIN big_user u ON c.b_no=u.b_no
 		WHERE c.board_no=#{bno }
-		ORDER BY c_no DESC
+		ORDER BY c_no ASC
 	</select>
 	
 	<delete id="commentDel" parameterType="HashMap">
