@@ -355,12 +355,12 @@ p {
 
 						<!-- 댓글 리스트를 출력 -->
 						<c:forEach items="${commentsList2 }" var="co">
-							<c:if test="${co.c_group eq 0}">
+							
 								<div id="comment_wrap">
 									<div class="comment_row">
 										<div class="comment_info">
 											<div class="post_contact">
-												<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
+												<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }/${co.c_group }
 												<c:choose>
 													<c:when test="${sessionScope.id eq co.b_id }">
 														<a class="edit" style="color: #fff; cursor: pointer;"><i
@@ -386,26 +386,24 @@ p {
 										<div class="comment_content">${co.c_comment }</div>
 									</div>
 								</div>
-							</c:if>	
+					
 													
 							<c:set var="cno" value= "${co.c_no }" />	
-							<c:if test="${co.c_no eq cno }">
-							<c:forEach items="${commentsList2 }" var="co">
-								<c:if test="${co.c_child eq cno }">
-									<div
-										style="width: 30px; height: 65px; float: left; background-color: white; text-align: center;">
+							<c:forEach items="${replyList }" var="re">
+							<c:if test="${re.c_child eq cno}">
+									<div style="width: 30px; height: 65px; float: left; background-color: white; text-align: center;">
 										<i class="xi-subdirectory-arrow xi-2x"></i>
 									</div>
 									<div id="comment_wrap">
 										<div class="comment_row">
 											<div class="comment_info">
 												<div class="post_contact">
-													<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
-														<c:if test="${sessionScope.id eq co.b_id }">
+													<span id="cno">${co.c_no }</span> ${re.b_id }&nbsp;/&nbsp;${re.b_name }
+														<c:if test="${sessionScope.id eq re.b_id }">
 															<a class="edit" style="color: #fff; cursor: pointer;"><i
 																class="fa-solid fa-pen"></i></a>
 															<a class="delete" style="color: #fff; cursor: pointer;"><i
-																class="fa-solid fa-trash"></i></a>
+																class="fa-solid fa-trash"></i></a>													
 														</c:if>													
 												</div>
 												<div class="comment_button">
@@ -413,12 +411,12 @@ p {
 														value="${co.c_date }" />
 												</div>
 											</div>
-											<div class="comment_content">${co.c_comment }</div>
+											<div class="comment_content">${re.c_comment }</div>
 										</div>
 									</div>
-								</c:if>
-							</c:forEach>
+						
 							</c:if>
+							</c:forEach>
 						</c:forEach>
 					</div>
 

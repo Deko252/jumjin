@@ -30,6 +30,8 @@ public interface BoardService {
 
 	List<Map<String, Object>> commentsList2(Map<String, Object> map);
 	
+	List<Map<String, Object>> replyList(Map<String, Object> map);
+	
 	int commentDel(Map<String, Object> map);
 	
 	int commentDel2(Map<String, Object> map);
@@ -47,4 +49,5 @@ public interface BoardService {
 	int dislike(Object object);
 
 	void ccommentInsert(Map<String, Object> map);
+
 }
