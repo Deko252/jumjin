@@ -221,9 +221,12 @@ p {
 }
 
 /* .....못생긴거 */
+#comment_wrap{
+	display: flex;
+}
+
 .comment_row {
-	margin: 15px 0px;
-	padding: 5px;
+	margin: 10px 0px;
 	width: 100%;
 	min-height: 80px;
 	height: auto;
@@ -392,7 +395,7 @@ p {
 							<c:set var="cno" value= "${co.c_no }" />	
 							<c:forEach items="${replyList }" var="re">
 							<c:if test="${re.c_child eq cno}">
-									<div style="width: 25px; height: 80px; float: left; background-color: white; text-align: center;">
+									<div style="width: 25px; height: 80px; float: left; background-color: white; text-align: center; margin-top: 10px;">
 										<i class="xi-subdirectory-arrow xi-2x"></i>
 									</div>
 									<div id="comment_wrap">
