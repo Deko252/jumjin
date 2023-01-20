@@ -364,7 +364,7 @@ p {
 									<div class="comment_row">
 										<div class="comment_info">
 											<div class="post_contact">
-												<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }/${co.c_group }
+												<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
 												<c:choose>
 													<c:when test="${sessionScope.id eq co.b_id }">
 														<a class="edit" style="color: #fff; cursor: pointer;"><i
