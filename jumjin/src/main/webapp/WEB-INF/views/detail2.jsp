@@ -221,9 +221,9 @@ p {
 }
 
 /* .....못생긴거 */
-#comment_wrap{
+/* #comment_wrap{
 	display: flex;
-}
+} */
 
 .comment_row {
 	margin: 10px 0px;
@@ -393,8 +393,8 @@ p {
 					
 													
 							<c:set var="cno" value= "${co.c_no }" />	
-							<c:forEach items="${replyList }" var="re">
-							<c:if test="${re.c_child eq cno}">
+							<c:if test="${co.c_child eq cno}">
+							<c:forEach items="${commentsList2 }" var="co">
 									<div style="width: 25px; height: 80px; float: left; background-color: white; text-align: center; margin-top: 10px;">
 										<i class="xi-subdirectory-arrow xi-2x"></i>
 									</div>
@@ -402,8 +402,8 @@ p {
 										<div class="comment_row">
 											<div class="comment_info">
 												<div class="post_contact">
-													<span id="cno">${co.c_no }</span> ${re.b_id }&nbsp;/&nbsp;${re.b_name }
-														<c:if test="${sessionScope.id eq re.b_id }">
+													<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
+														<c:if test="${sessionScope.id eq co.b_id }">
 															<a class="edit" style="color: #fff; cursor: pointer;"><i
 																class="fa-solid fa-pen"></i></a>
 															<a class="delete" style="color: #fff; cursor: pointer;"><i
@@ -415,12 +415,11 @@ p {
 														value="${co.c_date }" />
 												</div>
 											</div>
-											<div class="comment_content" style="margin-left: 20px;">${re.c_comment }</div>
+											<div class="comment_content" style="margin-left: 20px;">${co.c_comment }</div>
 										</div>
 									</div>
-						
-							</c:if>
 							</c:forEach>
+							</c:if>
 						</c:forEach>
 					</div>
 

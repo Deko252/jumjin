@@ -215,8 +215,6 @@ public class BoardController {
 			List<Map<String, Object>> comments = boardService.commentsList2(commandMap.getMap());
 			mv.addObject("commentsList2", comments);
 			
-			List<Map<String, Object>> replys = boardService.replyList(commandMap.getMap());
-			mv.addObject("replyList", replys);
 		}
 		//System.out.println(" board_no : " + detail2.get("board_no"));
 		

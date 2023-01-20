@@ -68,11 +68,6 @@ public class BoardDAO extends AbstractDAO {
 		return selectList("board.commentsList2", map);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> replyList(Map<String, Object> map) {
-		return selectList("board.replyList", map);
-	}	
-
 	public int commentDel(Map<String, Object> map) {
 		return (int) delete("board.commentDel", map);
 	}
