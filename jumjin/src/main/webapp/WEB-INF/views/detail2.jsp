@@ -7,6 +7,7 @@
 <head>
 <%@ include file="head.jsp"%>
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript">
 $(function(){//축약형
 	//alert("!");
@@ -391,7 +392,7 @@ p {
 							<c:set var="cno" value= "${co.c_no }" />	
 							<c:forEach items="${replyList }" var="re">
 							<c:if test="${re.c_child eq cno}">
-									<div style="width: 30px; height: 65px; float: left; background-color: white; text-align: center;">
+									<div style="width: 25px; height: 80px; float: left; background-color: white; text-align: center;">
 										<i class="xi-subdirectory-arrow xi-2x"></i>
 									</div>
 									<div id="comment_wrap">
@@ -411,7 +412,7 @@ p {
 														value="${co.c_date }" />
 												</div>
 											</div>
-											<div class="comment_content">${re.c_comment }</div>
+											<div class="comment_content" style="margin-left: 20px;">${re.c_comment }</div>
 										</div>
 									</div>
 						
