@@ -7,7 +7,8 @@
 <head>
 <%@ include file="head.jsp"%>
 <link href="./resources/assets/css/board.css" rel="stylesheet" />
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript">
 $(function(){//축약형
 	//alert("!");
@@ -78,7 +79,7 @@ $(function(){//축약형
     
 	$(".reply").click(function(){
 		var cno = $(this).parent(".post_contact").children().text();
-		alert(cno);
+		//alert(cno);
 		var form = "<div id='ccommentWriteForm' class='CommentWriter'>";  
 			form += "<form action='./ccommentInsert.do' method='post'><textarea name='comment'></textarea>";
 			form += "<input type='hidden' name='cno' value='"+cno+"'>";
@@ -224,7 +225,6 @@ p {
 /* #comment_wrap{
 	display: flex;
 } */
-
 .comment_row {
 	margin: 10px 0px;
 	width: 100%;
@@ -292,9 +292,6 @@ p {
 	justify-content: space-around;
 }
 
-#btn_wrap:hover {
-	background-color: #dddddd;
-}
 
 .footer {
 	position: relative;
@@ -359,43 +356,44 @@ p {
 
 						<!-- 댓글 리스트를 출력 -->
 						<c:forEach items="${commentsList2 }" var="co">
-							
-								<div id="comment_wrap">
-									<div class="comment_row">
-										<div class="comment_info">
-											<div class="post_contact">
-												<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
-												<c:choose>
-													<c:when test="${sessionScope.id eq co.b_id }">
-														<a class="edit" style="color: #fff; cursor: pointer;"><i
-															class="fa-solid fa-pen"></i></a>
-														<a class="delete" style="color: #fff; cursor: pointer;"><i
-															class="fa-solid fa-trash"></i></a>
-														<a class="reply" id="cdate"
-															style="color: #fff; cursor: pointer;"><i
-															class="fa-solid fa-comment-dots"></i></a>
-													</c:when>
-													<c:when test="${sessionScope.id ne null}">
-														<a class="reply" id="cdate"
-															style="color: #fff; cursor: pointer;"><i
-															class="fa-solid fa-comment-dots"></i></a>
-													</c:when>
-												</c:choose>
-											</div>
-											<div class="comment_button">
-												<fmt:formatDate pattern="yyyy-MM-dd-HH:mm"
-													value="${co.c_date }" />
-											</div>
+						<c:if test="${co.c_group eq 0}">
+							<div id="comment_wrap">
+								<div class="comment_row">
+									<div class="comment_info">
+										<div class="post_contact">
+											<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
+											<c:choose>
+												<c:when test="${sessionScope.id eq co.b_id }">
+													<a class="edit" style="color: #fff; cursor: pointer;"><i
+														class="fa-solid fa-pen"></i></a>
+													<a class="delete" style="color: #fff; cursor: pointer;"><i
+														class="fa-solid fa-trash"></i></a>
+													<a class="reply" id="cdate"
+														style="color: #fff; cursor: pointer;"><i
+														class="fa-solid fa-comment-dots"></i></a>
+												</c:when>
+												<c:when test="${sessionScope.id ne null}">
+													<a class="reply" id="cdate"
+														style="color: #fff; cursor: pointer;"><i
+														class="fa-solid fa-comment-dots"></i></a>
+												</c:when>
+											</c:choose>
 										</div>
-										<div class="comment_content">${co.c_comment }</div>
+										<div class="comment_button">
+											<fmt:formatDate pattern="yyyy-MM-dd-HH:mm"
+												value="${co.c_date }" />
+										</div>
 									</div>
+									<div class="comment_content">${co.c_comment }</div>
 								</div>
-					
-													
-							<c:set var="cno" value= "${co.c_no }" />	
-							<c:if test="${co.c_child eq cno}">
-							<c:forEach items="${commentsList2 }" var="co">
-									<div style="width: 25px; height: 80px; float: left; background-color: white; text-align: center; margin-top: 10px;">
+							</div>
+							</c:if>
+
+							<c:set var="cno" value="${co.c_no }" />
+								<c:forEach items="${commentsList2 }" var="co">
+								<c:if test="${co.c_child eq cno}">
+									<div
+										style="width: 25px; height: 80px; float: left; background-color: white; text-align: center;">
 										<i class="xi-subdirectory-arrow xi-2x"></i>
 									</div>
 									<div id="comment_wrap">
@@ -403,12 +401,12 @@ p {
 											<div class="comment_info">
 												<div class="post_contact">
 													<span id="cno">${co.c_no }</span> ${co.b_id }&nbsp;/&nbsp;${co.b_name }
-														<c:if test="${sessionScope.id eq co.b_id }">
-															<a class="edit" style="color: #fff; cursor: pointer;"><i
-																class="fa-solid fa-pen"></i></a>
-															<a class="delete" style="color: #fff; cursor: pointer;"><i
-																class="fa-solid fa-trash"></i></a>													
-														</c:if>													
+													<c:if test="${sessionScope.id eq co.b_id }">
+														<a class="edit" style="color: #fff; cursor: pointer;"><i
+															class="fa-solid fa-pen"></i></a>
+														<a class="delete" style="color: #fff; cursor: pointer;"><i
+															class="fa-solid fa-trash"></i></a>
+													</c:if>
 												</div>
 												<div class="comment_button">
 													<fmt:formatDate pattern="yyyy-MM-dd-HH:mm"
@@ -418,8 +416,8 @@ p {
 											<div class="comment_content" style="margin-left: 20px;">${co.c_comment }</div>
 										</div>
 									</div>
+								</c:if>
 							</c:forEach>
-							</c:if>
 						</c:forEach>
 					</div>
 
