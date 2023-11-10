@@ -51,7 +51,7 @@ Jumjin Webapp Project
 
 ## 모습
 ### * 메인화면
-<img src="https://github.com/Deko252/jumjin/assets/114369279/eb010690-005b-4dc9-8d8b-715de59b98c9?raw=true">
+<img src="https://github.com/Deko252/jumjin/assets/114369279/0290db58-5f51-4271-8044-2b9076afd6e5?raw=true">
 
 ### * 룰렛화면
 <img src="https://github.com/Deko252/jumjin/assets/114369279/788431c5-31c0-4510-99ea-5a9c3ac4f4c2?raw=true"></br>
