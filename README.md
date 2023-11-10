@@ -54,23 +54,23 @@ Jumjin Webapp Project
 <img src="https://github.com/Deko252/jumjin/assets/114369279/0290db58-5f51-4271-8044-2b9076afd6e5?raw=true">
 
 ### * 룰렛화면
-<img src="https://github.com/Deko252/jumjin/assets/114369279/788431c5-31c0-4510-99ea-5a9c3ac4f4c2?raw=true"></br>
-<img src="https://github.com/Deko252/jumjin/assets/114369279/370fe6b2-b7be-4deb-9fcd-30c34611e985?raw=true">
+<img src="https://github.com/Deko252/jumjin/assets/114369279/c1cd75bc-5d41-4a94-9cad-553d9c0d9800?raw=true"></br>
+<img src="https://github.com/Deko252/jumjin/assets/114369279/60f5641d-ced7-420e-ad7e-0c37f182094c?raw=true">
 
 ### * 사다리타기 화면
-<img src="https://github.com/Deko252/jumjin/assets/114369279/d458e7f6-5ad7-4454-b5eb-be148a44de32?raw=true"></br>
-<img src="https://github.com/Deko252/jumjin/assets/114369279/ef00d352-0d66-4077-a379-73eceb2e8422?raw=true"></br>
-<img src="https://github.com/Deko252/jumjin/assets/114369279/159f920d-5d62-44a8-98ce-ecb2369ec113?raw=true">
+<img src="https://github.com/Deko252/jumjin/assets/114369279/97b4a1b3-5dda-44a5-a985-31be2abdd945?raw=true"></br>
+<img src="https://github.com/Deko252/jumjin/assets/114369279/42b5d2e3-f7dc-427c-8904-204d03b42440?raw=true"></br>
+<img src="https://github.com/Deko252/jumjin/assets/114369279/8f78a015-0303-48cf-9f15-95c423c626f8?raw=true">
 
 ### * 지도 화면
-<img src="https://github.com/Deko252/jumjin/assets/114369279/6ba438e2-554c-46cd-a443-51076a790b7f?raw=true">
+<img src="https://github.com/Deko252/jumjin/assets/114369279/6fec4c83-315f-47d9-84b3-574e819f2f75?raw=true">
 
 ### * 로그인 화면
-<img src="https://github.com/Deko252/jumjin/assets/114369279/1d26ad6d-d744-4bf7-9df4-19aa6daddd64?raw=true">
+<img src="https://github.com/Deko252/jumjin/assets/114369279/1a2e1f84-b517-434a-9c1a-51bab05c7d2f?raw=true">
 
 ### * 회원가입 화면
-<img src="https://github.com/Deko252/jumjin/assets/114369279/ec38eb21-57eb-44a2-bca5-02f7629dc5cb?raw=true"></br>
-<img src="https://github.com/Deko252/jumjin/assets/114369279/4a7b9097-80fb-43b2-b33e-e17a6fc4e417?raw=true"></br>
-<img src="https://github.com/Deko252/jumjin/assets/114369279/1ba0676e-c575-449e-b94b-6036854d63f5?raw=true"></br>
+<img src="https://github.com/Deko252/jumjin/assets/114369279/744258c4-d88e-4ddf-b9fc-2bfca1aa68a9?raw=true"></br>
+<img src="https://github.com/Deko252/jumjin/assets/114369279/8047cb10-ac49-41ac-abda-db9640aacb50?raw=true"></br>
+<img src="https://github.com/Deko252/jumjin/assets/114369279/dba23db0-1ef6-4876-ac8a-89952c8f5059?raw=true"></br>
 
 
